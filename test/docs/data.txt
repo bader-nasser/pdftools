@@ -1,0 +1,8 @@
+# test/docs/data.txt
+6
+# no spaces are allowed before qualifiers and rotations
+2 - 5even
+1south
+# share up to here
+7
+3

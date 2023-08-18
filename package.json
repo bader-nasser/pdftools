@@ -1,0 +1,109 @@
+{
+  "name": "pdftools",
+  "description": "PDF tools to extract and process PDF files",
+  "version": "0.3.0",
+  "type": "module",
+  "license": "MIT",
+  "author": "Bader Nasser",
+  "bin": {
+    "pdftools": "./bin/run.js",
+    "pdf-tools": "./bin/run.js"
+  },
+  "homepage": "https://github.com/bader-nasser/pdftools",
+  "bugs": "https://github.com/bader-nasser/pdftools/issues",
+  "repository": "bader-nasser/pdftools",
+  "scripts": {
+    "prepare": "husky install",
+    "clean": "shx rm -rf dist test/pdfz test/docs/aaa test/pdfs/output*.pdf",
+    "dev": "./bin/dev.js",
+    "app": "./bin/run.js",
+    "cli": "run-s build app",
+    "build-js": "tsc -b",
+    "build": "run-s clean build-js",
+    "build-prod": "pnpm test && pnpm pack",
+    "lint:types": "tsc --noEmit",
+    "lint:scripts": "eslint . --ext .ts --config .eslintrc",
+    "lint:prettier": "prettier . --check",
+    "lint": "run-s lint:*",
+    "fmt:scripts": "eslint . --ext .ts --config .eslintrc --fix",
+    "fmt:prettier": "prettier . --write",
+    "fmt-readme": "prettier README.md --write",
+    "fmt": "run-s fmt:*",
+    "prepack": "run-s build oclif-manifest oclif-readme fmt-readme",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "test-mocha": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "test": "run-s test-mocha lint",
+    "test-pack": "pnpm test && pnpm pack",
+    "oclif-manifest": "oclif manifest",
+    "oclif-readme": "oclif readme",
+    "amend": "git commit --amend --no-edit --date=\"$(date)\"",
+    "amend-q": "git commit --amend --no-edit --date=\"$(date)\" -n",
+    "amend-all": "git commit --amend --no-edit --date=\"$(date)\" --all",
+    "amend-all-q": "git commit --amend --no-edit --date=\"$(date)\" --all -n",
+    "push-f": "git push -f"
+  },
+  "types": "dist/index.d.ts",
+  "exports": "./lib/index.js",
+  "dependencies": {
+    "@oclif/core": "^2.11.8",
+    "@oclif/plugin-autocomplete": "^2.3.6",
+    "@oclif/plugin-help": "^5.2.17",
+    "@oclif/plugin-plugins": "^3.2.6",
+    "@oclif/plugin-update": "^3.1.32",
+    "@oclif/plugin-warn-if-update-available": "^2.0.48",
+    "execa": "^7.2.0",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "@oclif/test": "^2.4.5",
+    "@types/chai": "^4.3.5",
+    "@types/fs-extra": "^11.0.1",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^20.5.0",
+    "chai": "^4.3.7",
+    "eslint": "^7.32.0",
+    "eslint-config-oclif": "^4.0.0",
+    "eslint-config-oclif-typescript": "^1.0.3",
+    "eslint-config-prettier": "^9.0.0",
+    "husky": "^8.0.3",
+    "mocha": "^9.2.2",
+    "npm-run-all": "^4.1.5",
+    "oclif": "^3.11.3",
+    "prettier": "^3.0.2",
+    "shx": "^0.3.4",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.1",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "keywords": [
+    "oclif"
+  ],
+  "oclif": {
+    "bin": "pdftools",
+    "dirname": "pdftools",
+    "commands": "./dist/commands",
+    "additionalHelpFlags": [
+      "-h"
+    ],
+    "additionalVersionFlags": [
+      "-v"
+    ],
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins",
+      "@oclif/plugin-autocomplete",
+      "@oclif/plugin-update",
+      "@oclif/plugin-warn-if-update-available"
+    ],
+    "topicSeparator": " "
+  }
+}

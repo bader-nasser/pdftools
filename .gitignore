@@ -1,0 +1,18 @@
+*-debug.log
+*-error.log
+/.nyc_output
+/dist
+/lib
+# /package-lock.json
+/yarn.lock
+/tmp
+node_modules
+oclif.manifest.json
+**/.DS_Store
+/.idea
+
+test/pdfs/output*.pdf
+/test/pdfz
+/test/docs/aaa
+
+# *.tgz
