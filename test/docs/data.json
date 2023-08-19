@@ -5,7 +5,7 @@
   "files": [
     "../pdfs/input-1.pdf",
     {
-      "name": "../pdfs/input-2.pdf",
+      "name": "../pdfs/input-3.pdf",
       "pages": 2
     },
     {
@@ -27,6 +27,10 @@
     {
       "name": "../pdfs/input-3.pdf",
       "pages": [1, " 4 -6", "8 - 11odd ", "end - r5", "2- 5even, 14"]
+    },
+    {
+      "name": "../pdfs/input-3.pdf",
+      "data": "data.txt"
     },
     {
       "name": "../pdfs/input-4.pdf",

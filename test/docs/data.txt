@@ -1,8 +1,20 @@
-# test/docs/data.txt
 6
-# no spaces are allowed before qualifiers and rotations
-2 - 5even
+
+# This is a comment that does NOT effect the program
+# See offical syntax for using page ranges without handles at:
+# https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+2-4
+
+# You also can use spaces between - (and delete -)
+7 - 9
+11 10
+
+# NO spaces are allowed before qualifiers and rotations
+12 15odd
 1south
+
+# This following comment causes the program to create an extra file
+# with -share in the name because it contains the word share
 # share up to here
-7
+7- 4
 3

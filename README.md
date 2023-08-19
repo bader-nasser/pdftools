@@ -6,12 +6,22 @@ This cli exposes two binaries: `pdftools` and `pdf-tools`.
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![GitHub license](https://img.shields.io/github/license/bader-nasser/pdftools)](https://github.com/bader-nasser/pdftools/blob/main/LICENSE)
 
+[Read about the project in Arabic](./README-ar.md).
+
+[اقرأ عن المشروع باللغة العربية](./README-ar.md).
+
 <!-- toc -->
 
 - [pdftools](#pdftools)
+- [Requirements](#requirements)
 - [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->
+
+# Requirements
+
+- [Node.js](https://nodejs.org/en/download) (at least v 18.11.0)
+- [PDFtk](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/)
 
 # Usage
 
@@ -28,7 +38,7 @@ $ npm install -g pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-pdftools/0.3.0 linux-x64 node-v20.5.1
+pdftools/0.4.0 linux-x64 node-v20.5.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -284,7 +294,7 @@ EXAMPLES
   $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.3.0/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.4.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -608,7 +618,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.3.0/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.4.0/dist/commands/process/index.ts)_
 
 ## `pdftools s INPUT OUTPUT`
 
