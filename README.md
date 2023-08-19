@@ -28,7 +28,7 @@ This cli exposes two binaries: `pdftools` and `pdf-tools`.
 Installing from `npm` is not ready yet! Use the following command instead:
 
 ```bash
-$ npm i -g https://github.com/bader-nasser/pdftools/raw/main/pdftools-0.3.0.tgz
+$ npm i -g https://github.com/bader-nasser/pdftools/raw/main/pdftools-0.5.0.tgz
 ```
 
 <!-- usage -->
@@ -38,7 +38,7 @@ $ npm install -g pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-pdftools/0.4.0 linux-x64 node-v20.5.1
+pdftools/0.5.0 linux-x64 node-v20.5.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -294,7 +294,7 @@ EXAMPLES
   $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.4.0/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.5.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -618,7 +618,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.4.0/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.5.0/dist/commands/process/index.ts)_
 
 ## `pdftools s INPUT OUTPUT`
 

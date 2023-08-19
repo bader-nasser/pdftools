@@ -70,7 +70,7 @@ terminal
 3. اكتب السطر التالي:
 
 ```bash
-npm i -g https://github.com/bader-nasser/pdftools/raw/main/pdftools-0.4.0.tgz
+npm i -g https://github.com/bader-nasser/pdftools/raw/main/pdftools-0.5.0.tgz
 ```
 
 4. اضغط زر الإدخال Enter
@@ -177,7 +177,7 @@ pdftools process test/docs/data.json
   // الملفات التي تشكل الناتج النهائي
   "files": [
     // استعمل الملف input-1.pdf كاملا
-    // الملف محفوظ في مجلد باسم pdfs وهو بجانب هذا المجلد الذي فيه ملف البيانات لأنه يبدأ بنقطتين
+    // الملف محفوظ في مجلد باسم pdfs وهو بجانب المجلد الذي فيه ملف البيانات لأنه يبدأ بنقطتين
     "../pdfs/input-1.pdf",
     {
       // استعمل الملف input-2.pdf
@@ -188,7 +188,7 @@ pdftools process test/docs/data.json
     },
     {
       // استعمل هذا الملف المحفوظ في هذا المكان بالضبط
-      // إذا كان مسار الملف يحتوي على شرطة مائلة إلى جهة اليسار فاجعلها اثنتان:
+      // ملحوظة: إذا كان مسار الملف يحتوي على شرطة مائلة إلى جهة اليسار فاجعلها اثـنـتين:
       // C:\users\your-name\downloads\file.pdf => C:\\users\\your-name\\downloads\\file.pdf
       "name": "C:\\users\\your-name\\downloads\\file.pdf",
       // واستخرج منه الصفحات من 4 إلى 6
