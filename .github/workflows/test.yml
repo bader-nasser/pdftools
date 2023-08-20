@@ -1,9 +1,55 @@
-name: tests
+# credit:
+# https://github.com/sindresorhus/execa/blob/main/.github/workflows/main.yml
+name: Tests
 on:
-  push:
-    branches-ignore: [main]
-  workflow_dispatch:
-
+  - push
+  - pull_request
 jobs:
-  unit-tests:
-    uses: oclif/github-workflows/.github/workflows/unitTest.yml@main
+  test:
+    name: Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - 20
+          - 18
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.x.x
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: install pdftk-java (windows only)
+        if: matrix.os == 'windows-latest'
+        run: |
+          choco install pdftk-java --params "'/AddToUserPath:yes /AddToSystemPath:yes'"
+
+      - name: install pdftk-java (macos only)
+        if: matrix.os == 'macos-latest'
+        run: brew install pdftk-java
+
+      - name: install pdftk-java (ubuntu only)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt install pdftk-java
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: |
+          export PATH="/c/tools/pdftk-java:$PATH"
+          alias pdftk=pdftk.bat
+          pnpm test
+        shell: bash

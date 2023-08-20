@@ -1,5 +1,6 @@
 import { Args, Command, Flags } from '@oclif/core';
 import path from 'node:path';
+import process from 'node:process';
 import fs from 'fs-extra';
 import { ExecaError, execa } from 'execa';
 import {
@@ -270,7 +271,8 @@ export default class Extract extends Command {
   ) {
     if (!dryRun) {
       try {
-        await execa(command, args);
+        const extension = process.platform === 'win32' ? '' : '';
+        await execa(`${command}${extension}`, args);
       } catch (error) {
         const err = error as ExecaError;
         console.error(err.stderr);

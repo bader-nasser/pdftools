@@ -1,5 +1,6 @@
 import { Command, Args, Flags } from '@oclif/core';
 import path from 'node:path';
+import process from 'node:process';
 import fs from 'fs-extra';
 // eslint-disable-next-line node/no-missing-import
 import { addExtension, parseDataFile, removeExtension } from '../../utils.js';
@@ -218,7 +219,8 @@ export default class Process extends Command {
   ) {
     if (!dryRun) {
       try {
-        await execa(command, args);
+        const extension = process.platform === 'win32' ? '' : '';
+        await execa(`${command}${extension}`, args);
       } catch (error) {
         const err = error as ExecaError;
         console.error(err.stderr);

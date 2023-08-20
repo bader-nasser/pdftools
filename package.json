@@ -1,17 +1,20 @@
 {
   "name": "pdftools",
   "description": "PDF tools to extract and process PDF files",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "type": "module",
   "license": "MIT",
   "author": "Bader Nasser",
   "bin": {
-    "pdftools": "./bin/run.js",
-    "pdf-tools": "./bin/run.js"
+    "pdftools": "bin/run.js",
+    "pdf-tools": "bin/run.js"
   },
   "homepage": "https://github.com/bader-nasser/pdftools",
   "bugs": "https://github.com/bader-nasser/pdftools/issues",
-  "repository": "bader-nasser/pdftools",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bader-nasser/pdftools.git"
+  },
   "scripts": {
     "prepare": "husky install",
     "clean": "shx rm -rf dist test/pdfz test/docs/aaa test/pdfs/output*.pdf",

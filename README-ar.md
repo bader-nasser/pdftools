@@ -31,7 +31,7 @@
 وإذا تعامل البرنامج مع ملف نَـصّيٍّ فيه كلمة شارك بالإنجليزية، أنشأ لي ملفين اثنين!
 مع القيام ببعض الأمور الأقل أهمية كما سيتبين لاحقا.
 
-فكتابة مثل هذه الأسطر أسهل وأسرع وأنفع:
+فكتابة مثل هذه الأسطر أسهل وأسرع وأنفع من استعمال الواجهة الرسومية والضغط على الأزرار:
 
 ```bash
 pdftools extract relative/path/to/input.pdf /absolute/path/to/output.pdf --data datafile.txt
@@ -45,23 +45,34 @@ pdf-tools process datafile.json
 
 ## كيف يمكن التعامل مع سطر الأوامر؟
 
-انظر هذه الروابط بالإنجليزية:
+- لمستخدمي أنظمةِ لِيـنِكْسَ وماك، ابحث عن التطبيق: Terminal
+- لمستخدمي الإصدار الثامن من نظام وندز -ولعل هذا يصلح للإصدارات الحديثة-، افتح المجلد الذي فيه الملف المبدأف، أو المجلد الذي تريد حفظ ناتج البرنامج فيه، أو أيَّ مجلدٍ كان، ثم اضغط زر (شِفتَ) SHIFT والزر الأيمن للفأرة في نفس الوقت، ثم اختر
+  Open command window here
+  ، ولعلها قد عُرّبت إلى: افتح نافذة الأوامر هنا!
 
-- https://www.dell.com/support/kbdoc/en-us/000130703/the-command-prompt-what-it-is-and-how-to-use-it-on-a-dell-system
-- https://www.howtogeek.com/235101/10-ways-to-open-the-command-prompt-in-windows-10/
+لكن لعل الأفضل لمستخدمي وندوز، تثبيت برنامج
+[git](https://git-scm.com/download/win)
+، ثم اختيار
+Open Git bash here
+من القائمة الظاهرة بعد الضغط على الزرين: الزرِ الأيمن للفأرة و(شِفت) كما تقدم ذكره!
 
-وهذا الرابط بالعربية:
+للمزيد عن نافذة الأوامر، انظر هذه الروابط كلَّها أو بعضَها:
 
-- https://ar.wikihow.com/%D9%81%D8%AA%D8%AD-%D8%B3%D8%B7%D8%B1-%D8%A7%D9%84%D8%A3%D9%88%D8%A7%D9%85%D8%B1-%D9%81%D9%8A-%D9%86%D8%B8%D8%A7%D9%85-%D8%A7%D9%84%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D9%88%D9%8A%D9%86%D8%AF%D9%88%D8%B2
+- بالعربية:
 
-أو باختصار، اضغط على زر ابدأ، ثم ابحث عن سطر الأوامر أو
+  - https://ar.wikihow.com/%D9%81%D8%AA%D8%AD-%D8%B3%D8%B7%D8%B1-%D8%A7%D9%84%D8%A3%D9%88%D8%A7%D9%85%D8%B1-%D9%81%D9%8A-%D9%86%D8%B8%D8%A7%D9%85-%D8%A7%D9%84%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D9%88%D9%8A%D9%86%D8%AF%D9%88%D8%B2
+
+- بالإنجليزية:
+
+  - https://www.dell.com/support/kbdoc/en-us/000130703/the-command-prompt-what-it-is-and-how-to-use-it-on-a-dell-system
+  - https://www.howtogeek.com/235101/10-ways-to-open-the-command-prompt-in-windows-10/
+
+_أو باختصار، اضغط على زر ابدأ، ثم ابحث عن سطر الأوامر أو
 cmd
 أو
 command prompt
 أو
-power shell
-أو
-terminal
+terminal_
 
 ## كيف أثبت البرنامج في الحاسوب؟
 
@@ -70,7 +81,7 @@ terminal
 3. اكتب السطر التالي:
 
 ```bash
-npm i -g https://github.com/bader-nasser/pdftools/raw/main/pdftools-0.5.0.tgz
+npm i -g https://github.com/bader-nasser/pdftools/raw/main/pdftools-0.6.0.tgz
 ```
 
 4. اضغط زر الإدخال Enter
@@ -101,6 +112,10 @@ cd "C:\users\your name\downloads"
 ```
 
 - اضغط زر الإدخال بعد كل أمر من الأوامر!
+
+- ملحوظة: في وندز، إذا أرت نسخ مكان الملف دون كتابته بنفسك في نافذة سطر الأوامر، فاضغط على (الملف) باستعمال الزرين: الزر الأيمن للفأرة وزر (شفت) ثم اختر:
+  Copy as path
+  ولعلها تُرجمت إلى: انسخ كمسار، أو انسخ مكان الملف!
 
 - لاستخراج الصفحات من ملف معين استعمل أحد هذه الأوامر أو جربها كلها:
 
