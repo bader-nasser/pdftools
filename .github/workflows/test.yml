@@ -46,7 +46,7 @@ jobs:
           sudo apt-get update
           sudo apt install pdftk-java
 
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install
 
       - run: |
           export PATH="/c/tools/pdftk-java:$PATH"

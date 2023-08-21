@@ -1,7 +1,7 @@
 {
   "name": "pdftools",
   "description": "PDF tools to extract and process PDF files",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "type": "module",
   "license": "MIT",
   "author": "Bader Nasser",
@@ -51,18 +51,18 @@
     "@oclif/core": "^2.11.8",
     "@oclif/plugin-autocomplete": "^2.3.6",
     "@oclif/plugin-help": "^5.2.17",
-    "@oclif/plugin-plugins": "^3.2.6",
+    "@oclif/plugin-plugins": "^3.2.7",
     "@oclif/plugin-update": "^3.1.32",
     "@oclif/plugin-warn-if-update-available": "^2.0.48",
     "execa": "^7.2.0",
     "fs-extra": "^11.1.1"
   },
   "devDependencies": {
-    "@oclif/test": "^2.4.5",
+    "@oclif/test": "^2.4.6",
     "@types/chai": "^4.3.5",
     "@types/fs-extra": "^11.0.1",
     "@types/mocha": "^9.1.1",
-    "@types/node": "^20.5.0",
+    "@types/node": "^20.5.1",
     "chai": "^4.3.7",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4.0.0",
@@ -75,7 +75,7 @@
     "prettier": "^3.0.2",
     "shx": "^0.3.4",
     "ts-node": "^10.9.1",
-    "tslib": "^2.6.1",
+    "tslib": "^2.6.2",
     "typescript": "^4.9.5"
   },
   "engines": {
