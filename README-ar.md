@@ -98,7 +98,7 @@ terminal_
 3. اكتب السطر التالي:
 
 ```bash
-npm i -g https://github.com/bader-nasser/pdftools/raw/main/pdftools-0.6.1.tgz
+npm i -g @bader-nasser/pdftools
 ```
 
 4. اضغط زر الإدخال Enter

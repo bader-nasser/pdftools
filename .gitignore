@@ -15,4 +15,4 @@ test/pdfs/output*.pdf
 /test/pdfz
 /test/docs/aaa
 
-# *.tgz
+*.tgz
