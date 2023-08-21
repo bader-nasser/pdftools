@@ -1,7 +1,7 @@
 {
   "name": "@bader-nasser/pdftools",
   "description": "PDF tools to extract and process PDF files",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "type": "module",
   "license": "MIT",
   "author": "Bader Nasser",
@@ -89,6 +89,11 @@
   ],
   "oclif": {
     "bin": "pdftools",
+    "binAliases": [
+      "pdftools",
+      "pdf-tools"
+    ],
+    "scope": "bader-nasser",
     "dirname": "pdftools",
     "commands": "./dist/commands",
     "additionalHelpFlags": [
