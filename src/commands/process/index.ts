@@ -19,7 +19,11 @@ export default class Process extends Command {
   static examples = ['<%= config.bin %> <%= command.id %> data.json'];
 
   static args = {
-    file: Args.string({ description: 'JSON file to process', required: true }),
+    file: Args.string({
+      description: `JSON file to process
+      See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json`,
+      required: true,
+    }),
   };
 
   static flags = {

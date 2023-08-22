@@ -18,11 +18,37 @@ export default class Extract extends Command {
   static description = 'Extract pages from PDF file';
 
   static examples = [
-    '<%= config.bin %> <%= command.id %> input.pdf output.pdf -f 1',
-    '<%= config.bin %> <%= command.id %> input.pdf output.pdf -f 1 -l 3',
-    '<%= config.bin %> <%= command.id %> input.pdf output.pdf -f 9 -l 5 -c -r left -q even',
-    '<%= config.bin %> <%= command.id %> input.pdf output.pdf -p "1-3, 5east, 7-4odd"',
-    '<%= config.bin %> <%= command.id %> input.pdf output.pdf --data file.txt',
+    {
+      description: 'Extract page number 5 from input.pdf to output.pdf',
+      command: '<%= config.bin %> <%= command.id %> input.pdf output.pdf -f 5',
+    },
+    {
+      description: 'Extract page number 5 from input.pdf to output.pdf',
+      command: '<%= config.bin %> <%= command.id %> input.pdf output.pdf -l 5',
+    },
+
+    {
+      description: 'Extract pages from 1 to 3 from input.pdf to output.pdf',
+      command:
+        '<%= config.bin %> <%= command.id %> input.pdf output.pdf -f 1 -l 3',
+    },
+    {
+      description:
+        'Extract *even* pages from 9 to 4, compress it and rotate it to the left',
+      command:
+        '<%= config.bin %> <%= command.id %> input.pdf output.pdf -f 9 -l 4 -c -r left -q even',
+    },
+    {
+      description:
+        'Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4',
+      command:
+        '<%= config.bin %> <%= command.id %> input.pdf output.pdf -p "1-3, 5east, 7-4odd"',
+    },
+    {
+      description: 'Extract pages as declared in file.txt',
+      command:
+        '<%= config.bin %> <%= command.id %> input.pdf output.pdf --data file.txt',
+    },
   ];
 
   static args = {
@@ -53,7 +79,8 @@ export default class Extract extends Command {
     }),
     data: Flags.string({
       char: 'd',
-      description: 'Data file (lines of page ranges)',
+      description: `Data file (lines of page ranges)
+      See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
       // this flag cannot be specified alongside these other flags
       exclusive: ['firstPage', 'lastPage', 'pageRanges'],
     }),

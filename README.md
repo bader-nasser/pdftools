@@ -30,7 +30,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/0.7.2 linux-x64 node-v20.5.1
+@bader-nasser/pdftools/0.8.0 linux-x64 node-v20.5.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -113,6 +113,7 @@ FLAGS
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                             You also may want to try: https://www.ilovepdf.com/compress_pdf
   -d, --data=<value>        Data file (lines of page ranges)
+                            See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
   -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
@@ -134,15 +135,29 @@ ALIASES
   $ pdftools s
 
 EXAMPLES
-  $ pdftools e input.pdf output.pdf -f 1
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools e input.pdf output.pdf -f 1 -l 3
+    $ pdftools e input.pdf output.pdf -f 5
 
-  $ pdftools e input.pdf output.pdf -f 9 -l 5 -c -r left -q even
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools e input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+    $ pdftools e input.pdf output.pdf -l 5
 
-  $ pdftools e input.pdf output.pdf --data file.txt
+  Extract pages from 1 to 3 from input.pdf to output.pdf
+
+    $ pdftools e input.pdf output.pdf -f 1 -l 3
+
+  Extract *even* pages from 9 to 4, compress it and rotate it to the left
+
+    $ pdftools e input.pdf output.pdf -f 9 -l 4 -c -r left -q even
+
+  Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4
+
+    $ pdftools e input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+
+  Extract pages as declared in file.txt
+
+    $ pdftools e input.pdf output.pdf --data file.txt
 ```
 
 ## `pdftools ex INPUT OUTPUT`
@@ -160,6 +175,7 @@ FLAGS
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                             You also may want to try: https://www.ilovepdf.com/compress_pdf
   -d, --data=<value>        Data file (lines of page ranges)
+                            See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
   -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
@@ -181,15 +197,29 @@ ALIASES
   $ pdftools s
 
 EXAMPLES
-  $ pdftools ex input.pdf output.pdf -f 1
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools ex input.pdf output.pdf -f 1 -l 3
+    $ pdftools ex input.pdf output.pdf -f 5
 
-  $ pdftools ex input.pdf output.pdf -f 9 -l 5 -c -r left -q even
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools ex input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+    $ pdftools ex input.pdf output.pdf -l 5
 
-  $ pdftools ex input.pdf output.pdf --data file.txt
+  Extract pages from 1 to 3 from input.pdf to output.pdf
+
+    $ pdftools ex input.pdf output.pdf -f 1 -l 3
+
+  Extract *even* pages from 9 to 4, compress it and rotate it to the left
+
+    $ pdftools ex input.pdf output.pdf -f 9 -l 4 -c -r left -q even
+
+  Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4
+
+    $ pdftools ex input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+
+  Extract pages as declared in file.txt
+
+    $ pdftools ex input.pdf output.pdf --data file.txt
 ```
 
 ## `pdftools ext INPUT OUTPUT`
@@ -207,6 +237,7 @@ FLAGS
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                             You also may want to try: https://www.ilovepdf.com/compress_pdf
   -d, --data=<value>        Data file (lines of page ranges)
+                            See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
   -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
@@ -228,15 +259,29 @@ ALIASES
   $ pdftools s
 
 EXAMPLES
-  $ pdftools ext input.pdf output.pdf -f 1
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools ext input.pdf output.pdf -f 1 -l 3
+    $ pdftools ext input.pdf output.pdf -f 5
 
-  $ pdftools ext input.pdf output.pdf -f 9 -l 5 -c -r left -q even
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools ext input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+    $ pdftools ext input.pdf output.pdf -l 5
 
-  $ pdftools ext input.pdf output.pdf --data file.txt
+  Extract pages from 1 to 3 from input.pdf to output.pdf
+
+    $ pdftools ext input.pdf output.pdf -f 1 -l 3
+
+  Extract *even* pages from 9 to 4, compress it and rotate it to the left
+
+    $ pdftools ext input.pdf output.pdf -f 9 -l 4 -c -r left -q even
+
+  Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4
+
+    $ pdftools ext input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+
+  Extract pages as declared in file.txt
+
+    $ pdftools ext input.pdf output.pdf --data file.txt
 ```
 
 ## `pdftools extract INPUT OUTPUT`
@@ -254,6 +299,7 @@ FLAGS
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                             You also may want to try: https://www.ilovepdf.com/compress_pdf
   -d, --data=<value>        Data file (lines of page ranges)
+                            See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
   -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
@@ -275,18 +321,32 @@ ALIASES
   $ pdftools s
 
 EXAMPLES
-  $ pdftools extract input.pdf output.pdf -f 1
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools extract input.pdf output.pdf -f 1 -l 3
+    $ pdftools extract input.pdf output.pdf -f 5
 
-  $ pdftools extract input.pdf output.pdf -f 9 -l 5 -c -r left -q even
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools extract input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+    $ pdftools extract input.pdf output.pdf -l 5
 
-  $ pdftools extract input.pdf output.pdf --data file.txt
+  Extract pages from 1 to 3 from input.pdf to output.pdf
+
+    $ pdftools extract input.pdf output.pdf -f 1 -l 3
+
+  Extract *even* pages from 9 to 4, compress it and rotate it to the left
+
+    $ pdftools extract input.pdf output.pdf -f 9 -l 4 -c -r left -q even
+
+  Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4
+
+    $ pdftools extract input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+
+  Extract pages as declared in file.txt
+
+    $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.7.2/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.8.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -318,6 +378,7 @@ USAGE
 
 ARGUMENTS
   FILE  JSON file to process
+        See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
 
 FLAGS
   -D, --dryRun    Pretend to process something!
@@ -592,6 +653,7 @@ USAGE
 
 ARGUMENTS
   FILE  JSON file to process
+        See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
 
 FLAGS
   -D, --dryRun    Pretend to process something!
@@ -610,7 +672,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.7.2/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.8.0/dist/commands/process/index.ts)_
 
 ## `pdftools s INPUT OUTPUT`
 
@@ -627,6 +689,7 @@ FLAGS
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                             You also may want to try: https://www.ilovepdf.com/compress_pdf
   -d, --data=<value>        Data file (lines of page ranges)
+                            See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
   -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
@@ -648,15 +711,29 @@ ALIASES
   $ pdftools s
 
 EXAMPLES
-  $ pdftools s input.pdf output.pdf -f 1
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools s input.pdf output.pdf -f 1 -l 3
+    $ pdftools s input.pdf output.pdf -f 5
 
-  $ pdftools s input.pdf output.pdf -f 9 -l 5 -c -r left -q even
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools s input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+    $ pdftools s input.pdf output.pdf -l 5
 
-  $ pdftools s input.pdf output.pdf --data file.txt
+  Extract pages from 1 to 3 from input.pdf to output.pdf
+
+    $ pdftools s input.pdf output.pdf -f 1 -l 3
+
+  Extract *even* pages from 9 to 4, compress it and rotate it to the left
+
+    $ pdftools s input.pdf output.pdf -f 9 -l 4 -c -r left -q even
+
+  Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4
+
+    $ pdftools s input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+
+  Extract pages as declared in file.txt
+
+    $ pdftools s input.pdf output.pdf --data file.txt
 ```
 
 ## `pdftools split INPUT OUTPUT`
@@ -674,6 +751,7 @@ FLAGS
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                             You also may want to try: https://www.ilovepdf.com/compress_pdf
   -d, --data=<value>        Data file (lines of page ranges)
+                            See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
   -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
@@ -695,15 +773,29 @@ ALIASES
   $ pdftools s
 
 EXAMPLES
-  $ pdftools split input.pdf output.pdf -f 1
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools split input.pdf output.pdf -f 1 -l 3
+    $ pdftools split input.pdf output.pdf -f 5
 
-  $ pdftools split input.pdf output.pdf -f 9 -l 5 -c -r left -q even
+  Extract page number 5 from input.pdf to output.pdf
 
-  $ pdftools split input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+    $ pdftools split input.pdf output.pdf -l 5
 
-  $ pdftools split input.pdf output.pdf --data file.txt
+  Extract pages from 1 to 3 from input.pdf to output.pdf
+
+    $ pdftools split input.pdf output.pdf -f 1 -l 3
+
+  Extract *even* pages from 9 to 4, compress it and rotate it to the left
+
+    $ pdftools split input.pdf output.pdf -f 9 -l 4 -c -r left -q even
+
+  Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4
+
+    $ pdftools split input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+
+  Extract pages as declared in file.txt
+
+    $ pdftools split input.pdf output.pdf --data file.txt
 ```
 
 ## `pdftools update [CHANNEL]`
