@@ -70,11 +70,19 @@ export default class Process extends Command {
         path.resolve(fileDirname, output),
       );
 
-      // console.log(fileObj)
       const processedData: ProcessedDataType = { data: [], useShare: false };
-      let index = 0;
+      let outerIndex = 0;
+      let innerIndex = 0;
       for (const file of files) {
-        const fileHandle = String.fromCharCode(65 + index);
+        const fileHandle = `${String.fromCharCode(
+          65 + outerIndex,
+        )}${String.fromCharCode(65 + innerIndex)}`;
+        innerIndex += 1;
+        if (innerIndex > 25) {
+          innerIndex = 0;
+          outerIndex += 1;
+        }
+
         let fileName = file as string;
         const pageRanges: PageRanges = { all: [], shared: [] };
         if (typeof file === 'object') {
@@ -131,7 +139,6 @@ export default class Process extends Command {
         const fileData: FileData = { fileHandle, fileName, pageRanges };
         // console.log(fileData)
         processedData.data.push(fileData);
-        index += 1;
       }
 
       const { useShare, data } = processedData;

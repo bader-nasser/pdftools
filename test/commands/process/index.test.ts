@@ -3,6 +3,7 @@ import { normalize } from 'node:path';
 
 const fileWithShareAndCompress = 'test/docs/data.json';
 const fileWithoutShare = 'test/docs/data-no-share.json';
+const fileWithManyInputFiles = 'test/docs/data-big-data.json';
 
 describe('process', () => {
   test
@@ -24,4 +25,18 @@ describe('process', () => {
         `Output files: ${normalize('test/docs/aaa/output.pdf')}`,
       );
     });
+
+  test
+    .stdout()
+    .command(['process', fileWithManyInputFiles])
+    .it(
+      'runs process cmd will handle big data and give extra share file',
+      (ctx) => {
+        expect(ctx.stdout).to.contain(
+          `Output files: ${normalize(
+            'test/pdfs/output-big-compress.pdf',
+          )}, ${normalize('test/pdfs/output-big-share-compress.pdf')}`,
+        );
+      },
+    );
 });
