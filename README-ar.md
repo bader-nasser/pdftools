@@ -2,19 +2,21 @@
 
 الحمدُ لله ربِّ العالمينْ، والصلاةُ والسلام على رسوله الأمينْ، وعلى آله وصحبه أجمعينْ، ومن تبعهم بإحسانٍ إلى يوم الدين، وبعد:
 
-فهذا حديثٌ يَّـسيرٌ عن تطبيق أدواتِ الملفاتِ المبدأفةِ، نفع اللهُ به وبارك فيه، وتقـبّـله بقَبول حسن. اللهم آمين.
+فهذا حديثٌ يَّـسيرٌ عن تطبيق أدواتِ الملفاتِ المبدأفةِ، نفع اللهُ به وبارك فيه، وتقـبّـله بقَبولٍ حسنٍ. اللهم آمين.
 
 # pdftools
 
-برنامجٌ لِّاستخراج الصفَحاتِ من الملفات المبدأفة أو لدمجها مع بعضها البعض مع إمكانية اختيار بعضِ الصفحاتِ من كل ملف.
+[![Version](https://img.shields.io/npm/v/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
+[![Downloads/week](https://img.shields.io/npm/dw/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
+[![GitHub license](https://img.shields.io/github/license/bader-nasser/pdftools)](https://github.com/bader-nasser/pdftools/blob/main/LICENSE)
+[![Tests](https://github.com/bader-nasser/pdftools/actions/workflows/test.yml/badge.svg)](https://github.com/bader-nasser/pdftools/actions/workflows/test.yml)
+
+برنامجٌ لِّاستخراج الصفَحاتِ من الملفات المبدأفة أو لدمجها مع بعضها البعض مع إمكانية اختيارِ بعضِ الصفحاتِ من كل ملف.
 
 يوفر البرنامج برنامجَينِ متـشابهَـيـنِ لاستعمالهما في سطر الأوامر:
 `pdftools`
 و
 `pdf-tools`.
-
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![GitHub license](https://img.shields.io/github/license/bader-nasser/pdftools)](https://github.com/bader-nasser/pdftools/blob/main/LICENSE)
 
 # متطلبات البرنامج
 
@@ -31,7 +33,7 @@
 أحتاج شخصيا إلى برنامجٍ سهلٍ يقوم بهذين الأمرينِ الهامَّينِ عندي:
 
 - إمّا أن أُعطـيَـه اسمَ الملفِ المبدأفِ (أو مكان وجوده في الجهاز) وملفا آخر فيه الصفحات التي أرغب باستخراجها منه، فيستخرجَها
-- أو أن أعطيَـه ملفا واحدا فقط فيه إشارة للملفات التي أود منه أن يدمجها مع بعضها البعض، بالصفحات التي أرغب فيها من كل ملف، فيدمجَـها (وأفكر أن أضيف استعمال ملفات الورد والبوربـينت وربما الصور!)
+- أو أن أعطيَـه ملفا واحدا فقط فيه إشارة إلى الملفات التي أود منه أن يدمجها مع بعضها البعض، بالصفحات التي أرغب فيها من كل ملف، فيدمجَـها (وأفكر أن أضيف استعمال ملفات الورد والبوربـينت وربما الصور!)
 
 بدون أن أضطر إلى استعمال واجهة أو أزرار أو تطويل في العملية.
 وإذا تعامل البرنامج مع ملف نَـصّيٍّ فيه كلمة شارك بالإنجليزية، أنشأ لي ملفين اثنين!
@@ -44,7 +46,7 @@ pdftools extract relative/path/to/input.pdf /absolute/path/to/output.pdf --data 
 
 pdftools e /absolute/path/in.pdf ../relative/path/out --compress --pageRanges "5, 9-3even, end, 1south"
 
-pdf-tools process datafile.json
+pdf-tools process file.json
 ```
 
 ملحوظة: يُضغط زر الإدخال Enter بعد كل سطر
@@ -55,7 +57,7 @@ pdf-tools process datafile.json
 
 - notepad
 - Visual Studio Code
-- sublime
+- Sublime Text
 - notepad++
 - gedit
 
@@ -101,7 +103,7 @@ terminal_
 
 1. ثـبّـت متطلبات البرنامج
 2. افتح واجهة سطر الأوامر
-3. اكتب السطر التالي ثم اضغط زر الإدخال Enter:
+3. اكتب السطر التالي ثم اضغط زر الإدخال:
 
 ```bash
 npm i -g @bader-nasser/pdftools
@@ -129,6 +131,15 @@ npm i -g
 ```
 
 أو إذا كنت تستعمل النسخة 0.6.0 في وندز ولا تعمل لديك، لأني أخطأت في نشر شيء ثم أصلحته!
+
+ملحوظة أخرى: نشرت تحديثا في النسخة 0.8.1 لحل مشكلة عند استعمال أكثر من 26 ملفا في ملف البيانات الذي بصيغة JSON،
+ونظريا لا أظن أن أحدا سوف يتعامل مع أكثر من بضعة ملفات، فلا حاجةَ للتحديث!
+
+## كيف أحذف البرنامج؟
+
+```bash
+npm uninstall -g @bader-nasser/pdftools
+```
 
 ## كيف أستعمل البرنامج؟
 
@@ -162,13 +173,14 @@ cd "C:\users\your name\downloads"
 
 ```bash
 # هذا تعليق -وليس أمرا- يبدأ بعلامة الوسم أو المربع
-# حرف (e) اختصار لكلمة (extract)
 # استخرج الصفحة الأولى من الملف input.pdf
 # واحفظ الناتج في الملف output.pdf
 # بإمكانك استعمال -f أو -l لاستخراج صفحة واحدة
 # -f OR --firstPage
 # -l OR --lastPage
 pdftools e input.pdf output.pdf -f 1
+# وإذا أردتَّ تقليل حجمِ الملف فأضف:
+# -c أو --compress
 
 # استخرج الصفحات من 1 إلى 3
 # من الملف input.pdf

@@ -1,10 +1,12 @@
 # pdftools
 
+[![Version](https://img.shields.io/npm/v/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
+[![Downloads/week](https://img.shields.io/npm/dw/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
+[![GitHub license](https://img.shields.io/github/license/bader-nasser/pdftools)](https://github.com/bader-nasser/pdftools/blob/main/LICENSE)
+[![Tests](https://github.com/bader-nasser/pdftools/actions/workflows/test.yml/badge.svg)](https://github.com/bader-nasser/pdftools/actions/workflows/test.yml)
+
 PDF tools to merge PDF files and extract pages.
 This cli exposes two binaries: `pdftools` and `pdf-tools`.
-
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![GitHub license](https://img.shields.io/github/license/bader-nasser/pdftools)](https://github.com/bader-nasser/pdftools/blob/main/LICENSE)
 
 [اقرأ عن المشروع بالعربية](./README-ar.md).
 
