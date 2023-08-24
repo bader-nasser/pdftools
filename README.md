@@ -32,7 +32,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/0.8.1 linux-x64 node-v20.5.1
+@bader-nasser/pdftools/0.8.2 linux-x64 node-v20.5.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -348,7 +348,7 @@ EXAMPLES
     $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.8.1/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.8.2/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -420,7 +420,7 @@ EXAMPLES
   $ pdftools plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.7/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/index.ts)_
 
 ## `pdftools plugins:install PLUGIN...`
 
@@ -485,7 +485,7 @@ EXAMPLES
   $ pdftools plugins:inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.7/src/commands/plugins/inspect.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/inspect.ts)_
 
 ## `pdftools plugins:install PLUGIN...`
 
@@ -525,7 +525,7 @@ EXAMPLES
   $ pdftools plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.7/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/install.ts)_
 
 ## `pdftools plugins:link PLUGIN`
 
@@ -554,7 +554,7 @@ EXAMPLES
   $ pdftools plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.7/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/link.ts)_
 
 ## `pdftools plugins:uninstall PLUGIN...`
 
@@ -602,7 +602,7 @@ ALIASES
   $ pdftools plugins remove
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.7/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/uninstall.ts)_
 
 ## `pdftools plugins:uninstall PLUGIN...`
 
@@ -643,7 +643,7 @@ DESCRIPTION
   Update installed plugins.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.2.7/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/update.ts)_
 
 ## `pdftools process FILE`
 
@@ -674,7 +674,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.8.1/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.8.2/dist/commands/process/index.ts)_
 
 ## `pdftools s INPUT OUTPUT`
 
