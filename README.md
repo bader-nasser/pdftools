@@ -32,7 +32,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/0.8.2 linux-x64 node-v20.5.1
+@bader-nasser/pdftools/0.9.0 linux-x64 node-v20.5.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -67,7 +67,6 @@ These two commands have many aliases: `ext`, `ex`, `e`, `split`, `s` and `p`!
 - [`pdftools process FILE`](#pdftools-process-file)
 - [`pdftools s INPUT OUTPUT`](#pdftools-s-input-output)
 - [`pdftools split INPUT OUTPUT`](#pdftools-split-input-output)
-- [`pdftools update [CHANNEL]`](#pdftools-update-channel)
 
 ## `pdftools autocomplete [SHELL]`
 
@@ -348,7 +347,7 @@ EXAMPLES
     $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.8.2/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.9.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -674,7 +673,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.8.2/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.9.0/dist/commands/process/index.ts)_
 
 ## `pdftools s INPUT OUTPUT`
 
@@ -799,42 +798,5 @@ EXAMPLES
 
     $ pdftools split input.pdf output.pdf --data file.txt
 ```
-
-## `pdftools update [CHANNEL]`
-
-update the pdftools CLI
-
-```
-USAGE
-  $ pdftools update [CHANNEL] [-a] [-v <value> | -i] [--force]
-
-FLAGS
-  -a, --available        Install a specific version.
-  -i, --interactive      Interactively select version to install. This is ignored if a channel is provided.
-  -v, --version=<value>  Install a specific version.
-  --force                Force a re-download of the requested version.
-
-DESCRIPTION
-  update the pdftools CLI
-
-EXAMPLES
-  Update to the stable channel:
-
-    $ pdftools update stable
-
-  Update to a specific version:
-
-    $ pdftools update --version 1.0.0
-
-  Interactively select version:
-
-    $ pdftools update --interactive
-
-  See available versions:
-
-    $ pdftools update --available
-```
-
-_See code: [@oclif/plugin-update](https://github.com/oclif/plugin-update/blob/v3.1.32/src/commands/update.ts)_
 
 <!-- commandsstop -->
