@@ -85,7 +85,11 @@
     "/oclif.manifest.json"
   ],
   "keywords": [
-    "oclif"
+    "oclif",
+    "pdf",
+    "pdftk",
+    "extract pages",
+    "merge pdfs"
   ],
   "oclif": {
     "bin": "pdftools",
