@@ -1,23 +1,23 @@
 {
-  "$schema": "#..",
-  "output": "aaa/output.pdf",
-  "files": [
-    "../pdfs/input-1.pdf",
-    {
-      "name": "../pdfs/input-2.pdf",
-      "pages": 2
-    },
-    {
-      "name": "../pdfs/input-2.pdf",
-      "pages": "10 - 7even"
-    },
-    {
-      "name": "../pdfs/input-2.pdf",
-      "pages": "13 14south, end"
-    },
-    {
-      "name": "../pdfs/input-3.pdf",
-      "pages": [" 4 -6", "end - r5", "2- 5even, 14"]
-    }
-  ]
+	"$schema": "#..",
+	"output": "aaa/output.pdf",
+	"files": [
+		"../pdfs/input-1.pdf",
+		{
+			"name": "../pdfs/input-2.pdf",
+			"pages": 2
+		},
+		{
+			"name": "../pdfs/input-2.pdf",
+			"pages": "10 - 7even"
+		},
+		{
+			"name": "../pdfs/input-2.pdf",
+			"pages": "13 14south, end"
+		},
+		{
+			"name": "../pdfs/input-3.pdf",
+			"pages": [" 4 -6", "end - r5", "2- 5even, 14"]
+		}
+	]
 }
