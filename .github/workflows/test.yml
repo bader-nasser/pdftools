@@ -51,5 +51,6 @@ jobs:
       - run: |
           export PATH="/c/tools/pdftk-java:$PATH"
           alias pdftk=pdftk.bat
-          pnpm test
+          pnpm test-mocha
+          pnpm lint || pnpm fmt
         shell: bash
