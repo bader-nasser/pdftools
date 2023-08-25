@@ -72,15 +72,16 @@ export default class Extract extends Command {
 		}),
 		pageRanges: Flags.string({
 			char: 'p',
-			description: `Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
-    See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat`,
+			description: `Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
+See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 			// This flag cannot be specified alongside these other flags
 			exclusive: ['firstPage', 'lastPage', 'data'],
 		}),
 		data: Flags.string({
 			char: 'd',
 			description: `Data file (lines of page ranges)
-      See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
+See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 			// This flag cannot be specified alongside these other flags
 			exclusive: ['firstPage', 'lastPage', 'pageRanges'],
 		}),
@@ -111,8 +112,8 @@ export default class Extract extends Command {
 		compress: Flags.boolean({
 			char: 'c',
 			description: `Reduce file size
-    See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
-    You also may want to try: https://www.ilovepdf.com/compress_pdf`,
+See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
+You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 			relationships: [
 				// Make this flag dependent on at least one of these flags
 				{

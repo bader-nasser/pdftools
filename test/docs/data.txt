@@ -1,3 +1,5 @@
+# You can use any extension as long as the file is a text file
+# that is similar to this file!
 6
 
 # This is a comment that does NOT effect the program
@@ -13,7 +15,7 @@
 12 15odd
 1south
 
-# This following comment causes the program to create an extra file
+# The following comment causes the program to create an extra file
 # with -share in the name because it contains the word share
 # share up to here
 7- 4

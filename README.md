@@ -18,7 +18,7 @@ This cli exposes two binaries: `pdftools` and `pdf-tools`.
 - [Commands](#commands)
 <!-- tocstop -->
 
-# Requirements
+## Requirements
 
 - [Node.js](https://nodejs.org/en/download) (at least v 18.11.0)
 - [PDFtk](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/)
@@ -117,8 +117,9 @@ FLAGS
                             See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
-  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
+  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+                            See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -q, --qualifier=<option>  See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
                             <options: even|odd>
   -r, --rotation=<option>   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
@@ -179,8 +180,9 @@ FLAGS
                             See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
-  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
+  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+                            See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -q, --qualifier=<option>  See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
                             <options: even|odd>
   -r, --rotation=<option>   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
@@ -241,8 +243,9 @@ FLAGS
                             See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
-  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
+  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+                            See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -q, --qualifier=<option>  See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
                             <options: even|odd>
   -r, --rotation=<option>   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
@@ -303,8 +306,9 @@ FLAGS
                             See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
-  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
+  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+                            See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -q, --qualifier=<option>  See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
                             <options: even|odd>
   -r, --rotation=<option>   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
@@ -693,8 +697,9 @@ FLAGS
                             See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
-  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
+  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+                            See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -q, --qualifier=<option>  See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
                             <options: even|odd>
   -r, --rotation=<option>   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
@@ -755,8 +760,9 @@ FLAGS
                             See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -l, --lastPage=<value>    Last page (defaults to firstPage)
-  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. 1-3, 5east, 4, 7-10even, 22-11odd)
+  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+                            See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -q, --qualifier=<option>  See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
                             <options: even|odd>
   -r, --rotation=<option>   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
