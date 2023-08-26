@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$ref": "#/definitions/JsonFileObject",
+    "definitions": {
+        "JsonFileObject": {
+            "type": "object",
+            "properties": {
+                "$schema": {
+                    "type": "string"
+                },
+                "output": {
+                    "type": "string"
+                },
+                "files": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Name of input file."
+                                    },
+                                    "pages": {
+                                        "anyOf": [
+                                            {
+                                                "type": [
+                                                    "number",
+                                                    "string"
+                                                ]
+                                            },
+                                            {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": [
+                                                        "number",
+                                                        "string"
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "description": "Page ranges. See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt"
+                                    },
+                                    "data": {
+                                        "type": "string",
+                                        "description": "A text file that contains page ranges. See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "additionalProperties": false
+                            }
+                        ]
+                    },
+                    "description": "An array of file entries that forms the output. The entry can be a simple string of file name or an object which specifies the file name with selected pages OR applied data file."
+                },
+                "compress": {
+                    "type": "boolean",
+                    "const": true,
+                    "description": "Reduce file size"
+                },
+                "dryRun": {
+                    "type": "boolean",
+                    "const": true,
+                    "description": "Pretend to work!"
+                },
+                "silent": {
+                    "type": "boolean",
+                    "const": true,
+                    "description": "Work silently."
+                }
+            },
+            "required": [
+                "output",
+                "files"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

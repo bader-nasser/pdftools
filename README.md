@@ -13,7 +13,6 @@ This cli exposes two binaries: `pdftools` and `pdf-tools`.
 <!-- toc -->
 
 - [pdftools](#pdftools)
-- [Requirements](#requirements)
 - [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->
@@ -43,8 +42,17 @@ USAGE
 
 # Commands
 
-There are two main commands: [`extract`](#pdftools-extract-input-output) and [`process`](#pdftools-process-file).
-These two commands have many aliases: `ext`, `ex`, `e`, `split`, `s` and `p`!
+There are two main commands: [`extract`](#pdftools-extract-input-output)
+and [`process`](#pdftools-process-file).
+These commands have many aliases: `ext`, `ex`, `e`, `split`, `s` and `p`!
+
+In the [JSON data file](test/docs/data.json) you can add:
+
+```json
+"$schema": "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json",
+```
+
+to get some help in your [editor](https://json-schema.org/implementations.html#editors).
 
 <!-- commands -->
 
@@ -384,6 +392,7 @@ USAGE
 ARGUMENTS
   FILE  JSON file to process
         See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
+        Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
 
 FLAGS
   -D, --dryRun    Pretend to process something!
@@ -659,6 +668,7 @@ USAGE
 ARGUMENTS
   FILE  JSON file to process
         See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
+        Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
 
 FLAGS
   -D, --dryRun    Pretend to process something!

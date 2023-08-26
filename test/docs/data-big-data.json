@@ -1,5 +1,5 @@
 {
-	"$schema": "#..",
+	"$schema": "../../data.schema.json",
 	"output": "../pdfs/output-big.pdf",
 	"compress": true,
 	"files": [

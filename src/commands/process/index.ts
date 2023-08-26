@@ -21,7 +21,8 @@ export default class Process extends Command {
 	static args = {
 		file: Args.string({
 			description: `JSON file to process
-      See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json`,
+See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
+Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"`,
 			required: true,
 		}),
 	};
@@ -30,8 +31,8 @@ export default class Process extends Command {
 		compress: Flags.boolean({
 			char: 'c',
 			description: `Reduce file size
-    See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
-    You also may want to try: https://www.ilovepdf.com/compress_pdf`,
+See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
+You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 		}),
 		dryRun: Flags.boolean({
 			char: 'D',
@@ -272,16 +273,41 @@ type ProcessedDataType = {
 type NumberOrString = number | string;
 
 type InputFileObject = {
+	/**
+	 * Name of input file.
+	 */
 	name: string;
+	/**
+	 * Page ranges.
+	 * See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
+	 */
 	pages?: NumberOrString | NumberOrString[];
+	/**
+	 * A text file that contains page ranges.
+	 * See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
+	 */
 	data?: string;
 };
 
-type JsonFileObject = {
+export type JsonFileObject = {
 	$schema?: string;
 	output: string;
+	/**
+	 * An array of file entries that forms the output.
+	 * The entry can be a simple string of file name or an object which specifies
+	 * the file name with selected pages OR applied data file.
+	 */
 	files: Array<string | InputFileObject>;
+	/**
+	 * Reduce file size
+	 */
 	compress?: true;
+	/**
+	 * Pretend to work!
+	 */
 	dryRun?: true;
+	/**
+	 * Work silently.
+	 */
 	silent?: true;
 };
