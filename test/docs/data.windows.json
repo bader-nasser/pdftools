@@ -1,0 +1,28 @@
+{
+	"$schema": "../../data.schema.json",
+	"output": "..\\tools\\pdftk-java\\output.pdf",
+	"compress": true,
+	"files": [
+		"../pdfs/input-1.pdf",
+		{
+			"name": "../pdfs/input-3.pdf",
+			"pages": [1, "3", "2- 5even, 14"]
+		},
+		{
+			"name": "..\\pdfs\\input-3.pdf",
+			"data": "data.txt"
+		},
+		{
+			"name": "C:\\tools\\pdftk-java\\input-1.pdf",
+			"data": "data-ar.txt"
+		},
+		{
+			"name": "C:/tools/pdftk-java/input-1.pdf",
+			"data": "data.txt"
+		},
+		{
+			"name": "/c/tools/pdftk-java/input-1.pdf",
+			"data": "data-ar.txt"
+		}
+	]
+}

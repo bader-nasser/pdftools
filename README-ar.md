@@ -289,8 +289,11 @@ pdftools process test/docs/data.json
 		},
 		{
 			// استعمل هذا الملف المحفوظ في هذا المكان بالضبط
-			// ملحوظة: إذا كان مسار الملف يحتوي على شرطة مائلة إلى جهة اليسار فاجعلها اثـنـتين:
+			// ملحوظة: في نظام وندز: غيّر الشرطة المائلة إلى جهة اليسار إلى شرطتين اثـنـتين:
 			// C:\users\your-name\downloads\file.pdf => C:\\users\\your-name\\downloads\\file.pdf
+			// أو اجعلها مائلة إلى جهة اليمين
+			// C:\users\your-name\downloads\file.pdf => C:/users/your-name/downloads/file.pdf
+
 			"name": "C:\\users\\your-name\\downloads\\file.pdf",
 			// واستخرج منه الصفحات من 4 إلى 6
 			"pages": "4-6"

@@ -14,7 +14,8 @@ function parsePageRanges(pageRanges: string): string[] {
 export default class Process extends Command {
 	static aliases = ['p'];
 
-	static description = 'Mess with PDF files using JSON file!';
+	static description =
+		'Merge PDF files using JSON file. Can be used to merge some pages from each file.';
 
 	static examples = ['<%= config.bin %> <%= command.id %> data.json'];
 
@@ -22,7 +23,8 @@ export default class Process extends Command {
 		file: Args.string({
 			description: `JSON file to process
 See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
-Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"`,
+Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
+Use / in the paths and Windows \\ can be changed to / or \\\\`,
 			required: true,
 		}),
 	};

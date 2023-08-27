@@ -35,6 +35,7 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           choco install pdftk-java --params "'/AddToUserPath:yes /AddToSystemPath:yes'"
+          cp test/pdfs/input-1.pdf C:/tools/pdftk-java/input-1.pdf
 
       - name: install pdftk-java (macos only)
         if: matrix.os == 'macos-latest'

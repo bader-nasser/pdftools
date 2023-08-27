@@ -1,9 +1,11 @@
 import {normalize} from 'node:path';
+import {platform} from 'node:process';
 import {expect, test} from '@oclif/test';
 
 const fileWithShareAndCompress = 'test/docs/data.json';
 const fileWithoutShare = 'test/docs/data-no-share.json';
 const fileWithManyInputFiles = 'test/docs/data-big-data.json';
+const fileWithWindowsPaths = 'test/docs/data.windows.json';
 
 describe('process', () => {
 	test
@@ -39,4 +41,17 @@ describe('process', () => {
 				);
 			},
 		);
+
+	if (platform === 'win32') {
+		test
+			.stdout()
+			.command(['process', fileWithWindowsPaths])
+			.it('runs process cmd which handles Windows paths', (ctx) => {
+				expect(ctx.stdout).to.contain(
+					`Output files: ${normalize(
+						'test/tools/pdftk-java/output-compress.pdf',
+					)}, ${normalize('test/tools/pdftk-java/output-share-compress.pdf')}`,
+				);
+			});
+	}
 });
