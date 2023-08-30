@@ -16,13 +16,13 @@ export default class Process extends Command {
 	static aliases = ['p'];
 
 	static description =
-		'Merge PDF files using JSON file. Can be used to merge some pages from each file.';
+		'Merge PDF files using JSON5 file. Can be used to merge some pages from each file.';
 
 	static examples = ['<%= config.bin %> <%= command.id %> data.json'];
 
 	static args = {
 		file: Args.string({
-			description: `JSON file to process
+			description: `JSON5 file to process
 See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
 Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
 Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,

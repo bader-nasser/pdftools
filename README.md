@@ -5,11 +5,11 @@
 [![GitHub license](https://img.shields.io/github/license/bader-nasser/pdftools)](https://github.com/bader-nasser/pdftools/blob/main/LICENSE)
 [![Tests](https://github.com/bader-nasser/pdftools/actions/workflows/test.yml/badge.svg)](https://github.com/bader-nasser/pdftools/actions/workflows/test.yml)
 
-PDF tools to merge PDF files (using [JSON file](test/docs/data.json))
+PDF tools to merge PDF files (using [JSON5 file](test/docs/data.json))
 and extract pages (from command line or using a [text file](test/docs/data.txt)).
 This cli exposes two binaries: `pdftools` and `pdf-tools`.
 
-[اقرأ عن المشروع بالعربية](./README-ar.md).
+[اقرأ عن المشروع بالعربية](README-ar.md).
 
 <!-- toc -->
 
@@ -416,14 +416,14 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.1
 
 ## `pdftools p FILE`
 
-Merge PDF files using JSON file. Can be used to merge some pages from each file.
+Merge PDF files using JSON5 file. Can be used to merge some pages from each file.
 
 ```
 USAGE
   $ pdftools p FILE [-c] [-D] [-s]
 
 ARGUMENTS
-  FILE  JSON file to process
+  FILE  JSON5 file to process
         See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
         Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
         Use / in the paths. On Windows, \ can be changed to either / or \\
@@ -436,7 +436,7 @@ FLAGS
   -s, --silent
 
 DESCRIPTION
-  Merge PDF files using JSON file. Can be used to merge some pages from each file.
+  Merge PDF files using JSON5 file. Can be used to merge some pages from each file.
 
 ALIASES
   $ pdftools p
@@ -693,14 +693,14 @@ _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/
 
 ## `pdftools process FILE`
 
-Merge PDF files using JSON file. Can be used to merge some pages from each file.
+Merge PDF files using JSON5 file. Can be used to merge some pages from each file.
 
 ```
 USAGE
   $ pdftools process FILE [-c] [-D] [-s]
 
 ARGUMENTS
-  FILE  JSON file to process
+  FILE  JSON5 file to process
         See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
         Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
         Use / in the paths. On Windows, \ can be changed to either / or \\
@@ -713,7 +713,7 @@ FLAGS
   -s, --silent
 
 DESCRIPTION
-  Merge PDF files using JSON file. Can be used to merge some pages from each file.
+  Merge PDF files using JSON5 file. Can be used to merge some pages from each file.
 
 ALIASES
   $ pdftools p
