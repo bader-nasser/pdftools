@@ -58,6 +58,8 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 		try {
 			const filePath = path.join(process.cwd(), file);
 			const fileDirname = path.dirname(filePath);
+			// credit:
+			// https://github.com/vercel/next.js/blob/962ce0dcee7993cedeb949c7f31ef34afc829578/packages/next/src/lib/find-config.ts#L53-L56
 			const fileContents = await fs.readFile(filePath, 'utf8');
 			const fileObject = JSON5.parse<JsonFileObject>(fileContents);
 			const {
