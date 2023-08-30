@@ -32,7 +32,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/0.10.0 linux-x64 node-v20.5.1
+@bader-nasser/pdftools/0.10.1 linux-x64 node-v20.5.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -117,6 +117,14 @@ USAGE
   $ pdftools e INPUT OUTPUT [-f <value> | -p <value> | -d <value>] [-l <value> |  | ] [-q even|odd] [-r
     north|south|east|west|left|right|down] [-c] [-D] [-s]
 
+ARGUMENTS
+  INPUT   Relative or absolute path to the PDF file to be used.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
+  OUTPUT  Relative or absolute path to the PDF file to be created.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
+
 FLAGS
   -D, --dryRun              Pretend to extract pages!
   -c, --compress            Reduce file size
@@ -179,6 +187,14 @@ Extract pages from PDF file
 USAGE
   $ pdftools ex INPUT OUTPUT [-f <value> | -p <value> | -d <value>] [-l <value> |  | ] [-q even|odd] [-r
     north|south|east|west|left|right|down] [-c] [-D] [-s]
+
+ARGUMENTS
+  INPUT   Relative or absolute path to the PDF file to be used.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
+  OUTPUT  Relative or absolute path to the PDF file to be created.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
 
 FLAGS
   -D, --dryRun              Pretend to extract pages!
@@ -243,6 +259,14 @@ USAGE
   $ pdftools ext INPUT OUTPUT [-f <value> | -p <value> | -d <value>] [-l <value> |  | ] [-q even|odd] [-r
     north|south|east|west|left|right|down] [-c] [-D] [-s]
 
+ARGUMENTS
+  INPUT   Relative or absolute path to the PDF file to be used.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
+  OUTPUT  Relative or absolute path to the PDF file to be created.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
+
 FLAGS
   -D, --dryRun              Pretend to extract pages!
   -c, --compress            Reduce file size
@@ -306,6 +330,14 @@ USAGE
   $ pdftools extract INPUT OUTPUT [-f <value> | -p <value> | -d <value>] [-l <value> |  | ] [-q even|odd] [-r
     north|south|east|west|left|right|down] [-c] [-D] [-s]
 
+ARGUMENTS
+  INPUT   Relative or absolute path to the PDF file to be used.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
+  OUTPUT  Relative or absolute path to the PDF file to be created.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
+
 FLAGS
   -D, --dryRun              Pretend to extract pages!
   -c, --compress            Reduce file size
@@ -360,7 +392,7 @@ EXAMPLES
     $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.10.0/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.10.1/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -380,7 +412,7 @@ DESCRIPTION
   Display help for pdftools.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.17/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.18/src/commands/help.ts)_
 
 ## `pdftools p FILE`
 
@@ -394,7 +426,7 @@ ARGUMENTS
   FILE  JSON file to process
         See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
         Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
-        Use / in the paths and Windows \ can be changed to / or \\
+        Use / in the paths. On Windows, \ can be changed to either / or \\
 
 FLAGS
   -D, --dryRun    Pretend to process something!
@@ -434,7 +466,7 @@ EXAMPLES
   $ pdftools plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.2/src/commands/plugins/index.ts)_
 
 ## `pdftools plugins:install PLUGIN...`
 
@@ -499,7 +531,7 @@ EXAMPLES
   $ pdftools plugins:inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/inspect.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.2/src/commands/plugins/inspect.ts)_
 
 ## `pdftools plugins:install PLUGIN...`
 
@@ -539,7 +571,7 @@ EXAMPLES
   $ pdftools plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.2/src/commands/plugins/install.ts)_
 
 ## `pdftools plugins:link PLUGIN`
 
@@ -568,7 +600,7 @@ EXAMPLES
   $ pdftools plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.2/src/commands/plugins/link.ts)_
 
 ## `pdftools plugins:uninstall PLUGIN...`
 
@@ -616,7 +648,7 @@ ALIASES
   $ pdftools plugins remove
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.2/src/commands/plugins/uninstall.ts)_
 
 ## `pdftools plugins:uninstall PLUGIN...`
 
@@ -657,7 +689,7 @@ DESCRIPTION
   Update installed plugins.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.0/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.3.2/src/commands/plugins/update.ts)_
 
 ## `pdftools process FILE`
 
@@ -671,7 +703,7 @@ ARGUMENTS
   FILE  JSON file to process
         See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
         Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
-        Use / in the paths and Windows \ can be changed to / or \\
+        Use / in the paths. On Windows, \ can be changed to either / or \\
 
 FLAGS
   -D, --dryRun    Pretend to process something!
@@ -690,7 +722,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.10.0/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.10.1/dist/commands/process/index.ts)_
 
 ## `pdftools s INPUT OUTPUT`
 
@@ -700,6 +732,14 @@ Extract pages from PDF file
 USAGE
   $ pdftools s INPUT OUTPUT [-f <value> | -p <value> | -d <value>] [-l <value> |  | ] [-q even|odd] [-r
     north|south|east|west|left|right|down] [-c] [-D] [-s]
+
+ARGUMENTS
+  INPUT   Relative or absolute path to the PDF file to be used.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
+  OUTPUT  Relative or absolute path to the PDF file to be created.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
 
 FLAGS
   -D, --dryRun              Pretend to extract pages!
@@ -763,6 +803,14 @@ Extract pages from PDF file
 USAGE
   $ pdftools split INPUT OUTPUT [-f <value> | -p <value> | -d <value>] [-l <value> |  | ] [-q even|odd] [-r
     north|south|east|west|left|right|down] [-c] [-D] [-s]
+
+ARGUMENTS
+  INPUT   Relative or absolute path to the PDF file to be used.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
+  OUTPUT  Relative or absolute path to the PDF file to be created.
+          Use / in the path. On Windows, \ can be changed to either / or \\.
+          Surround the path with " or ' if it contains spaces.
 
 FLAGS
   -D, --dryRun              Pretend to extract pages!

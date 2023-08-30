@@ -24,7 +24,7 @@ export default class Process extends Command {
 			description: `JSON file to process
 See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
 Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
-Use / in the paths and Windows \\ can be changed to / or \\\\`,
+Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 			required: true,
 		}),
 	};

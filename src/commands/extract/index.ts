@@ -52,8 +52,18 @@ export default class Extract extends Command {
 	];
 
 	static args = {
-		input: Args.string({required: true}),
-		output: Args.string({required: true}),
+		input: Args.string({
+			description: `Relative or absolute path to the PDF file to be used.
+Use / in the path. On Windows, \\ can be changed to either / or \\\\.
+Surround the path with " or ' if it contains spaces.`,
+			required: true,
+		}),
+		output: Args.string({
+			description: `Relative or absolute path to the PDF file to be created.
+Use / in the path. On Windows, \\ can be changed to either / or \\\\.
+Surround the path with " or ' if it contains spaces.`,
+			required: true,
+		}),
 	};
 
 	// https://oclif.io/docs/flags

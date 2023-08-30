@@ -5,11 +5,11 @@
 	"files": [
 		"../pdfs/input-1.pdf",
 		{
-			"name": "../pdfs/input-3.pdf",
+			"name": "..\\pdfs\\input-3.pdf",
 			"pages": [1, "3", "2- 5even, 14"]
 		},
 		{
-			"name": "..\\pdfs\\input-3.pdf",
+			"name": "../pdfs\\input-3.pdf",
 			"data": "data.txt"
 		},
 		{
