@@ -1,7 +1,8 @@
 import path from 'node:path';
 import process from 'node:process';
-import {Command, Args, Flags} from '@oclif/core';
 import fs from 'fs-extra';
+import {Command, Args, Flags} from '@oclif/core';
+import JSON5 from 'json5';
 import {type ExecaError, execa} from 'execa';
 // Removing the extension will crash the built cli
 import {addExtension, parseDataFile, removeExtension} from '../../utils.js';
@@ -57,8 +58,8 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 		try {
 			const filePath = path.join(process.cwd(), file);
 			const fileDirname = path.dirname(filePath);
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-			const fileObject: JsonFileObject = await fs.readJson(filePath);
+			const fileContents = await fs.readFile(filePath, 'utf8');
+			const fileObject = JSON5.parse<JsonFileObject>(fileContents);
 			const {
 				output,
 				files,

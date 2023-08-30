@@ -248,19 +248,23 @@ pdftools process test/docs/data.json
 
 وملف البيانات يكون بهذا الشكل:
 
-```json
-// هذا تعليق يخرب البرنامج فينبغي حذفه وألا يُضاف إلى الملف
+```json5
+// هذا تعليق **لم يعد** يخرب البرنامج فلا بأس بتركه
 // يبدأ الملف بهذا القوس المعوج
 {
 	// هذا السطر صار مفيدا للمساعدة في كتابة الملف
 	// ستظهر بعض التعليمات بالإنجليزية عند استخدام البرامج التي تفهم فائدة مثل هذا السطر
 	// https://json-schema.org/implementations.html#editors
-	"$schema": "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json",
+	$schema: 'https://github.com/bader-nasser/pdftools/raw/main/data.schema.json',
 	//  اكتب هنا مكان الملف الناتج بالنسبة إلى هذا الملفِ
 	// النقطتان تعني: اخرج من هذا المجلد، واذهب إلى مجلد pdfs بجانب المجلد الذي فيه ملف البيانات
 	// واحفظ الناتج باسم output.pdf
 	// ملحوظة: الناتج قد يكون فيه كلمات أخرى!
-	"output": "../pdfs/output.pdf",
+	output: '../pdfs/output.pdf',
+	// ملحوظة: في نظام وندز: غيّر الشرطة المائلة إلى جهة اليسار إلى شرطتين اثـنـتين:
+	// C:\users\your-name\downloads\file.pdf => C:\\users\\your-name\\downloads\\file.pdf
+	// أو اجعلها مائلة إلى جهة اليمين
+	// C:\users\your-name\downloads\file.pdf => C:/users/your-name/downloads/file.pdf
 	// أمثلة لمكان الملف الناتج:
 	// "output": "pdfs/output.pdf",
 	// "output": "/absolute/path/to/pdfs/output.pdf",
@@ -268,52 +272,47 @@ pdftools process test/docs/data.json
 	// هذه حقل اختياري
 	// اضغط حجم الملف، وأضف كلمة compress إلى الاسم
 	// ولعلك ترغب في استعمال موقع https://www.ilovepdf.com/compress_pdf لتقليل حجم الملف أكثر!
-	"compress": true,
+	compress: true,
 	// هذا حقل اختياري أيضا
 	// يا برنامج، اسكت ولا تُظهر لي تعليقات تبين ما تفعله
-	"silent": true,
+	silent: true,
 	// هذا حقل اختياري أيضا
 	// تظاهر أنك تفعل شيئا!
-	"dryRun": true,
+	dryRun: true,
 	// الملفات التي تشكل الناتج النهائي
-	"files": [
+	files: [
 		// استعمل الملف input-1.pdf كاملا
 		// الملف محفوظ في مجلد باسم pdfs وهو بجانب المجلد الذي فيه ملف البيانات لأنه يبدأ بنقطتين
-		"../pdfs/input-1.pdf",
+		'../pdfs/input-1.pdf',
 		{
 			// استعمل الملف input-2.pdf
 			// وهو محفوظ في مجلد باسم pdfs بجانب ملف البيانات
-			"name": "pdfs/input-2.pdf",
+			name: 'pdfs/input-2.pdf',
 			// ولكني أريد الصفحة الثانية فقط
-			"pages": 2
+			pages: 2,
 		},
 		{
-			// استعمل هذا الملف المحفوظ في هذا المكان بالضبط
-			// ملحوظة: في نظام وندز: غيّر الشرطة المائلة إلى جهة اليسار إلى شرطتين اثـنـتين:
-			// C:\users\your-name\downloads\file.pdf => C:\\users\\your-name\\downloads\\file.pdf
-			// أو اجعلها مائلة إلى جهة اليمين
-			// C:\users\your-name\downloads\file.pdf => C:/users/your-name/downloads/file.pdf
-
-			"name": "C:\\users\\your-name\\downloads\\file.pdf",
+			// استعمل هذا الملف المحفوظ في هذا المكان المحدد
+			name: 'C:\\users\\your-name\\downloads\\file.pdf',
 			// واستخرج منه الصفحات من 4 إلى 6
-			"pages": "4-6"
+			pages: '4-6',
 		},
 		{
-			"name": "../pdfs/input-3.pdf",
+			name: '../pdfs/input-3.pdf',
 			// استخرج هذه الصفحات
 			// وافصل بين المدخَـلات باستعمال الفاصلة الإنجليزية ,
 			// تُكتب المدخلات بنفس الطريقة التي يُكتب بها ملف البيانات المستعمل في الأمر استخراج، وانظر الملف للتفاصيل:
 			// https://github.com/bader-nasser/pdftools/blob/main/test/docs/data-ar.txt
 			// ولكنها تُحاط بعلامتي تنـصيص إلا أن تكون رقما
-			"pages": [1, "3", " 4 -6", "8 - 11odd ", "end - r5", "2- 5even, 14"]
+			pages: [1, '3', ' 4 -6', '8 - 11odd ', 'end - r5', '2- 5even, 14'],
 		},
 		{
-			"name": "../pdfs/input-3.pdf",
+			name: '../pdfs/input-3.pdf',
 			// استعمل هذا الملف لاستخراج الصفحات
 			// وهو محفوظ في نفس المجلد الذي فيه ملف البيانات data.json
-			"data": "data.txt"
-		}
-	]
+			data: 'data.txt',
+		},
+	],
 }
 ```
 

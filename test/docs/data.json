@@ -1,4 +1,8 @@
+// مسموحٌ التعليقُ في الملف!
+// comments are allowed!
+// https://json5.org/
 {
+	// Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
 	"$schema": "../../data.schema.json",
 	"output": "../pdfs/output.pdf",
 	"compress": true,
