@@ -3,6 +3,8 @@ import process from 'node:process';
 import fs from 'fs-extra';
 import {Command, Args, Flags} from '@oclif/core';
 import JSON5 from 'json5';
+import YAML from 'yaml';
+import TOML from '@ltd/j-toml';
 import {type ExecaError, execa} from 'execa';
 // Removing the extension will crash the built cli
 import {addExtension, parseDataFile, removeExtension} from '../../utils.js';
@@ -16,13 +18,13 @@ export default class Process extends Command {
 	static aliases = ['p'];
 
 	static description =
-		'Merge PDF files using JSON5 file. Can be used to merge some pages from each file.';
+		'Merge PDF files using data file. Can be used to merge some pages from each file.';
 
 	static examples = ['<%= config.bin %> <%= command.id %> data.json'];
 
 	static args = {
 		file: Args.string({
-			description: `JSON5 file to process
+			description: `Data file to process (can be JSON5 or YAML or TOML)
 See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
 Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
 Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
@@ -61,7 +63,21 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 			// credit:
 			// https://github.com/vercel/next.js/blob/962ce0dcee7993cedeb949c7f31ef34afc829578/packages/next/src/lib/find-config.ts#L53-L56
 			const fileContents = await fs.readFile(filePath, 'utf8');
-			const fileObject = JSON5.parse<JsonFileObject>(fileContents);
+			let fileObject: JsonFileObject;
+			if (filePath.endsWith('.json') || filePath.endsWith('.json5')) {
+				fileObject = JSON5.parse<JsonFileObject>(fileContents);
+			} else if (filePath.endsWith('.yaml') || filePath.endsWith('.yml')) {
+				fileObject = YAML.parse(fileContents) as JsonFileObject;
+			} else if (filePath.endsWith('.toml')) {
+				fileObject = TOML.parse(fileContents) as JsonFileObject;
+			} else {
+				this.log('Supported formats are: JSON, YAML and TOML.');
+				this.log(
+					'Allowed extensions are: .json, .json5, .yaml, .yml and .toml.',
+				);
+				this.exit(1);
+			}
+
 			const {
 				output,
 				files,
@@ -95,7 +111,7 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 				if (typeof file === 'object') {
 					const {name, pages, data} = file;
 					if (pages && data) {
-						console.log(file);
+						// console.log(file);
 						this.log(
 							'File object can NOT contain pages & data at the same time!',
 						);
@@ -306,13 +322,13 @@ export type JsonFileObject = {
 	/**
 	 * Reduce file size
 	 */
-	compress?: true;
+	compress?: boolean;
 	/**
 	 * Pretend to work!
 	 */
-	dryRun?: true;
+	dryRun?: boolean;
 	/**
 	 * Work silently.
 	 */
-	silent?: true;
+	silent?: boolean;
 };

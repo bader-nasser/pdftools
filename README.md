@@ -5,8 +5,9 @@
 [![GitHub license](https://img.shields.io/github/license/bader-nasser/pdftools)](https://github.com/bader-nasser/pdftools/blob/main/LICENSE)
 [![Tests](https://github.com/bader-nasser/pdftools/actions/workflows/test.yml/badge.svg)](https://github.com/bader-nasser/pdftools/actions/workflows/test.yml)
 
-PDF tools to merge PDF files (using [JSON5 file](test/docs/data.json))
-and extract pages (from command line or using a [text file](test/docs/data.txt)).
+PDF tools to merge PDF files (using [JSON5](test/docs/data.json) or
+[YAML](test/docs/data.yaml) or [TOML](test/docs/data.toml) file) and
+extract pages (from command line or using a [text file](test/docs/data.txt)).
 This cli exposes two binaries: `pdftools` and `pdf-tools`.
 
 [اقرأ عن المشروع بالعربية](README-ar.md).
@@ -32,7 +33,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/0.11.0 linux-x64 node-v20.5.1
+@bader-nasser/pdftools/0.12.0 linux-x64 node-v20.5.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -392,7 +393,7 @@ EXAMPLES
     $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.11.0/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.12.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -416,14 +417,14 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.1
 
 ## `pdftools p FILE`
 
-Merge PDF files using JSON5 file. Can be used to merge some pages from each file.
+Merge PDF files using data file. Can be used to merge some pages from each file.
 
 ```
 USAGE
   $ pdftools p FILE [-c] [-D] [-s]
 
 ARGUMENTS
-  FILE  JSON5 file to process
+  FILE  Data file to process (can be JSON5 or YAML or TOML)
         See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
         Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
         Use / in the paths. On Windows, \ can be changed to either / or \\
@@ -436,7 +437,7 @@ FLAGS
   -s, --silent
 
 DESCRIPTION
-  Merge PDF files using JSON5 file. Can be used to merge some pages from each file.
+  Merge PDF files using data file. Can be used to merge some pages from each file.
 
 ALIASES
   $ pdftools p
@@ -693,14 +694,14 @@ _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/
 
 ## `pdftools process FILE`
 
-Merge PDF files using JSON5 file. Can be used to merge some pages from each file.
+Merge PDF files using data file. Can be used to merge some pages from each file.
 
 ```
 USAGE
   $ pdftools process FILE [-c] [-D] [-s]
 
 ARGUMENTS
-  FILE  JSON5 file to process
+  FILE  Data file to process (can be JSON5 or YAML or TOML)
         See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
         Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
         Use / in the paths. On Windows, \ can be changed to either / or \\
@@ -713,7 +714,7 @@ FLAGS
   -s, --silent
 
 DESCRIPTION
-  Merge PDF files using JSON5 file. Can be used to merge some pages from each file.
+  Merge PDF files using data file. Can be used to merge some pages from each file.
 
 ALIASES
   $ pdftools p
@@ -722,7 +723,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.11.0/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.12.0/dist/commands/process/index.ts)_
 
 ## `pdftools s INPUT OUTPUT`
 

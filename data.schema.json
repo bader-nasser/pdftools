@@ -61,17 +61,14 @@
                 },
                 "compress": {
                     "type": "boolean",
-                    "const": true,
                     "description": "Reduce file size"
                 },
                 "dryRun": {
                     "type": "boolean",
-                    "const": true,
                     "description": "Pretend to work!"
                 },
                 "silent": {
                     "type": "boolean",
-                    "const": true,
                     "description": "Work silently."
                 }
             },

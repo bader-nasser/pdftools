@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+# yaml-language-server: $schema=../../data.schema.json
+output: '../pdfs/output-yaml.pdf'
+compress: false
+dryRun: true
+files:
+  - ../pdfs/input-1.pdf
+  - name: ../pdfs/input-2.pdf
+    pages: 2
+  - name: ../pdfs/input-3.pdf
+    data: data.txt

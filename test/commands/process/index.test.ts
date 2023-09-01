@@ -4,6 +4,8 @@ import {expect, test} from '@oclif/test';
 const fileWithShareAndCompress = 'test/docs/data.json';
 const fileWithoutShare = 'test/docs/data-no-share.json';
 const fileWithManyInputFiles = 'test/docs/data-big-data.json';
+const fileWithShareDryRunAndInYaml = 'test/docs/data.yaml';
+const fileWithShareCompressAndInToml = 'test/docs/data.toml';
 
 describe('process', () => {
 	test
@@ -39,4 +41,26 @@ describe('process', () => {
 				);
 			},
 		);
+
+	test
+		.stdout()
+		.command(['process', fileWithShareDryRunAndInYaml])
+		.it('runs process cmd will handle YAML, dryRun and share', (ctx) => {
+			expect(ctx.stdout).to.contain(
+				`Output files: ${normalize('test/pdfs/output-yaml.pdf')}, ${normalize(
+					'test/pdfs/output-yaml-share.pdf',
+				)}`,
+			);
+		});
+
+	test
+		.stdout()
+		.command(['process', fileWithShareCompressAndInToml])
+		.it('runs process cmd will handle TOML, compress and share', (ctx) => {
+			expect(ctx.stdout).to.contain(
+				`Output files: ${normalize(
+					'test/pdfs/output-toml-compress.pdf',
+				)}, ${normalize('test/pdfs/output-toml-share-compress.pdf')}`,
+			);
+		});
 });

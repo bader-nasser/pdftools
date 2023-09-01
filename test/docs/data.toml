@@ -1,0 +1,9 @@
+output = '../pdfs/output-toml.pdf'
+compress = true
+dryRun = false
+
+files = [
+	"../pdfs/input-1.pdf",
+	{ name = "../pdfs/input-2.pdf", pages = 2 },
+	{ name = '../pdfs/input-3.pdf', data = "data.txt" },
+]

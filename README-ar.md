@@ -48,7 +48,7 @@ pdftools extract relative/path/to/input.pdf /absolute/path/to/output.pdf --data 
 
 pdftools e /absolute/path/in.pdf ../relative/path/out --compress --pageRanges "5, 9-3even, end, 1south"
 
-pdf-tools process file.json
+pdf-tools process file.yml # .json/.json5/.yaml/.yml/.toml
 ```
 
 **ملحوظة**: يُضغط زر الإدخال Enter بعد كل سطر
@@ -132,7 +132,7 @@ pdf-tools process -h
 [pnpm](https://pnpm.io/)
 لتثبيت البرنامج، ورَغم أني أستعمل
 `pnpm`
-ولكنني واجهت بعضَ المشاكلِ عند استخدامِه فلا أسطيعُ أن أُوصيَ به أو بغيره. وحسْبي أن أدلَّ عليه!
+ولكنني واجهت بعضَ المشاكلِ عند استخدامِه فلا أستطيعُ أن أُوصيَ به أو بغيره. وحسْبي أن أدلَّ عليه!
 
 ## كيف أُحدِّث البرنامج؟
 
@@ -243,7 +243,7 @@ pdftools split ../input.pdf output.pdf --data test/docs/data-ar.txt -s
 ```
 
 انظر
-[test/docs/data-ar.txt](./test/docs/data-ar.txt)
+[test/docs/data-ar.txt](test/docs/data-ar.txt)
 
 - أو استعمل الأمر الثاني وهو process (واختصارا p) لدمج عدة ملفات واختيار بعض الصفحات منها:
 
@@ -251,7 +251,13 @@ pdftools split ../input.pdf output.pdf --data test/docs/data-ar.txt -s
 pdftools process test/docs/data.json
 ```
 
-وملف البيانات يكون بهذا الشكل:
+يمكنك كتابة ملف الملفات بلغة
+[JSON5](test/docs/data.json)
+أو
+[YAML](test/docs/data.yaml)
+أو
+[TOML](test/docs/data.toml).
+وهذا شرح يسير للملف إذا كان بلغة JSON:
 
 ```json5
 // هذا تعليق **لم يعد** يخرب البرنامج فلا بأس بتركه
@@ -320,6 +326,3 @@ pdftools process test/docs/data.json
 	],
 }
 ```
-
-انظر ملف
-[test/docs/data.json](./test/docs/data.json)
