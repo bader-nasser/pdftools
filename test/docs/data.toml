@@ -1,9 +1,15 @@
+# Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
+#:schema ../../data.schema.json
 output = '../pdfs/output-toml.pdf'
 compress = true
 dryRun = false
 
 files = [
-	"../pdfs/input-1.pdf",
-	{ name = "../pdfs/input-2.pdf", pages = 2 },
-	{ name = '../pdfs/input-3.pdf', data = "data.txt" },
+	"../pdfs/input-2.pdf",
+	{ name = "../pdfs/input-3.pdf", pages = [
+		7,
+		11,
+		"6- 2odd",
+	] },
+	{ name = '../pdfs/input-4.pdf', data = "data-ar.txt" },
 ]

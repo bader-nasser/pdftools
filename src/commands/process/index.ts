@@ -109,9 +109,10 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 				let fileName = file as string;
 				const pageRanges: PageRanges = {all: [], shared: []};
 				if (typeof file === 'object') {
+					// @ts-expect-error Silence TS error!
 					const {name, pages, data} = file;
 					if (pages && data) {
-						// console.log(file);
+						console.log(file);
 						this.log(
 							'File object can NOT contain pages & data at the same time!',
 						);
@@ -148,6 +149,7 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 							}
 						}
 					} else {
+						console.log(file);
 						throw new Error(
 							'File object should have either pages or data attriute!',
 						);
@@ -293,22 +295,29 @@ type ProcessedDataType = {
 
 type NumberOrString = number | string;
 
-type InputFileObject = {
-	/**
-	 * Name of input file.
-	 */
-	name: string;
-	/**
-	 * Page ranges.
-	 * See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
-	 */
-	pages?: NumberOrString | NumberOrString[];
-	/**
-	 * A text file that contains page ranges.
-	 * See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
-	 */
-	data?: string;
-};
+type InputFileObject =
+	| {
+			/**
+			 * Name of input file.
+			 */
+			name: string;
+			/**
+			 * Page ranges.
+			 * See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
+			 */
+			pages: NumberOrString | NumberOrString[];
+	  }
+	| {
+			/**
+			 * Name of input file.
+			 */
+			name: string;
+			/**
+			 * A text file that contains page ranges.
+			 * See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
+			 */
+			data: string;
+	  };
 
 export type JsonFileObject = {
 	$schema?: string;

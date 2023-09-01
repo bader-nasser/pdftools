@@ -43,10 +43,6 @@
 		{
 			"name": "../pdfs/input-3.pdf",
 			"data": "data.txt"
-		},
-		{
-			"name": "../pdfs/input-4.pdf",
-			"data": "./data.txt"
 		}
 	]
 }

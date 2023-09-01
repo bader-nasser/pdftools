@@ -44,6 +44,20 @@
                                             }
                                         ],
                                         "description": "Page ranges. See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "pages"
+                                ],
+                                "additionalProperties": false
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Name of input file."
                                     },
                                     "data": {
                                         "type": "string",
@@ -51,7 +65,8 @@
                                     }
                                 },
                                 "required": [
-                                    "name"
+                                    "name",
+                                    "data"
                                 ],
                                 "additionalProperties": false
                             }

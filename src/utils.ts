@@ -30,7 +30,7 @@ export async function parseDataFile(dataFile: string): Promise<ParsedData> {
 		for await (const line of file.readLines({encoding: 'utf8'})) {
 			if (line) {
 				if (line.startsWith('#') && line.includes('share')) {
-					parsedData.shared.push(...parsedData.all);
+					parsedData.shared = [...parsedData.all];
 				} else if (!line.startsWith('#')) {
 					const pageRange = line.trim().replaceAll(/[\s-]+/g, '-');
 					parsedData.all.push(pageRange);

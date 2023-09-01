@@ -1,12 +1,15 @@
 %YAML 1.2
 ---
+# Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
 # yaml-language-server: $schema=../../data.schema.json
 output: '../pdfs/output-yaml.pdf'
 compress: false
-dryRun: true
+dryRun: false
 files:
-  - ../pdfs/input-1.pdf
-  - name: ../pdfs/input-2.pdf
-    pages: 2
-  - name: ../pdfs/input-3.pdf
+  - ../pdfs/input-3.pdf
+  - name: ../pdfs/input-4.pdf
+    pages:
+      - 2
+      - '5-10even'
+  - name: ../pdfs/input-1.pdf
     data: data.txt

@@ -4,7 +4,7 @@ import {expect, test} from '@oclif/test';
 const fileWithShareAndCompress = 'test/docs/data.json';
 const fileWithoutShare = 'test/docs/data-no-share.json';
 const fileWithManyInputFiles = 'test/docs/data-big-data.json';
-const fileWithShareDryRunAndInYaml = 'test/docs/data.yaml';
+const fileWithShareAndInYaml = 'test/docs/data.yaml';
 const fileWithShareCompressAndInToml = 'test/docs/data.toml';
 
 describe('process', () => {
@@ -44,8 +44,8 @@ describe('process', () => {
 
 	test
 		.stdout()
-		.command(['process', fileWithShareDryRunAndInYaml])
-		.it('runs process cmd will handle YAML, dryRun and share', (ctx) => {
+		.command(['process', fileWithShareAndInYaml])
+		.it('runs process cmd will handle YAML and share', (ctx) => {
 			expect(ctx.stdout).to.contain(
 				`Output files: ${normalize('test/pdfs/output-yaml.pdf')}, ${normalize(
 					'test/pdfs/output-yaml-share.pdf',
