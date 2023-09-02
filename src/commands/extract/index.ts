@@ -1,18 +1,17 @@
 import path from 'node:path';
-import process from 'node:process';
-import {Args, Command, Flags} from '@oclif/core';
+import {Args, Flags} from '@oclif/core';
 import fs from 'fs-extra';
-import {type ExecaError, execa} from 'execa';
 import {
 	addExtension,
 	isUndefinedOrEmptyString,
 	pad,
 	parseDataFile,
 	removeExtension,
-	// Removing the extension will crash the built cli
+	// Removing the extension will make the built cli crash
 } from '../../utils.js';
+import {BaseCommand} from '../../base-command.js';
 
-export default class Extract extends Command {
+export default class Extract extends BaseCommand {
 	static aliases = ['ext', 'ex', 'e', 'split', 's'];
 
 	static description = 'Extract pages from PDF file';
@@ -117,40 +116,6 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 				{type: 'some', flags: ['firstPage', 'lastPage']},
 				// Make this flag exclusive of all these flags
 				{type: 'none', flags: ['pageRanges', 'data']},
-			],
-		}),
-		compress: Flags.boolean({
-			char: 'c',
-			description: `Reduce file size
-See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
-You also may want to try: https://www.ilovepdf.com/compress_pdf`,
-			relationships: [
-				// Make this flag dependent on at least one of these flags
-				{
-					type: 'some',
-					flags: ['firstPage', 'lastPage', 'pageRanges', 'data'],
-				},
-			],
-		}),
-		dryRun: Flags.boolean({
-			char: 'D',
-			description: 'Pretend to extract pages!',
-			relationships: [
-				// Make this flag dependent on at least one of these flags
-				{
-					type: 'some',
-					flags: ['firstPage', 'lastPage', 'pageRanges', 'data'],
-				},
-			],
-		}),
-		silent: Flags.boolean({
-			char: 's',
-			relationships: [
-				// Make this flag dependent on at least one of these flags
-				{
-					type: 'some',
-					flags: ['firstPage', 'lastPage', 'pageRanges', 'data'],
-				},
 			],
 		}),
 	};
@@ -311,29 +276,6 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 			}
 
 			this.logger('Done.', silent);
-		}
-	}
-
-	private async execute(
-		command: string,
-		args: readonly string[] | undefined,
-		dryRun: boolean,
-	) {
-		if (!dryRun) {
-			try {
-				const extension = process.platform === 'win32' ? '' : '';
-				await execa(`${command}${extension}`, args);
-			} catch (error) {
-				const error_ = error as ExecaError;
-				console.error(error_.stderr);
-				this.exit(1);
-			}
-		}
-	}
-
-	private logger(message: string, silent: boolean): void {
-		if (!silent) {
-			this.log(message);
 		}
 	}
 }

@@ -33,7 +33,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/0.13.1 linux-x64 node-v20.5.1
+@bader-nasser/pdftools/0.14.0 linux-x64 node-v20.5.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -106,8 +106,8 @@ Extract pages from PDF file
 
 ```
 USAGE
-  $ pdftools extract INPUT OUTPUT [-f <value> | -p <value> | -d <value>] [-l <value> |  | ] [-q even|odd] [-r
-    north|south|east|west|left|right|down] [-c] [-D] [-s]
+  $ pdftools extract INPUT OUTPUT [-c] [-D] [-s] [-f <value> | -p <value> | -d <value>] [-l <value> |  | ]
+    [-q even|odd] [-r north|south|east|west|left|right|down]
 
 ARGUMENTS
   INPUT   Relative or absolute path to the PDF file to be used.
@@ -118,7 +118,7 @@ ARGUMENTS
           Surround the path with " or ' if it contains spaces.
 
 FLAGS
-  -D, --dryRun              Pretend to extract pages!
+  -D, --dryRun              Pretend to work!
   -c, --compress            Reduce file size
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                             You also may want to try: https://www.ilovepdf.com/compress_pdf
@@ -133,7 +133,7 @@ FLAGS
                             <options: even|odd>
   -r, --rotation=<option>   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
                             <options: north|south|east|west|left|right|down>
-  -s, --silent
+  -s, --silent              Work silently unless there is an error!
 
 DESCRIPTION
   Extract pages from PDF file
@@ -171,7 +171,7 @@ EXAMPLES
     $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.13.1/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.14.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -370,11 +370,11 @@ ARGUMENTS
         Use / in the paths. On Windows, \ can be changed to either / or \\
 
 FLAGS
-  -D, --dryRun    Pretend to process something!
+  -D, --dryRun    Pretend to work!
   -c, --compress  Reduce file size
                   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                   You also may want to try: https://www.ilovepdf.com/compress_pdf
-  -s, --silent
+  -s, --silent    Work silently unless there is an error!
 
 DESCRIPTION
   Merge PDF files using data file. Can be used to merge some pages from each file.
@@ -386,6 +386,6 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.13.1/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.14.0/dist/commands/process/index.ts)_
 
 <!-- commandsstop -->

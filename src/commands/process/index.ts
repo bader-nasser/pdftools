@@ -1,20 +1,20 @@
 import path from 'node:path';
 import process from 'node:process';
 import fs from 'fs-extra';
-import {Command, Args, Flags} from '@oclif/core';
+import {Args} from '@oclif/core';
 import JSON5 from 'json5';
 import YAML from 'yaml';
 import TOML from '@ltd/j-toml';
-import {type ExecaError, execa} from 'execa';
-// Removing the extension will crash the built cli
+// Removing the extension will make the built cli crash
 import {addExtension, parseDataFile, removeExtension} from '../../utils.js';
+import {BaseCommand} from '../../base-command.js';
 
 function parsePageRanges(pageRanges: string): string[] {
 	const splittedRanges = pageRanges.split(/,+/);
 	return splittedRanges.map((range) => range.trim().replaceAll(/[\s-]+/g, '-'));
 }
 
-export default class Process extends Command {
+export default class Process extends BaseCommand {
 	static aliases = ['p'];
 
 	static description =
@@ -29,22 +29,6 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
 Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
 Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 			required: true,
-		}),
-	};
-
-	static flags = {
-		compress: Flags.boolean({
-			char: 'c',
-			description: `Reduce file size
-See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
-You also may want to try: https://www.ilovepdf.com/compress_pdf`,
-		}),
-		dryRun: Flags.boolean({
-			char: 'D',
-			description: 'Pretend to process something!',
-		}),
-		silent: Flags.boolean({
-			char: 's',
 		}),
 	};
 
@@ -251,29 +235,6 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 		}
 
 		this.logger('Done.', isSilencing);
-	}
-
-	private async execute(
-		command: string,
-		args: readonly string[] | undefined,
-		dryRun: boolean,
-	) {
-		if (!dryRun) {
-			try {
-				const extension = process.platform === 'win32' ? '' : '';
-				await execa(`${command}${extension}`, args);
-			} catch (error) {
-				const error_ = error as ExecaError;
-				console.error(error_.stderr);
-				this.exit(1);
-			}
-		}
-	}
-
-	private logger(message: string, silent: boolean): void {
-		if (!silent) {
-			this.log(message);
-		}
 	}
 }
 
