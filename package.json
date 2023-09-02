@@ -38,7 +38,7 @@
 		"test": "run-s test-mocha lint",
 		"test-pack": "pnpm test && pnpm pack",
 		"oclif-manifest": "oclif manifest",
-		"oclif-readme": "oclif readme",
+		"oclif-readme": "oclif readme --no-aliases",
 		"amend": "git commit --amend --no-edit --date=\"$(date)\"",
 		"amend-q": "git commit --amend --no-edit --date=\"$(date)\" -n",
 		"amend-all": "git commit --amend --no-edit --date=\"$(date)\" --all",
