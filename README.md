@@ -98,7 +98,7 @@ EXAMPLES
   $ pdftools autocomplete --refresh-cache
 ```
 
-_See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v2.3.7/src/commands/autocomplete/index.ts)_
+_See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v2.3.8/src/commands/autocomplete/index.ts)_
 
 ## `pdftools extract INPUT OUTPUT`
 
