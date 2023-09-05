@@ -10,14 +10,14 @@ PDF tools to merge PDF files (using [JSON5](test/docs/data.json) or
 extract pages (from command line or using a [text file](test/docs/data.txt)).
 This cli exposes two binaries: `pdftools` and `pdf-tools`.
 
-[اقرأ عن المشروع بالعربية](README-ar.md).
-
 <!-- toc -->
 
 - [pdftools](#pdftools)
 - [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->
+
+[اقرأ عن المشروع بالعربية](README-ar.md).
 
 ## Requirements
 
@@ -33,7 +33,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/0.14.0 linux-x64 node-v20.5.1
+@bader-nasser/pdftools/0.14.0 linux-x64 node-v20.6.0
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -98,7 +98,7 @@ EXAMPLES
   $ pdftools autocomplete --refresh-cache
 ```
 
-_See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v2.3.6/src/commands/autocomplete/index.ts)_
+_See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v2.3.7/src/commands/autocomplete/index.ts)_
 
 ## `pdftools extract INPUT OUTPUT`
 
@@ -214,7 +214,7 @@ EXAMPLES
   $ pdftools plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/index.ts)_
 
 ## `pdftools plugins:inspect PLUGIN...`
 
@@ -241,7 +241,7 @@ EXAMPLES
   $ pdftools plugins:inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/inspect.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/inspect.ts)_
 
 ## `pdftools plugins:install PLUGIN...`
 
@@ -281,7 +281,7 @@ EXAMPLES
   $ pdftools plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/install.ts)_
 
 ## `pdftools plugins:link PLUGIN`
 
@@ -310,7 +310,7 @@ EXAMPLES
   $ pdftools plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/link.ts)_
 
 ## `pdftools plugins:uninstall PLUGIN...`
 
@@ -335,7 +335,7 @@ ALIASES
   $ pdftools plugins remove
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/uninstall.ts)_
 
 ## `pdftools plugins update`
 
@@ -353,7 +353,7 @@ DESCRIPTION
   Update installed plugins.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.0/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/update.ts)_
 
 ## `pdftools process FILE`
 
