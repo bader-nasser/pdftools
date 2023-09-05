@@ -49,7 +49,7 @@
 	"exports": "./lib/index.js",
 	"dependencies": {
 		"@ltd/j-toml": "^1.38.0",
-		"@oclif/core": "^2.15.0",
+		"@oclif/core": "^3.0.0-beta.12",
 		"@oclif/plugin-autocomplete": "^2.3.7",
 		"@oclif/plugin-help": "^5.2.19",
 		"@oclif/plugin-not-found": "^2.4.1",
