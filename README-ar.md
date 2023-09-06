@@ -234,7 +234,7 @@ pdftools split ../input.pdf output.pdf --data test/docs/data-ar.txt -s
 pdftools process test/docs/data.json
 ```
 
-يمكنك كتابة ملف الملفات بلغة
+يمكنك كتابة ملف البيانات بلغة
 [JSON5](test/docs/data.json)
 أو
 [YAML](test/docs/data.yaml)
@@ -255,7 +255,7 @@ pdftools process test/docs/data.json
 	// واحفظ الناتج باسم output.pdf
 	// ملحوظة: الناتج قد يكون فيه كلمات أخرى!
 	output: '../pdfs/output.pdf',
-	// ملحوظة: في نظام وندز: غيّر الشرطة المائلة إلى جهة اليسار إلى شرطتين اثـنـتين:
+	// ملحوظة أخرى: في نظام وندز: غيّر الشرطة المائلة إلى جهة اليسار إلى شرطتين اثـنـتين:
 	// C:\users\your-name\downloads\file.pdf => C:\\users\\your-name\\downloads\\file.pdf
 	// أو اجعلها مائلة إلى جهة اليمين
 	// C:\users\your-name\downloads\file.pdf => C:/users/your-name/downloads/file.pdf

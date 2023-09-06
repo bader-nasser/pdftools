@@ -44,9 +44,12 @@ USAGE
 
 # Commands
 
-There are two main commands: [`extract`](#pdftools-extract-input-output)
-and [`process`](#pdftools-process-file).
-These commands have many aliases: `ext`, `ex`, `e`, `split`, `s` and `p`!
+There are two main commands:
+
+- [`extract`](#pdftools-extract-input-output)
+  - aliases: `ext`, `ex`, `e`, `split` & `s`
+- [`process`](#pdftools-process-file)
+  - alias: `p`
 
 In the [JSON data file](test/docs/data.json) you can add:
 
