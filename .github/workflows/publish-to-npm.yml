@@ -1,3 +1,5 @@
+# credit:
+# https://docs.npmjs.com/generating-provenance-statements#example-github-actions-workflow
 name: Publish Package to npmjs
 on:
   release:

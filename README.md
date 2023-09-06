@@ -3,7 +3,7 @@
 [![Version](https://img.shields.io/npm/v/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
 [![Downloads/week](https://img.shields.io/npm/dw/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
 [![GitHub license](https://img.shields.io/github/license/bader-nasser/pdftools)](https://github.com/bader-nasser/pdftools/blob/main/LICENSE)
-[![Tests](https://github.com/bader-nasser/pdftools/actions/workflows/test.yml/badge.svg)](https://github.com/bader-nasser/pdftools/actions/workflows/test.yml)
+[![Tests](https://github.com/bader-nasser/pdftools/actions/workflows/tests.yml/badge.svg)](https://github.com/bader-nasser/pdftools/actions/workflows/tests.yml)
 
 PDF tools to merge PDF files (using [JSON5](test/docs/data.json) or
 [YAML](test/docs/data.yaml) or [TOML](test/docs/data.toml) file) and

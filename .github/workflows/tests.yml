@@ -2,8 +2,10 @@
 # https://github.com/sindresorhus/execa/blob/main/.github/workflows/main.yml
 name: Tests
 on:
-  - push
-  - pull_request
+  push:
+    branches: [main]
+  pull_request:
+
 jobs:
   test:
     name: Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
