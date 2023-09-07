@@ -21,4 +21,9 @@
 7- 4
 3
 
+# last page
+end
+# first page from the last!
+r1
+
 # but if you use "share" again in the comments, the last one wins!

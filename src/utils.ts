@@ -13,7 +13,12 @@ export function addExtension(string_: string, extension = 'pdf'): string {
 	return `${string_}.${extension}`;
 }
 
-export function pad(number: string | number): string {
+export function pad(number: string): string {
+	/* eslint-disable-next-line unicorn/prefer-number-properties */ // @ts-expect-error silence the error!
+	if (isNaN(number)) {
+		return `${number}`;
+	}
+
 	return `${number}`.padStart(4, '0');
 }
 

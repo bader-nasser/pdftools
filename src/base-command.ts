@@ -14,6 +14,7 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 		dryRun: Flags.boolean({
 			char: 'D',
 			description: 'Pretend to work!',
+			aliases: ['dry-run'],
 		}),
 		silent: Flags.boolean({
 			char: 's',
