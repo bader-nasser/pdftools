@@ -1,5 +1,5 @@
 import path from 'node:path';
-import {Args, Flags} from '@oclif/core';
+import {Flags} from '@oclif/core';
 import fs from 'fs-extra';
 import {globby} from 'globby';
 import {
@@ -17,24 +17,28 @@ export default class Merge extends BaseCommand {
 	static examples = [
 		{
 			description: 'Merge all .pdf files',
-			command: '<%= config.bin %> <%= command.id %> "*.pdf" -o output.pdf',
+			command: '<%= config.bin %> <%= command.id %> -i *.pdf -o output.pdf',
 		},
 		{
 			description:
 				'Merge all .pdf files that start with input- & compress the output',
-			command: `<%= config.bin %> <%= command.id %> 'input-*.pdf' -o output.pdf -c`,
+			command: `<%= config.bin %> <%= command.id %> -i input-*.pdf -o output.pdf -c`,
+		},
+		{
+			description:
+				'Merge cover.pdf with all .pdf files that start with input-, and notes.pdf',
+			command: `<%= config.bin %> <%= command.id %> -i cover.pdf input-*.pdf notes.pdf -o output.pdf`,
 		},
 	];
 
-	static args = {
-		input: Args.string({
-			description: `Input files (i.e. '*.pdf' or "file*.pdf")`,
-			required: true,
-		}),
-	};
-
 	// https://oclif.io/docs/flags
 	static flags = {
+		input: Flags.string({
+			char: 'i',
+			description: `Input files (e.g. cover.pdf part-*.pdf)`,
+			required: true,
+			multiple: true,
+		}),
 		output: Flags.string({
 			char: 'o',
 			description: 'Output file',
@@ -43,9 +47,8 @@ export default class Merge extends BaseCommand {
 	};
 
 	async run(): Promise<void> {
-		const {args, flags} = await this.parse(Merge);
-		const {input} = args;
-		const {output, compress, dryRun, silent} = flags;
+		const {flags} = await this.parse(Merge);
+		const {input, output, compress, dryRun, silent} = flags;
 		let finalOutput = removeExtension(output);
 
 		try {
@@ -62,13 +65,13 @@ export default class Merge extends BaseCommand {
 
 		finalOutput = addExtension(finalOutput);
 		const files = await globby(input);
-		const args2 = [...files, 'cat', 'output', finalOutput];
+		const args = [...files, 'cat', 'output', finalOutput];
 		if (compress) {
-			args2.push('compress');
+			args.push('compress');
 		}
 
 		this.logger(`Creating ${finalOutput}...`, silent);
-		await this.execute('pdftk', args2, dryRun);
+		await this.execute('pdftk', args, dryRun);
 		this.logger('Done.', silent);
 	}
 }

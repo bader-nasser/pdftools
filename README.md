@@ -33,7 +33,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/0.15.0 linux-x64 node-v20.6.0
+@bader-nasser/pdftools/0.16.0 linux-x64 node-v20.6.0
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -64,7 +64,7 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 - [`pdftools autocomplete [SHELL]`](#pdftools-autocomplete-shell)
 - [`pdftools extract INPUT OUTPUT`](#pdftools-extract-input-output)
 - [`pdftools help [COMMANDS]`](#pdftools-help-commands)
-- [`pdftools merge INPUT`](#pdftools-merge-input)
+- [`pdftools merge`](#pdftools-merge)
 - [`pdftools plugins`](#pdftools-plugins)
 - [`pdftools plugins:inspect PLUGIN...`](#pdftools-pluginsinspect-plugin)
 - [`pdftools plugins:install PLUGIN...`](#pdftools-pluginsinstall-plugin)
@@ -175,7 +175,7 @@ EXAMPLES
     $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.15.0/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.16.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -197,24 +197,22 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.19/src/commands/help.ts)_
 
-## `pdftools merge INPUT`
+## `pdftools merge`
 
 Merge PDFs
 
 ```
 USAGE
-  $ pdftools merge INPUT -o <value> [-c] [-D] [-s]
-
-ARGUMENTS
-  INPUT  Input files (i.e. '*.pdf' or "file*.pdf")
+  $ pdftools merge -i <value> -o <value> [-c] [-D] [-s]
 
 FLAGS
-  -D, --dryRun          Pretend to work!
-  -c, --compress        Reduce file size
-                        See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
-                        You also may want to try: https://www.ilovepdf.com/compress_pdf
-  -o, --output=<value>  (required) Output file
-  -s, --silent          Work silently unless there is an error!
+  -D, --dryRun            Pretend to work!
+  -c, --compress          Reduce file size
+                          See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
+                          You also may want to try: https://www.ilovepdf.com/compress_pdf
+  -i, --input=<value>...  (required) Input files (e.g. cover.pdf part-*.pdf)
+  -o, --output=<value>    (required) Output file
+  -s, --silent            Work silently unless there is an error!
 
 DESCRIPTION
   Merge PDFs
@@ -225,14 +223,18 @@ ALIASES
 EXAMPLES
   Merge all .pdf files
 
-    $ pdftools merge "*.pdf" -o output.pdf
+    $ pdftools merge -i *.pdf -o output.pdf
 
   Merge all .pdf files that start with input- & compress the output
 
-    $ pdftools merge 'input-*.pdf' -o output.pdf -c
+    $ pdftools merge -i input-*.pdf -o output.pdf -c
+
+  Merge cover.pdf with all .pdf files that start with input-, and notes.pdf
+
+    $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.15.0/dist/commands/merge/index.ts)_
+_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.16.0/dist/commands/merge/index.ts)_
 
 ## `pdftools plugins`
 
@@ -427,6 +429,6 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.15.0/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.16.0/dist/commands/process/index.ts)_
 
 <!-- commandsstop -->
