@@ -178,7 +178,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 
 				if (parsedData.all) {
 					if (compress) {
-						finalOutput = `${finalOutput}-compress`;
+						finalOutput = `${finalOutput}-compressed`;
 					}
 
 					finalOutput = addExtension(finalOutput);
@@ -198,7 +198,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 					finalOutput = removeExtension(finalOutput);
 					finalOutput = `${finalOutput}-share`;
 					if (compress) {
-						finalOutput = `${finalOutput}-compress`;
+						finalOutput = `${finalOutput}-compressed`;
 					}
 
 					finalOutput = addExtension(finalOutput);
@@ -223,7 +223,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 				const ranges = pageRanges.split(/[\s,]+/);
 				finalOutput = `${finalOutput}-${ranges.join('_')}`;
 				if (compress) {
-					finalOutput = `${finalOutput}-compress`;
+					finalOutput = `${finalOutput}-compressed`;
 				}
 
 				finalOutput = addExtension(finalOutput);
@@ -252,7 +252,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 				}
 
 				if (compress) {
-					finalOutput = `${finalOutput}-compress`;
+					finalOutput = `${finalOutput}-compressed`;
 				}
 
 				finalOutput = addExtension(finalOutput);

@@ -165,8 +165,8 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 			let relativeShareOutput = `${relativeOutput}-share`;
 
 			if (isCompressing) {
-				relativeOutput = `${relativeOutput}-compress`;
-				relativeShareOutput = `${relativeShareOutput}-compress`;
+				relativeOutput = `${relativeOutput}-compressed`;
+				relativeShareOutput = `${relativeShareOutput}-compressed`;
 			}
 
 			relativeOutput = addExtension(relativeOutput);

@@ -14,8 +14,8 @@ describe('process', () => {
 		.it('runs process cmd will produce extra share file', (ctx) => {
 			expect(ctx.stdout).to.contain(
 				`Output files: ${normalize(
-					'test/pdfs/output-compress.pdf',
-				)}, ${normalize('test/pdfs/output-share-compress.pdf')}`,
+					'test/pdfs/output-compressed.pdf',
+				)}, ${normalize('test/pdfs/output-share-compressed.pdf')}`,
 			);
 		});
 
@@ -36,8 +36,8 @@ describe('process', () => {
 			(ctx) => {
 				expect(ctx.stdout).to.contain(
 					`Output files: ${normalize(
-						'test/pdfs/output-big-compress.pdf',
-					)}, ${normalize('test/pdfs/output-big-share-compress.pdf')}`,
+						'test/pdfs/output-big-compressed.pdf',
+					)}, ${normalize('test/pdfs/output-big-share-compressed.pdf')}`,
 				);
 			},
 		);
@@ -59,8 +59,8 @@ describe('process', () => {
 		.it('runs process cmd will handle TOML, compress and share', (ctx) => {
 			expect(ctx.stdout).to.contain(
 				`Output files: ${normalize(
-					'test/pdfs/output-toml-compress.pdf',
-				)}, ${normalize('test/pdfs/output-toml-share-compress.pdf')}`,
+					'test/pdfs/output-toml-compressed.pdf',
+				)}, ${normalize('test/pdfs/output-toml-share-compressed.pdf')}`,
 			);
 		});
 });

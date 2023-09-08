@@ -47,7 +47,7 @@ describe('extract', () => {
 			'runs extract cmd with flags: -f=1 -l=7 and other flags in output',
 			(ctx) => {
 				expect(ctx.stdout).to.contain(
-					'Creating test/pdfs/output-0001-0007-even-north-compress.pdf...',
+					'Creating test/pdfs/output-0001-0007-even-north-compressed.pdf...',
 				);
 			},
 		);
