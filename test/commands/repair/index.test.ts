@@ -7,7 +7,7 @@ describe('repair', () => {
 	test
 		.stdout()
 		.command(['repair', input, '-o', output])
-		.it('runs compress cmd', (ctx) => {
+		.it('runs repair cmd', (ctx) => {
 			expect(ctx.stdout).to.contain('Creating test/pdfs/output-fixed.pdf...');
 		});
 });

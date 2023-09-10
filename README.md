@@ -34,7 +34,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/1.0.0 linux-x64 node-v20.6.1
+@bader-nasser/pdftools/1.0.1 linux-x64 node-v20.6.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -142,7 +142,7 @@ EXAMPLES
   $ pdftools compress uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/compress/index.ts)_
+_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/compress/index.ts)_
 
 ## `pdftools extract INPUT OUTPUT`
 
@@ -216,7 +216,7 @@ EXAMPLES
     $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -277,7 +277,7 @@ EXAMPLES
     $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/merge/index.ts)_
+_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/merge/index.ts)_
 
 ## `pdftools plugins`
 
@@ -300,7 +300,7 @@ EXAMPLES
   $ pdftools plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.5.0/src/commands/plugins/index.ts)_
 
 ## `pdftools plugins:inspect PLUGIN...`
 
@@ -327,7 +327,7 @@ EXAMPLES
   $ pdftools plugins:inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/inspect.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.5.0/src/commands/plugins/inspect.ts)_
 
 ## `pdftools plugins:install PLUGIN...`
 
@@ -367,7 +367,7 @@ EXAMPLES
   $ pdftools plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.5.0/src/commands/plugins/install.ts)_
 
 ## `pdftools plugins:link PLUGIN`
 
@@ -396,7 +396,7 @@ EXAMPLES
   $ pdftools plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.5.0/src/commands/plugins/link.ts)_
 
 ## `pdftools plugins:uninstall PLUGIN...`
 
@@ -421,7 +421,7 @@ ALIASES
   $ pdftools plugins remove
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.5.0/src/commands/plugins/uninstall.ts)_
 
 ## `pdftools plugins update`
 
@@ -439,7 +439,7 @@ DESCRIPTION
   Update installed plugins.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.4.2/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v3.5.0/src/commands/plugins/update.ts)_
 
 ## `pdftools process FILE`
 
@@ -473,7 +473,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/process/index.ts)_
 
 ## `pdftools repair INPUT`
 
@@ -501,7 +501,7 @@ EXAMPLES
   $ pdftools repair broken.pdf -o fixed.pdf
 ```
 
-_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/repair/index.ts)_
+_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/repair/index.ts)_
 
 ## `pdftools uncompress INPUT`
 
@@ -531,6 +531,6 @@ EXAMPLES
   $ pdftools uncompress doc.pdf -o doc-uncompressed.pdf
 ```
 
-_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/uncompress/index.ts)_
+_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/uncompress/index.ts)_
 
 <!-- commandsstop -->
