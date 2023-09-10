@@ -14,6 +14,7 @@ export default class Repair extends BaseCommand {
 	static description = `Repair a PDF's corrupted XREF table and stream lengths, if possible`;
 
 	static examples = [
+		'<%= config.bin %> <%= command.id %> broken.pdf',
 		'<%= config.bin %> <%= command.id %> broken.pdf -o fixed.pdf',
 	];
 
@@ -29,7 +30,6 @@ export default class Repair extends BaseCommand {
 		output: Flags.string({
 			char: 'o',
 			description: 'Output file',
-			required: true,
 		}),
 		compress: Flags.boolean({
 			hidden: true,
@@ -40,7 +40,15 @@ export default class Repair extends BaseCommand {
 		const {args, flags} = await this.parse(Repair);
 		const {input} = args;
 		const {output, dryRun, silent} = flags;
-		let finalOutput = removeExtension(output);
+		let finalOutput: string;
+		if (output) {
+			finalOutput = removeExtension(output);
+		} else {
+			finalOutput = removeExtension(input);
+			finalOutput = `${finalOutput}-repaired`;
+		}
+
+		finalOutput = addExtension(finalOutput);
 
 		try {
 			const outputDirname = path.dirname(finalOutput);
@@ -50,10 +58,8 @@ export default class Repair extends BaseCommand {
 			this.exit(1);
 		}
 
-		finalOutput = addExtension(finalOutput);
-		const args2 = [input, 'output', finalOutput];
-
 		this.logger(`Creating ${finalOutput}...`, silent);
+		const args2 = [input, 'output', finalOutput];
 		await this.execute('pdftk', args2, dryRun);
 		this.logger('Done.', silent);
 	}

@@ -34,7 +34,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/1.0.1 linux-x64 node-v20.6.1
+@bader-nasser/pdftools/1.1.0 linux-x64 node-v20.6.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -122,14 +122,14 @@ Restore page stream compression
 
 ```
 USAGE
-  $ pdftools compress INPUT -o <value> [-D] [-s]
+  $ pdftools compress INPUT [-D] [-s] [-o <value>]
 
 ARGUMENTS
   INPUT  Uncompressed PDF file
 
 FLAGS
   -D, --dryRun          Pretend to work!
-  -o, --output=<value>  (required) Output file
+  -o, --output=<value>  Output file
   -s, --silent          Work silently unless there is an error!
 
 DESCRIPTION
@@ -139,10 +139,12 @@ ALIASES
   $ pdftools c
 
 EXAMPLES
+  $ pdftools compress uncompressed.pdf
+
   $ pdftools compress uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/compress/index.ts)_
+_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.0/dist/commands/compress/index.ts)_
 
 ## `pdftools extract INPUT OUTPUT`
 
@@ -216,7 +218,7 @@ EXAMPLES
     $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -277,7 +279,7 @@ EXAMPLES
     $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/merge/index.ts)_
+_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.0/dist/commands/merge/index.ts)_
 
 ## `pdftools plugins`
 
@@ -473,7 +475,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.0/dist/commands/process/index.ts)_
 
 ## `pdftools repair INPUT`
 
@@ -481,14 +483,14 @@ Repair a PDF's corrupted XREF table and stream lengths, if possible
 
 ```
 USAGE
-  $ pdftools repair INPUT -o <value> [-D] [-s]
+  $ pdftools repair INPUT [-D] [-s] [-o <value>]
 
 ARGUMENTS
   INPUT  Broken PDF
 
 FLAGS
   -D, --dryRun          Pretend to work!
-  -o, --output=<value>  (required) Output file
+  -o, --output=<value>  Output file
   -s, --silent          Work silently unless there is an error!
 
 DESCRIPTION
@@ -498,10 +500,12 @@ ALIASES
   $ pdftools r
 
 EXAMPLES
+  $ pdftools repair broken.pdf
+
   $ pdftools repair broken.pdf -o fixed.pdf
 ```
 
-_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/repair/index.ts)_
+_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.0/dist/commands/repair/index.ts)_
 
 ## `pdftools uncompress INPUT`
 
@@ -509,14 +513,14 @@ Uncompress PDF page streams for editing the PDF in a text editor
 
 ```
 USAGE
-  $ pdftools uncompress INPUT -o <value> [-D] [-s]
+  $ pdftools uncompress INPUT [-D] [-s] [-o <value>]
 
 ARGUMENTS
   INPUT  Compressed PDF file
 
 FLAGS
   -D, --dryRun          Pretend to work!
-  -o, --output=<value>  (required) Output file
+  -o, --output=<value>  Output file
   -s, --silent          Work silently unless there is an error!
 
 DESCRIPTION
@@ -528,9 +532,11 @@ ALIASES
   $ pdftools d
 
 EXAMPLES
+  $ pdftools uncompress doc.pdf
+
   $ pdftools uncompress doc.pdf -o doc-uncompressed.pdf
 ```
 
-_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.1/dist/commands/uncompress/index.ts)_
+_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.0/dist/commands/uncompress/index.ts)_
 
 <!-- commandsstop -->

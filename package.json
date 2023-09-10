@@ -1,7 +1,7 @@
 {
 	"name": "@bader-nasser/pdftools",
 	"description": "PDF tools to extract and process PDF files",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"type": "module",
 	"license": "MIT",
 	"author": "Bader Nasser",
@@ -14,7 +14,7 @@
 	"repository": "bader-nasser/pdftools",
 	"scripts": {
 		"prepare": "husky install",
-		"clean": "shx rm -rf dist test/pdfz test/docs/aaa test/pdfs/output*.pdf *.tgz",
+		"clean": "shx rm -rf dist test/pdfz test/docs/aaa test/pdfs/output*.pdf test/pdfs/input*ed.pdf *.tgz",
 		"generate-schema": "node generate-schema.mjs",
 		"generate-schema:watch": "ts-node generate-schema.mjs --watch",
 		"app-dev": "./bin/dev.js",

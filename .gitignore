@@ -12,6 +12,7 @@ oclif.manifest.json
 /.idea
 
 test/pdfs/output*.pdf
+test/pdfs/input*ed.pdf
 /test/pdfz
 /test/docs/aaa
 

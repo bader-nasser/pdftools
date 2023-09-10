@@ -7,10 +7,28 @@ const outputUncompressed = 'test/pdfs/output-1-uncompressed.pdf';
 describe('compression', () => {
 	test
 		.stdout()
+		.command(['compress', input])
+		.it('runs compress cmd without --output flag', (ctx) => {
+			expect(ctx.stdout).to.contain(
+				'Creating test/pdfs/input-1-compressed.pdf...',
+			);
+		});
+
+	test
+		.stdout()
 		.command(['compress', input, '-o', outputCompressed])
 		.it('runs compress cmd', (ctx) => {
 			expect(ctx.stdout).to.contain(
 				'Creating test/pdfs/output-1-compressed.pdf...',
+			);
+		});
+
+	test
+		.stdout()
+		.command(['uncompress', input])
+		.it('runs uncompress cmd without -o flag', (ctx) => {
+			expect(ctx.stdout).to.contain(
+				'Creating test/pdfs/input-1-uncompressed.pdf...',
 			);
 		});
 
