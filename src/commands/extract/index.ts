@@ -25,7 +25,6 @@ export default class Extract extends BaseCommand {
 			description: 'Extract page number 5 from input.pdf to output.pdf',
 			command: '<%= config.bin %> <%= command.id %> input.pdf output.pdf -l 5',
 		},
-
 		{
 			description: 'Extract pages from 1 to 3 from input.pdf to output.pdf',
 			command:
@@ -118,6 +117,10 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 				{type: 'none', flags: ['pageRanges', 'data']},
 			],
 		}),
+		keep: Flags.boolean({
+			char: 'k',
+			description: `Keep output's name`,
+		}),
 	};
 
 	async run(): Promise<void> {
@@ -131,6 +134,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 			compress,
 			dryRun,
 			silent,
+			keep,
 		} = flags;
 		let {firstPage, lastPage} = flags;
 
@@ -168,7 +172,9 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 			}
 
 			if (data) {
-				finalOutput = `${finalOutput}-data`;
+				if (!keep) {
+					finalOutput = `${finalOutput}-data`;
+				}
 
 				const parsedData = await parseDataFile(data);
 				if (parsedData.error) {
@@ -177,7 +183,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 				}
 
 				if (parsedData.all) {
-					if (compress) {
+					if (compress && !keep) {
 						finalOutput = `${finalOutput}-compressed`;
 					}
 
@@ -196,8 +202,11 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 
 				if (parsedData.shared) {
 					finalOutput = removeExtension(finalOutput);
-					finalOutput = `${finalOutput}-share`;
-					if (compress) {
+					if (!keep) {
+						finalOutput = `${finalOutput}-share`;
+					}
+
+					if (compress && !keep) {
 						finalOutput = `${finalOutput}-compressed`;
 					}
 
@@ -221,8 +230,11 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 				}
 			} else if (pageRanges) {
 				const ranges = pageRanges.split(/[\s,]+/);
-				finalOutput = `${finalOutput}-${ranges.join('_')}`;
-				if (compress) {
+				if (!keep) {
+					finalOutput = `${finalOutput}-${ranges.join('_')}`;
+				}
+
+				if (compress && !keep) {
 					finalOutput = `${finalOutput}-compressed`;
 				}
 
@@ -238,20 +250,23 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 
 				await this.execute('pdftk', args, dryRun);
 			} else if (firstPage && lastPage) {
-				finalOutput = `${finalOutput}-${pad(firstPage)}`;
-				if (firstPage !== lastPage) {
+				if (!keep) {
+					finalOutput = `${finalOutput}-${pad(firstPage)}`;
+				}
+
+				if (firstPage !== lastPage && !keep) {
 					finalOutput = `${finalOutput}-${pad(lastPage)}`;
 				}
 
-				if (qualifier) {
+				if (qualifier && !keep) {
 					finalOutput = `${finalOutput}-${qualifier}`;
 				}
 
-				if (rotation) {
+				if (rotation && !keep) {
 					finalOutput = `${finalOutput}-${rotation}`;
 				}
 
-				if (compress) {
+				if (compress && !keep) {
 					finalOutput = `${finalOutput}-compressed`;
 				}
 

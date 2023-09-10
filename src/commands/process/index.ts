@@ -1,7 +1,7 @@
 import path from 'node:path';
 import process from 'node:process';
 import fs from 'fs-extra';
-import {Args} from '@oclif/core';
+import {Args, Flags} from '@oclif/core';
 import JSON5 from 'json5';
 import YAML from 'yaml';
 import TOML from '@ltd/j-toml';
@@ -32,9 +32,16 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 		}),
 	};
 
+	static flags = {
+		keep: Flags.boolean({
+			char: 'k',
+			description: `Keep output's name`,
+		}),
+	};
+
 	async run(): Promise<void> {
 		const {args, flags} = await this.parse(Process);
-		const {compress, dryRun, silent} = flags;
+		const {compress, dryRun, silent, keep} = flags;
 		const {file} = args;
 
 		let isCompressing = compress;
@@ -164,7 +171,7 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 			relativeOutput = removeExtension(relativeOutput);
 			let relativeShareOutput = `${relativeOutput}-share`;
 
-			if (isCompressing) {
+			if (isCompressing && !keep) {
 				relativeOutput = `${relativeOutput}-compressed`;
 				relativeShareOutput = `${relativeShareOutput}-compressed`;
 			}
@@ -210,7 +217,6 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 					outputShareStrings.push(catString);
 				}
 
-				// console.log('Shared:')
 				const allShareRanges = outputShareStrings.join(' ').split(' ');
 
 				this.logger(

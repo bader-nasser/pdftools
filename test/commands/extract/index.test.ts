@@ -2,6 +2,7 @@ import {expect, test} from '@oclif/test';
 
 const input = 'test/pdfs/input-1.pdf';
 const output = 'test/pdfs/output.pdf';
+const outputKeep = 'test/pdfs/output-extract-keep.pdf';
 const outputDoesNotExist = 'test/pdfz/output.pdf';
 const data = 'test/docs/data.txt';
 
@@ -97,5 +98,14 @@ describe('extract', () => {
 		.command(['extract', input, output, '-f', 'end', '-l', 'r5'])
 		.it(`runs extract cmd with flags: -f=end -l=r5`, (ctx) => {
 			expect(ctx.stdout).to.contain(`Creating test/pdfs/output-end-r5.pdf...`);
+		});
+
+	test
+		.stdout()
+		.command(['extract', input, outputKeep, '-f', 'end', '-l', 'r5', '-k'])
+		.it(`runs extract cmd with flags: -f=end -l=r5 -k`, (ctx) => {
+			expect(ctx.stdout).to.contain(
+				`Creating test/pdfs/output-extract-keep.pdf...`,
+			);
 		});
 });

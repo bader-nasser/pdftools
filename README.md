@@ -34,7 +34,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/0.16.0 linux-x64 node-v20.6.0
+@bader-nasser/pdftools/1.0.0 linux-x64 node-v20.6.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -45,12 +45,20 @@ USAGE
 
 # Commands
 
-There are two main commands:
+The main commands are:
 
 - [`extract`](#pdftools-extract-input-output)
   - aliases: `ext`, `ex`, `e`, `split` & `s`
 - [`process`](#pdftools-process-file)
   - alias: `p`
+- [`merge`](#pdftools-merge)
+  - alias: `m`, `join` & `j`
+- [`compress`](#pdftools-compress-input)
+  - alias: `c`
+- [`uncompress`](#pdftools-uncompress-input)
+  - aliases: `u`, `decompress` & `d`
+- [`repair`](#pdftools-repair-input)
+  - alias: `r`
 
 In the [JSON data file](test/docs/data.json) you can add:
 
@@ -63,6 +71,7 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 <!-- commands -->
 
 - [`pdftools autocomplete [SHELL]`](#pdftools-autocomplete-shell)
+- [`pdftools compress INPUT`](#pdftools-compress-input)
 - [`pdftools extract INPUT OUTPUT`](#pdftools-extract-input-output)
 - [`pdftools help [COMMANDS]`](#pdftools-help-commands)
 - [`pdftools merge`](#pdftools-merge)
@@ -73,6 +82,8 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 - [`pdftools plugins:uninstall PLUGIN...`](#pdftools-pluginsuninstall-plugin)
 - [`pdftools plugins update`](#pdftools-plugins-update)
 - [`pdftools process FILE`](#pdftools-process-file)
+- [`pdftools repair INPUT`](#pdftools-repair-input)
+- [`pdftools uncompress INPUT`](#pdftools-uncompress-input)
 
 ## `pdftools autocomplete [SHELL]`
 
@@ -105,6 +116,34 @@ EXAMPLES
 
 _See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v2.3.8/src/commands/autocomplete/index.ts)_
 
+## `pdftools compress INPUT`
+
+Restore page stream compression
+
+```
+USAGE
+  $ pdftools compress INPUT -o <value> [-D] [-s]
+
+ARGUMENTS
+  INPUT  Uncompressed PDF file
+
+FLAGS
+  -D, --dryRun          Pretend to work!
+  -o, --output=<value>  (required) Output file
+  -s, --silent          Work silently unless there is an error!
+
+DESCRIPTION
+  Restore page stream compression
+
+ALIASES
+  $ pdftools c
+
+EXAMPLES
+  $ pdftools compress uncompressed.pdf -o compressed.pdf
+```
+
+_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/compress/index.ts)_
+
 ## `pdftools extract INPUT OUTPUT`
 
 Extract pages from PDF file
@@ -112,7 +151,7 @@ Extract pages from PDF file
 ```
 USAGE
   $ pdftools extract INPUT OUTPUT [-c] [-D] [-s] [-f <value> | -p <value> | -d <value>] [-l <value> |  | ]
-    [-q even|odd] [-r north|south|east|west|left|right|down]
+    [-q even|odd] [-r north|south|east|west|left|right|down] [-k]
 
 ARGUMENTS
   INPUT   Relative or absolute path to the PDF file to be used.
@@ -130,6 +169,7 @@ FLAGS
   -d, --data=<value>        Data file (lines of page ranges)
                             See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
+  -k, --keep                Keep output's name
   -l, --lastPage=<value>    Last page (defaults to firstPage)
   -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
@@ -176,7 +216,7 @@ EXAMPLES
     $ pdftools extract input.pdf output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.16.0/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -220,6 +260,8 @@ DESCRIPTION
 
 ALIASES
   $ pdftools m
+  $ pdftools join
+  $ pdftools j
 
 EXAMPLES
   Merge all .pdf files
@@ -235,7 +277,7 @@ EXAMPLES
     $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.16.0/dist/commands/merge/index.ts)_
+_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/merge/index.ts)_
 
 ## `pdftools plugins`
 
@@ -405,7 +447,7 @@ Merge PDF files using data file. Can be used to merge some pages from each file.
 
 ```
 USAGE
-  $ pdftools process FILE [-c] [-D] [-s]
+  $ pdftools process FILE [-c] [-D] [-s] [-k]
 
 ARGUMENTS
   FILE  Data file to process (can be JSON5 or YAML or TOML)
@@ -418,6 +460,7 @@ FLAGS
   -c, --compress  Reduce file size
                   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                   You also may want to try: https://www.ilovepdf.com/compress_pdf
+  -k, --keep      Keep output's name
   -s, --silent    Work silently unless there is an error!
 
 DESCRIPTION
@@ -430,6 +473,64 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v0.16.0/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/process/index.ts)_
+
+## `pdftools repair INPUT`
+
+Repair a PDF's corrupted XREF table and stream lengths, if possible
+
+```
+USAGE
+  $ pdftools repair INPUT -o <value> [-D] [-s]
+
+ARGUMENTS
+  INPUT  Broken PDF
+
+FLAGS
+  -D, --dryRun          Pretend to work!
+  -o, --output=<value>  (required) Output file
+  -s, --silent          Work silently unless there is an error!
+
+DESCRIPTION
+  Repair a PDF's corrupted XREF table and stream lengths, if possible
+
+ALIASES
+  $ pdftools r
+
+EXAMPLES
+  $ pdftools repair broken.pdf -o fixed.pdf
+```
+
+_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/repair/index.ts)_
+
+## `pdftools uncompress INPUT`
+
+Uncompress PDF page streams for editing the PDF in a text editor
+
+```
+USAGE
+  $ pdftools uncompress INPUT -o <value> [-D] [-s]
+
+ARGUMENTS
+  INPUT  Compressed PDF file
+
+FLAGS
+  -D, --dryRun          Pretend to work!
+  -o, --output=<value>  (required) Output file
+  -s, --silent          Work silently unless there is an error!
+
+DESCRIPTION
+  Uncompress PDF page streams for editing the PDF in a text editor
+
+ALIASES
+  $ pdftools u
+  $ pdftools decompress
+  $ pdftools d
+
+EXAMPLES
+  $ pdftools uncompress doc.pdf -o doc-uncompressed.pdf
+```
+
+_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.0.0/dist/commands/uncompress/index.ts)_
 
 <!-- commandsstop -->

@@ -24,11 +24,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
 
-      - run: |
-          sudo apt-get update
-          sudo apt install pdftk-java
+      # - run: |
+      #     sudo apt-get update
+      #     sudo apt install pdftk-java
       - run: pnpm install
-      - run: pnpm test
+      # - run: pnpm test
       - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+# Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
+# yaml-language-server: $schema=../../data.schema.json
+output: '../pdfs/output-yaml-keep.pdf'
+compress: false
+dryRun: false
+files:
+  - name: ../pdfs/input-1.pdf
+    data: data1.txt
+  - name: ../pdfs/input-2.pdf
+    data: data2.txt

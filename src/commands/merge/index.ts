@@ -10,7 +10,7 @@ import {
 import {BaseCommand} from '../../base-command.js';
 
 export default class Merge extends BaseCommand {
-	static aliases = ['m'];
+	static aliases = ['m', 'join', 'j'];
 
 	static description = 'Merge PDFs';
 

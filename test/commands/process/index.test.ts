@@ -6,6 +6,7 @@ const fileWithoutShare = 'test/docs/data-no-share.json';
 const fileWithManyInputFiles = 'test/docs/data-big-data.json';
 const fileWithShareAndInYaml = 'test/docs/data.yaml';
 const fileWithShareCompressAndInToml = 'test/docs/data.toml';
+const fileWithYamlKeep = 'test/docs/keep.yaml';
 
 describe('process', () => {
 	test
@@ -63,4 +64,18 @@ describe('process', () => {
 				)}, ${normalize('test/pdfs/output-toml-share-compressed.pdf')}`,
 			);
 		});
+
+	test
+		.stdout()
+		.command(['process', fileWithYamlKeep, '-k'])
+		.it(
+			'runs process cmd will handle TOML, compress, share and keep',
+			(ctx) => {
+				expect(ctx.stdout).to.contain(
+					`Output files: ${normalize(
+						'test/pdfs/output-yaml-keep.pdf',
+					)}, ${normalize('test/pdfs/output-yaml-keep-share.pdf')}`,
+				);
+			},
+		);
 });
