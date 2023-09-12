@@ -19,53 +19,54 @@ export default class Extract extends BaseCommand {
 	static examples = [
 		{
 			description: 'Extract page number 5 from input.pdf to output.pdf',
-			command: '<%= config.bin %> <%= command.id %> input.pdf output.pdf -f 5',
+			command:
+				'<%= config.bin %> <%= command.id %> --input input.pdf --output output.pdf -f 5',
 		},
 		{
 			description: 'Extract page number 5 from input.pdf to output.pdf',
-			command: '<%= config.bin %> <%= command.id %> input.pdf output.pdf -l 5',
+			command:
+				'<%= config.bin %> <%= command.id %> -i input.pdf -o output.pdf -l 5',
 		},
 		{
 			description: 'Extract pages from 1 to 3 from input.pdf to output.pdf',
 			command:
-				'<%= config.bin %> <%= command.id %> input.pdf output.pdf -f 1 -l 3',
+				'<%= config.bin %> <%= command.id %> -i input.pdf -o output.pdf -f 1 -l 3',
 		},
 		{
 			description:
 				'Extract *even* pages from 9 to 4, compress it and rotate it to the left',
 			command:
-				'<%= config.bin %> <%= command.id %> input.pdf output.pdf -f 9 -l 4 -c -r left -q even',
+				'<%= config.bin %> <%= command.id %> -i input.pdf -o output.pdf -f 9 -l 4 -c -r left -q even',
 		},
 		{
 			description:
 				'Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4',
 			command:
-				'<%= config.bin %> <%= command.id %> input.pdf output.pdf -p "1-3, 5east, 7-4odd"',
+				'<%= config.bin %> <%= command.id %> -i input.pdf -o output.pdf -p "1-3, 5east, 7-4odd"',
 		},
 		{
 			description: 'Extract pages as declared in file.txt',
 			command:
-				'<%= config.bin %> <%= command.id %> input.pdf output.pdf --data file.txt',
+				'<%= config.bin %> <%= command.id %> -i input.pdf -o output.pdf --data file.txt',
 		},
 	];
 
-	static args = {
-		input: Args.string({
+	// https://oclif.io/docs/flags
+	static flags = {
+		input: Flags.string({
+			char: 'i',
 			description: `Relative or absolute path to the PDF file to be used.
 Use / in the path. On Windows, \\ can be changed to either / or \\\\.
 Surround the path with " or ' if it contains spaces.`,
 			required: true,
 		}),
-		output: Args.string({
+		output: Flags.string({
+			char: 'o',
 			description: `Relative or absolute path to the PDF file to be created.
 Use / in the path. On Windows, \\ can be changed to either / or \\\\.
 Surround the path with " or ' if it contains spaces.`,
 			required: true,
 		}),
-	};
-
-	// https://oclif.io/docs/flags
-	static flags = {
 		firstPage: Flags.string({
 			char: 'f',
 			description: 'First page (defaults to lastPage)',
@@ -124,9 +125,10 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 	};
 
 	async run(): Promise<void> {
-		const {args, flags} = await this.parse(Extract);
-		const {input, output} = args;
+		const {flags} = await this.parse(Extract);
 		const {
+			input,
+			output,
 			pageRanges,
 			data,
 			qualifier = '',

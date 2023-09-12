@@ -34,7 +34,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/1.1.1 linux-x64 node-v20.6.1
+@bader-nasser/pdftools/2.0.0 linux-x64 node-v20.6.1
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -72,7 +72,7 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 
 - [`pdftools autocomplete [SHELL]`](#pdftools-autocomplete-shell)
 - [`pdftools compress INPUT`](#pdftools-compress-input)
-- [`pdftools extract INPUT OUTPUT`](#pdftools-extract-input-output)
+- [`pdftools extract`](#pdftools-extract)
 - [`pdftools help [COMMANDS]`](#pdftools-help-commands)
 - [`pdftools merge`](#pdftools-merge)
 - [`pdftools plugins`](#pdftools-plugins)
@@ -144,24 +144,16 @@ EXAMPLES
   $ pdftools compress uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.1/dist/commands/compress/index.ts)_
+_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.0.0/dist/commands/compress/index.ts)_
 
-## `pdftools extract INPUT OUTPUT`
+## `pdftools extract`
 
 Extract pages from PDF file
 
 ```
 USAGE
-  $ pdftools extract INPUT OUTPUT [-c] [-D] [-s] [-f <value> | -p <value> | -d <value>] [-l <value> |  | ]
-    [-q even|odd] [-r north|south|east|west|left|right|down] [-k]
-
-ARGUMENTS
-  INPUT   Relative or absolute path to the PDF file to be used.
-          Use / in the path. On Windows, \ can be changed to either / or \\.
-          Surround the path with " or ' if it contains spaces.
-  OUTPUT  Relative or absolute path to the PDF file to be created.
-          Use / in the path. On Windows, \ can be changed to either / or \\.
-          Surround the path with " or ' if it contains spaces.
+  $ pdftools extract -i <value> -o <value> [-c] [-D] [-s] [-f <value> | -p <value> | -d <value>] [-l <value>
+    |  | ] [-q even|odd] [-r north|south|east|west|left|right|down] [-k]
 
 FLAGS
   -D, --dryRun              Pretend to work!
@@ -171,8 +163,14 @@ FLAGS
   -d, --data=<value>        Data file (lines of page ranges)
                             See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
   -f, --firstPage=<value>   First page (defaults to lastPage)
+  -i, --input=<value>       (required) Relative or absolute path to the PDF file to be used.
+                            Use / in the path. On Windows, \ can be changed to either / or \\.
+                            Surround the path with " or ' if it contains spaces.
   -k, --keep                Keep output's name
   -l, --lastPage=<value>    Last page (defaults to firstPage)
+  -o, --output=<value>      (required) Relative or absolute path to the PDF file to be created.
+                            Use / in the path. On Windows, \ can be changed to either / or \\.
+                            Surround the path with " or ' if it contains spaces.
   -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
                             See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
@@ -195,30 +193,30 @@ ALIASES
 EXAMPLES
   Extract page number 5 from input.pdf to output.pdf
 
-    $ pdftools extract input.pdf output.pdf -f 5
+    $ pdftools extract --input input.pdf --output output.pdf -f 5
 
   Extract page number 5 from input.pdf to output.pdf
 
-    $ pdftools extract input.pdf output.pdf -l 5
+    $ pdftools extract -i input.pdf -o output.pdf -l 5
 
   Extract pages from 1 to 3 from input.pdf to output.pdf
 
-    $ pdftools extract input.pdf output.pdf -f 1 -l 3
+    $ pdftools extract -i input.pdf -o output.pdf -f 1 -l 3
 
   Extract *even* pages from 9 to 4, compress it and rotate it to the left
 
-    $ pdftools extract input.pdf output.pdf -f 9 -l 4 -c -r left -q even
+    $ pdftools extract -i input.pdf -o output.pdf -f 9 -l 4 -c -r left -q even
 
   Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4
 
-    $ pdftools extract input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+    $ pdftools extract -i input.pdf -o output.pdf -p "1-3, 5east, 7-4odd"
 
   Extract pages as declared in file.txt
 
-    $ pdftools extract input.pdf output.pdf --data file.txt
+    $ pdftools extract -i input.pdf -o output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.1/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.0.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -279,7 +277,7 @@ EXAMPLES
     $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.1/dist/commands/merge/index.ts)_
+_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.0.0/dist/commands/merge/index.ts)_
 
 ## `pdftools plugins`
 
@@ -475,7 +473,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.1/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.0.0/dist/commands/process/index.ts)_
 
 ## `pdftools repair INPUT`
 
@@ -505,7 +503,7 @@ EXAMPLES
   $ pdftools repair broken.pdf -o fixed.pdf
 ```
 
-_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.1/dist/commands/repair/index.ts)_
+_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.0.0/dist/commands/repair/index.ts)_
 
 ## `pdftools uncompress INPUT`
 
@@ -537,6 +535,6 @@ EXAMPLES
   $ pdftools uncompress doc.pdf -o doc-uncompressed.pdf
 ```
 
-_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v1.1.1/dist/commands/uncompress/index.ts)_
+_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.0.0/dist/commands/uncompress/index.ts)_
 
 <!-- commandsstop -->

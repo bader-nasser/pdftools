@@ -29,6 +29,8 @@
 يستعمل البرنامج برنامجًـا آخـرَ لتوفير أغلبِ الخصائصِ اللازمة كي يؤديَ وظائـفَـه، وهْـو باللغة الإنجليزية.
 انظر https://oclif.io
 
+ودعمُ اللغةِ العربيةِ أو اللغاتِ التي تُكتبُ من اليمين إلى الشمال في برامج سطر الأوامر يكاد يكونُ معدومًا أو سيئًـا!
+
 ## لماذا البرنامج بدون واجهة؟
 
 أحتاج شخصيا إلى برنامجٍ سهلٍ يقوم بهذين الأمرينِ الهامَّينِ عندي:
@@ -89,6 +91,23 @@ Open Git bash here
 من القائمةِ الظاهرةِ بعد الضغط على الزرين: الزرِ الأيمن للفأرة و(شِفت) كما تقدم ذكره!
 
 **ملحوظة**: لا حاجةَ لاستعمال حسابِ مديرِ النظامِ لتشغيل نافذةِ سطرِ الأوامرِ.
+
+**ملحوظة أخرى**: بإمكانك سحبُ الملفِ المبدأفِ -أوِ المجلدِ- إلى برنامج سطرِ الأوامرِ، وهذا سوف ينسخ لك مكانَ وُجودِه!
+
+للتنقل بين المجلدات، استعمل الأمر
+`cd`
+، ولعرض محتويات المجلد، استعمل الأمر
+`ls`
+أو
+`dir`
+
+```bash
+cd "C:/user/path to directory"
+cd ~/home/path
+ls -l
+ls -la
+dir
+```
 
 _أو باختصارٍ، اضغطْ على زر ابدأ، ثم ابحث عن سطر الأوامرِ أو
 git bash
@@ -183,10 +202,13 @@ cd "C:\users\your name\downloads"
 # هذا تعليق -وليس أمرا- يبدأ بعلامة الوسم أو المربع
 # استخرج الصفحة الأولى من الملف input.pdf
 # واحفظ الناتج في الملف output.pdf
+# ملحوظة: يضيف البرنامج بعض التغييرات على اسم الملف،
+# وفي هذا الأمر، سيكون اسم الملف الناتج output-0001.pdf
+# فإذا أردتَّ المحافظة على اسم الملف، فـأضف --keep أو -k إلى الأمر!
 # بإمكانك استعمال -f أو -l لاستخراج صفحة واحدة
 # -f OR --firstPage
-# -l OR --lastPage
-pdftools e input.pdf output.pdf -f 1
+# -l أو --lastPage
+pdftools e --input input.pdf --output output.pdf -f 1 --keep
 # وإذا أردتَّ تقليل حجمِ الملف فأضف:
 # -c أو --compress
 
@@ -195,7 +217,7 @@ pdftools e input.pdf output.pdf -f 1
 # واحفظ الناتج في ملف output.pdf
 # داخل مجلد files في نفس المكان الذي تستعمل فيه البرنامج
 # ملحوظة: إذا كان مجلد الناتج غير موجود فالبرنامج سينشئه من أجلك
-pdf-tools ex input.pdf files/output.pdf -f 1 -l 3
+pdf-tools ex -i input.pdf -o files/output.pdf -f 1 -l 3
 
 # استعمل الملف input.pdf
 # الموجود داخل مجلد files في نفس المكان الذي تستعمل فيه البرنامج
@@ -209,13 +231,13 @@ pdf-tools ex input.pdf files/output.pdf -f 1 -l 3
 # ولعلك ترغب في استعمال موقع https://www.ilovepdf.com/compress_pdf لتقليل حجم الملف أكثر!
 # وأدر الصفحات إلى اليسار
 # مع اختيار الصفحات الزوجية فقط!
-pdftools ext files/input.pdf output.pdf -f 9 -l 5 -c -r left -q even
+pdftools ext -i files/input.pdf -o output.pdf -f 9 -l 5 -c -r left -q even
 
 # استخرج الصفحات من 1 إلى 3
 # ثم الصفحة 5 وأدرها إلى جهة الشرق
 # ثم الصفحات الفردية من 7 إلى 4
 # -p OR --pageRanges
-pdf-tools s input.pdf output.pdf -p "1-3, 5east, 7-4odd"
+pdf-tools s -i input.pdf -o output.pdf -p "1-3, 5east, 7-4odd"
 
 # استعمل ملف input.pdf
 # الموجود في المجلد السابق للمجلد الذي تستعمل فيه البرنامج
@@ -223,13 +245,13 @@ pdf-tools s input.pdf output.pdf -p "1-3, 5east, 7-4odd"
 # واستخرج الصفحات حسَب ما كُتب في ملف test/docs/data-ar.txt
 # واعمل بصمت أيها البرنامج بدون إظهار أي رسالة إلا أن يكون هناك خطأ ما!
 # -s OR --silent
-pdftools split ../input.pdf output.pdf --data test/docs/data-ar.txt -s
+pdftools split -i ../input.pdf -o output.pdf --data test/docs/data-ar.txt -s
 ```
 
 انظر
 [test/docs/data-ar.txt](test/docs/data-ar.txt)
 
-- أو استعمل الأمر الثاني وهو process (واختصارا p) لدمج عدة ملفات واختيار بعض الصفحات منها:
+- أوِ استعملِ الأمرَ الثانيَ وهو process (واختصارا p) لضمِّ عدة ملفاتٍ مَّعًـا، ولاختيار بعضِ الصفحاتِ من كل ملف:
 
 ```bash
 pdftools process test/docs/data.json
