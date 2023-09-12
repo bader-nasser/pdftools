@@ -11,8 +11,9 @@ oclif.manifest.json
 **/.DS_Store
 /.idea
 
-test/pdfs/output*.pdf
+test/pdfs/output*
 test/pdfs/input*ed.pdf
+test/pdfs/*.txt
 /test/pdfz
 /test/docs/aaa
 

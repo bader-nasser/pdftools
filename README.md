@@ -72,6 +72,7 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 
 - [`pdftools autocomplete [SHELL]`](#pdftools-autocomplete-shell)
 - [`pdftools compress INPUT`](#pdftools-compress-input)
+- [`pdftools convert INPUT`](#pdftools-convert-input)
 - [`pdftools extract`](#pdftools-extract)
 - [`pdftools help [COMMANDS]`](#pdftools-help-commands)
 - [`pdftools merge`](#pdftools-merge)
@@ -145,6 +146,33 @@ EXAMPLES
 ```
 
 _See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.0.0/dist/commands/compress/index.ts)_
+
+## `pdftools convert INPUT`
+
+Convert PDF to text file
+
+```
+USAGE
+  $ pdftools convert INPUT [-D] [-s] [-o <value>]
+
+ARGUMENTS
+  INPUT  PDF file to convert
+
+FLAGS
+  -D, --dryRun          Pretend to work!
+  -o, --output=<value>  Output file
+  -s, --silent          Work silently unless there is an error!
+
+DESCRIPTION
+  Convert PDF to text file
+
+EXAMPLES
+  $ pdftools convert file.pdf
+
+  $ pdftools convert file.pdf -o file-text.txt
+```
+
+_See code: [dist/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.0.0/dist/commands/convert/index.ts)_
 
 ## `pdftools extract`
 
