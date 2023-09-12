@@ -53,7 +53,7 @@
 		"@oclif/plugin-autocomplete": "^2.3.8",
 		"@oclif/plugin-help": "^5.2.19",
 		"@oclif/plugin-not-found": "^2.4.1",
-		"@oclif/plugin-plugins": "^3.6.0",
+		"@oclif/plugin-plugins": "^3.6.1",
 		"@oclif/plugin-warn-if-update-available": "^2.1.0",
 		"execa": "^8.0.1",
 		"fs-extra": "^11.1.1",

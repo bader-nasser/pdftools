@@ -21,8 +21,8 @@ dependencies:
     specifier: ^2.4.1
     version: 2.4.1(@types/node@20.6.0)(typescript@5.2.2)
   '@oclif/plugin-plugins':
-    specifier: ^3.6.0
-    version: 3.6.0(@types/node@20.6.0)(typescript@5.2.2)
+    specifier: ^3.6.1
+    version: 3.6.1(@types/node@20.6.0)(typescript@5.2.2)
   '@oclif/plugin-warn-if-update-available':
     specifier: ^2.1.0
     version: 2.1.0(@types/node@20.6.0)(typescript@5.2.2)
@@ -571,8 +571,8 @@ packages:
       - '@types/node'
       - typescript
 
-  /@oclif/plugin-plugins@3.6.0(@types/node@20.6.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-xjcwI1QaZwlTqxr6lfbSbGQHATZ2ZJwwBcTyqw5ooMFpO8SUtJ+iAGQmy8mWWsAr03UANsNLU5XjuYTq+nyu4g==}
+  /@oclif/plugin-plugins@3.6.1(@types/node@20.6.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-+Av9eVQ+WdjZbYZBDmSMrhw5vNTVIKSh3gC61dFHxXITMq8EQ2kJECFRfJ9lJbYvj8QjpPp9ISGieIerZNetmw==}
     engines: {node: '>=16'}
     dependencies:
       '@oclif/core': 2.15.0(@types/node@20.6.0)(typescript@5.2.2)
@@ -1583,7 +1583,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001532
+      caniuse-lite: 1.0.30001533
       electron-to-chromium: 1.4.515
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.10)
@@ -1759,8 +1759,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /caniuse-lite@1.0.30001532:
-    resolution: {integrity: sha512-FbDFnNat3nMnrROzqrsg314zhqN5LGQ1kyyMk2opcrwGbVGpHRhgCWtAgD5YJUqNAiQ+dklreil/c3Qf1dfCTw==}
+  /caniuse-lite@1.0.30001533:
+    resolution: {integrity: sha512-9aY/b05NKU4Yl2sbcJhn4A7MsGwR1EPfW/nrqsnqVA0Oq50wpmPaGI+R1Z0UKlUl96oxUkGEOILWtOHck0eCWw==}
     dev: true
 
   /cardinal@2.1.1:
@@ -6036,6 +6036,11 @@ packages:
 
   /sax@1.2.1:
     resolution: {integrity: sha512-8I2a3LovHTOpm7NV5yOyO8IHqgVsfK4+UuySrXU8YXkSRX7k6hCV9b3HrkKCr3nMpgj+0bmocaJJWpvp1oc7ZA==}
+    dev: true
+
+  /sax@1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    dev: false
 
   /schema-utils@3.3.0:
     resolution: {integrity: sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==}
@@ -7149,7 +7154,7 @@ packages:
     resolution: {integrity: sha512-eLTh0kA8uHceqesPqSE+VvO1CDDJWMwlQfB6LuN6T8w6MaDJ8Txm8P7s5cHD0miF0V+GGTZrDQfxPZQVsur33w==}
     engines: {node: '>=4.0.0'}
     dependencies:
-      sax: 1.2.1
+      sax: 1.2.4
       xmlbuilder: 11.0.1
     dev: false
 
