@@ -23,7 +23,10 @@ This cli exposes two binaries: `pdftools` and `pdf-tools`.
 ## Requirements
 
 - [Node.js](https://nodejs.org/en/download) (at least v 18.11.0)
-- [PDFtk](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/)
+- [PDFtk server](https://www.pdflabs.com/tools/pdftk-server/)
+
+Let me know if I should use any other program or library to perform the current tasks
+or any other [suggested tasks](https://github.com/bader-nasser/pdftools/issues).
 
 # Usage
 
@@ -45,20 +48,12 @@ USAGE
 
 # Commands
 
-The main commands are:
+There are many commands but the most important ones are:
 
-- [`extract`](#pdftools-extract-input-output)
+- [`extract`](#pdftools-extract)
   - aliases: `ext`, `ex`, `e`, `split` & `s`
 - [`process`](#pdftools-process-file)
   - alias: `p`
-- [`merge`](#pdftools-merge)
-  - alias: `m`, `join` & `j`
-- [`compress`](#pdftools-compress-input)
-  - alias: `c`
-- [`uncompress`](#pdftools-uncompress-input)
-  - aliases: `u`, `decompress` & `d`
-- [`repair`](#pdftools-repair-input)
-  - alias: `r`
 
 In the [JSON data file](test/docs/data.json) you can add:
 
