@@ -14,7 +14,7 @@
 	"repository": "bader-nasser/pdftools",
 	"scripts": {
 		"prepare": "husky install",
-		"clean": "shx rm -rf dist test/pdfz test/docs/aaa test/pdfs/output*.pdf test/pdfs/input*ed.pdf *.tgz",
+		"clean": "shx rm -rf dist test/pdfz test/docs/aaa test/pdfs/output*.pdf test/pdfs/input*ed.pdf test/pdfs/*.txt *.tgz",
 		"generate-schema": "node generate-schema.mjs",
 		"generate-schema:watch": "ts-node generate-schema.mjs --watch",
 		"app-dev": "./bin/dev.js",

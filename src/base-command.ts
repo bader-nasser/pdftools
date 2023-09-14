@@ -5,12 +5,6 @@ import {type ExecaError, execa} from 'execa';
 
 export abstract class BaseCommand extends Command {
 	static baseFlags = {
-		compress: Flags.boolean({
-			char: 'c',
-			description: `Reduce file size
-See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
-You also may want to try: https://www.ilovepdf.com/compress_pdf`,
-		}),
 		dryRun: Flags.boolean({
 			char: 'D',
 			description: 'Pretend to work!',
@@ -22,7 +16,7 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 		}),
 	};
 
-	async execute(
+	protected async execute(
 		command: string,
 		args: readonly string[] | undefined,
 		dryRun: boolean,
@@ -38,7 +32,7 @@ You also may want to try: https://www.ilovepdf.com/compress_pdf`,
 		}
 	}
 
-	logger(message: string, silent: boolean): void {
+	protected logger(message: string, silent: boolean): void {
 		if (!silent) {
 			this.log(message);
 		}

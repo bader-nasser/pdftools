@@ -175,7 +175,7 @@ Extract pages from PDF file
 
 ```
 USAGE
-  $ pdftools extract -i <value> -o <value> [-c] [-D] [-s] [-f <value> | -p <value> | -d <value>] [-l <value>
+  $ pdftools extract -i <value> -o <value> [-D] [-s] [-c] [-f <value> | -p <value> | -d <value>] [-l <value>
     |  | ] [-q even|odd] [-r north|south|east|west|left|right|down] [-k]
 
 FLAGS
@@ -267,7 +267,7 @@ Merge PDFs
 
 ```
 USAGE
-  $ pdftools merge -i <value> -o <value> [-c] [-D] [-s]
+  $ pdftools merge -i <value> -o <value> [-D] [-s] [-c]
 
 FLAGS
   -D, --dryRun            Pretend to work!
@@ -470,7 +470,7 @@ Merge PDF files using data file. Can be used to merge some pages from each file.
 
 ```
 USAGE
-  $ pdftools process FILE [-c] [-D] [-s] [-k]
+  $ pdftools process FILE [-D] [-s] [-c] [-k]
 
 ARGUMENTS
   FILE  Data file to process (can be JSON5 or YAML or TOML)

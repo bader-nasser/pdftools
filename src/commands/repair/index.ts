@@ -31,9 +31,6 @@ export default class Repair extends BaseCommand {
 			char: 'o',
 			description: 'Output file',
 		}),
-		compress: Flags.boolean({
-			hidden: true,
-		}),
 	};
 
 	async run(): Promise<void> {

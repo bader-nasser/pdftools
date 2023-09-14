@@ -7,14 +7,14 @@ import YAML from 'yaml';
 import TOML from '@ltd/j-toml';
 // Removing the extension will make the built cli crash
 import {addExtension, parseDataFile, removeExtension} from '../../utils.js';
-import {BaseCommand} from '../../base-command.js';
+import {BaseCommandWithCompression} from '../../base-command-with-compression.js';
 
 function parsePageRanges(pageRanges: string): string[] {
 	const splittedRanges = pageRanges.split(/,+/);
 	return splittedRanges.map((range) => range.trim().replaceAll(/[\s-]+/g, '-'));
 }
 
-export default class Process extends BaseCommand {
+export default class Process extends BaseCommandWithCompression {
 	static aliases = ['p'];
 
 	static description =

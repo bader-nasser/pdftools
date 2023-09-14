@@ -7,9 +7,9 @@ import {
 	removeExtension,
 	// Removing the extension will make the built cli crash
 } from '../../utils.js';
-import {BaseCommand} from '../../base-command.js';
+import {BaseCommandWithCompression} from '../../base-command-with-compression.js';
 
-export default class Merge extends BaseCommand {
+export default class Merge extends BaseCommandWithCompression {
 	static aliases = ['m', 'join', 'j'];
 
 	static description = 'Merge PDFs';

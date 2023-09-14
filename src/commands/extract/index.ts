@@ -1,5 +1,5 @@
 import path from 'node:path';
-import {Args, Flags} from '@oclif/core';
+import {Flags} from '@oclif/core';
 import fs from 'fs-extra';
 import {
 	addExtension,
@@ -9,9 +9,9 @@ import {
 	removeExtension,
 	// Removing the extension will make the built cli crash
 } from '../../utils.js';
-import {BaseCommand} from '../../base-command.js';
+import {BaseCommandWithCompression} from '../../base-command-with-compression.js';
 
-export default class Extract extends BaseCommand {
+export default class Extract extends BaseCommandWithCompression {
 	static aliases = ['ext', 'ex', 'e', 'split', 's'];
 
 	static description = 'Extract pages from PDF file';
