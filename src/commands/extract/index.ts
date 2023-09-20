@@ -134,7 +134,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 			qualifier = '',
 			rotation = '',
 			compress,
-			dryRun,
+			'dry-run': dryRun,
 			silent,
 			keep,
 		} = flags;

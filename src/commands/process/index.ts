@@ -43,7 +43,7 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 
 	async run(): Promise<void> {
 		const {args, flags} = await this.parse(Process);
-		const {compress, dryRun, silent, keep} = flags;
+		const {compress, 'dry-run': dryRun, silent, keep} = flags;
 		const {file} = args;
 
 		let isCompressing = compress;
@@ -204,7 +204,11 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 			}
 
 			await this.execute('pdftk', args, isDryRunning);
-			await this.updateMetadata({filePath: relativeOutput, meta});
+			await this.updateMetadata({
+				filePath: relativeOutput,
+				meta,
+				dryRun: isDryRunning,
+			});
 
 			if (useShare) {
 				const outputShareStrings: string[] = [];
@@ -239,7 +243,11 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 				}
 
 				await this.execute('pdftk', args, isDryRunning);
-				await this.updateMetadata({filePath: relativeShareOutput, meta});
+				await this.updateMetadata({
+					filePath: relativeShareOutput,
+					meta,
+					dryRun: isDryRunning,
+				});
 			}
 		} catch (error) {
 			console.error(error);
@@ -260,10 +268,16 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 			creationDate,
 			modificationDate,
 		},
+		dryRun,
 	}: {
 		filePath: string;
 		meta: Metadata;
+		dryRun: boolean;
 	}) {
+		if (dryRun) {
+			return;
+		}
+
 		const existingPdfBytes = await fs.readFile(filePath);
 		// Load a PDFDocument without updating its existing metadata
 		const pdfDoc = await PDFDocument.load(existingPdfBytes, {

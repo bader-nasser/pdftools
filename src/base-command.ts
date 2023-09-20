@@ -5,10 +5,10 @@ import {type ExecaError, execa} from 'execa';
 
 export abstract class BaseCommand extends Command {
 	static baseFlags = {
-		dryRun: Flags.boolean({
+		'dry-run': Flags.boolean({
 			char: 'D',
 			description: 'Pretend to work!',
-			aliases: ['dry-run'],
+			aliases: ['dryRun'],
 		}),
 		silent: Flags.boolean({
 			char: 's',

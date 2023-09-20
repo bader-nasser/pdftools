@@ -48,7 +48,7 @@ export default class Merge extends BaseCommandWithCompression {
 
 	async run(): Promise<void> {
 		const {flags} = await this.parse(Merge);
-		const {input, output, compress, dryRun, silent} = flags;
+		const {input, output, compress, 'dry-run': dryRun, silent} = flags;
 		let finalOutput = removeExtension(output);
 
 		try {

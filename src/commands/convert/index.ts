@@ -35,7 +35,7 @@ export default class Convert extends BaseCommand {
 	async run(): Promise<void> {
 		const {args, flags} = await this.parse(Convert);
 		const {input} = args;
-		const {output, dryRun, silent} = flags;
+		const {output, 'dry-run': dryRun, silent} = flags;
 		let finalOutput: string;
 		if (output) {
 			finalOutput = removeExtension(output, 'txt');

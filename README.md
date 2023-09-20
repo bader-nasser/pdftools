@@ -40,7 +40,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/2.1.0 linux-x64 node-v20.6.1
+@bader-nasser/pdftools/2.1.1 linux-x64 node-v20.7.0
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -127,7 +127,7 @@ ARGUMENTS
   INPUT  Uncompressed PDF file
 
 FLAGS
-  -D, --dryRun          Pretend to work!
+  -D, --dry-run         Pretend to work!
   -o, --output=<value>  Output file
   -s, --silent          Work silently unless there is an error!
 
@@ -143,7 +143,7 @@ EXAMPLES
   $ pdftools compress uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.0/dist/commands/compress/index.ts)_
+_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/compress/index.ts)_
 
 ## `pdftools convert INPUT`
 
@@ -157,7 +157,7 @@ ARGUMENTS
   INPUT  PDF file to convert
 
 FLAGS
-  -D, --dryRun          Pretend to work!
+  -D, --dry-run         Pretend to work!
   -o, --output=<value>  Output file
   -s, --silent          Work silently unless there is an error!
 
@@ -170,7 +170,7 @@ EXAMPLES
   $ pdftools convert file.pdf -o file-text.txt
 ```
 
-_See code: [dist/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.0/dist/commands/convert/index.ts)_
+_See code: [dist/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/convert/index.ts)_
 
 ## `pdftools extract`
 
@@ -182,7 +182,7 @@ USAGE
     |  | ] [-q even|odd] [-r north|south|east|west|left|right|down] [-k]
 
 FLAGS
-  -D, --dryRun              Pretend to work!
+  -D, --dry-run             Pretend to work!
   -c, --compress            Reduce file size
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                             You also may want to try: https://www.ilovepdf.com/compress_pdf
@@ -242,7 +242,7 @@ EXAMPLES
     $ pdftools extract -i input.pdf -o output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.0/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -273,7 +273,7 @@ USAGE
   $ pdftools merge -i <value> -o <value> [-D] [-s] [-c]
 
 FLAGS
-  -D, --dryRun            Pretend to work!
+  -D, --dry-run           Pretend to work!
   -c, --compress          Reduce file size
                           See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                           You also may want to try: https://www.ilovepdf.com/compress_pdf
@@ -303,7 +303,7 @@ EXAMPLES
     $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.0/dist/commands/merge/index.ts)_
+_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/merge/index.ts)_
 
 ## `pdftools plugins`
 
@@ -483,7 +483,7 @@ ARGUMENTS
         Use / in the paths. On Windows, \ can be changed to either / or \\
 
 FLAGS
-  -D, --dryRun    Pretend to work!
+  -D, --dry-run   Pretend to work!
   -c, --compress  Reduce file size
                   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                   You also may want to try: https://www.ilovepdf.com/compress_pdf
@@ -500,7 +500,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.0/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/process/index.ts)_
 
 ## `pdftools repair INPUT`
 
@@ -514,7 +514,7 @@ ARGUMENTS
   INPUT  Broken PDF
 
 FLAGS
-  -D, --dryRun          Pretend to work!
+  -D, --dry-run         Pretend to work!
   -o, --output=<value>  Output file
   -s, --silent          Work silently unless there is an error!
 
@@ -530,7 +530,7 @@ EXAMPLES
   $ pdftools repair broken.pdf -o fixed.pdf
 ```
 
-_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.0/dist/commands/repair/index.ts)_
+_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/repair/index.ts)_
 
 ## `pdftools uncompress INPUT`
 
@@ -544,7 +544,7 @@ ARGUMENTS
   INPUT  Compressed PDF file
 
 FLAGS
-  -D, --dryRun          Pretend to work!
+  -D, --dry-run         Pretend to work!
   -o, --output=<value>  Output file
   -s, --silent          Work silently unless there is an error!
 
@@ -562,7 +562,7 @@ EXAMPLES
   $ pdftools uncompress doc.pdf -o doc-uncompressed.pdf
 ```
 
-_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.0/dist/commands/uncompress/index.ts)_
+_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/uncompress/index.ts)_
 
 <!-- commandsstop -->
 

@@ -36,7 +36,7 @@ export default class Uncompress extends BaseCommand {
 	async run(): Promise<void> {
 		const {args, flags} = await this.parse(Uncompress);
 		const {input} = args;
-		const {output, dryRun, silent} = flags;
+		const {output, 'dry-run': dryRun, silent} = flags;
 		let finalOutput: string;
 		if (output) {
 			finalOutput = removeExtension(output);
