@@ -4,6 +4,7 @@
     "definitions": {
         "JsonFileObject": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "$schema": {
                     "type": "string"
@@ -85,13 +86,40 @@
                 "silent": {
                     "type": "boolean",
                     "description": "Work silently."
+                },
+                "title": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "subject": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "producer": {
+                    "type": "string"
+                },
+                "creator": {
+                    "type": "string",
+                    "default": "pdftools (https://github.com/bader-nasser/pdftools)"
+                },
+                "creationDate": {
+                    "type": "string"
+                },
+                "modificationDate": {
+                    "type": "string"
                 }
             },
             "required": [
-                "output",
-                "files"
-            ],
-            "additionalProperties": false
+                "files",
+                "output"
+            ]
         }
     }
 }

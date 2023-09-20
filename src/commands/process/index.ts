@@ -5,6 +5,7 @@ import {Args, Flags} from '@oclif/core';
 import JSON5 from 'json5';
 import YAML from 'yaml';
 import TOML from '@ltd/j-toml';
+import {PDFDocument, StandardFonts} from 'pdf-lib';
 // Removing the extension will make the built cli crash
 import {addExtension, parseDataFile, removeExtension} from '../../utils.js';
 import {BaseCommandWithCompression} from '../../base-command-with-compression.js';
@@ -75,6 +76,7 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 				compress: compressJson = false,
 				dryRun: dryRunJson = false,
 				silent: silentJson = false,
+				...meta
 			} = fileObject;
 			isCompressing = compress || compressJson;
 			isDryRunning = dryRun || dryRunJson;
@@ -201,6 +203,7 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 			}
 
 			await this.execute('pdftk', args, isDryRunning);
+			await this.updateMetadata({filePath: relativeOutput, meta});
 
 			if (useShare) {
 				const outputShareStrings: string[] = [];
@@ -235,12 +238,72 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 				}
 
 				await this.execute('pdftk', args, isDryRunning);
+				await this.updateMetadata({filePath: relativeShareOutput, meta});
 			}
 		} catch (error) {
 			console.error(error);
 		}
 
 		this.logger('Done.', isSilencing);
+	}
+
+	private async updateMetadata({
+		filePath,
+		meta: {
+			title,
+			author,
+			subject,
+			keywords,
+			producer,
+			creator = 'pdftools (https://npmjs.com/package/@bader-nasser/pdftools)',
+			creationDate,
+			modificationDate,
+		},
+	}: {
+		filePath: string;
+		meta: Metadata;
+	}) {
+		const existingPdfBytes = await fs.readFile(filePath);
+		// Load a PDFDocument without updating its existing metadata
+		const pdfDoc = await PDFDocument.load(existingPdfBytes, {
+			updateMetadata: false,
+		});
+
+		if (title) {
+			pdfDoc.setTitle(title);
+		}
+
+		if (author) {
+			pdfDoc.setAuthor(author);
+		}
+
+		if (subject) {
+			pdfDoc.setSubject(subject);
+		}
+
+		if (keywords) {
+			pdfDoc.setKeywords(keywords);
+		}
+
+		if (producer) {
+			pdfDoc.setProducer(producer);
+		}
+
+		if (creator) {
+			pdfDoc.setCreator(creator);
+		}
+
+		if (creationDate) {
+			pdfDoc.setCreationDate(new Date(creationDate));
+		}
+
+		if (modificationDate) {
+			pdfDoc.setModificationDate(new Date(modificationDate));
+		}
+
+		// Serialize the PDFDocument to bytes (a Uint8Array)
+		const pdfBytes = await pdfDoc.save();
+		await fs.writeFile(filePath, pdfBytes);
 	}
 }
 
@@ -286,7 +349,21 @@ type InputFileObject =
 			data: string;
 	  };
 
-export type JsonFileObject = {
+type Metadata = {
+	title?: string;
+	author?: string;
+	subject?: string;
+	keywords?: string[];
+	producer?: string;
+	/**
+	 * @default 'pdftools (https://github.com/bader-nasser/pdftools)'
+	 */
+	creator?: string;
+	creationDate?: string;
+	modificationDate?: string;
+};
+
+export type JsonFileObject = Metadata & {
 	$schema?: string;
 	output: string;
 	/**

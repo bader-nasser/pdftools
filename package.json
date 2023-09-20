@@ -1,7 +1,7 @@
 {
 	"name": "@bader-nasser/pdftools",
 	"description": "PDF tools to extract and process PDF files",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"type": "module",
 	"license": "MIT",
 	"author": "Bader Nasser",
@@ -60,6 +60,7 @@
 		"globby": "^13.2.2",
 		"json5": "^2.2.3",
 		"office-text-extractor": "^3.0.1",
+		"pdf-lib": "^1.17.1",
 		"yaml": "^2.3.2"
 	},
 	"devDependencies": {

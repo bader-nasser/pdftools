@@ -19,6 +19,7 @@ async function generate() {
 
 	console.log(`Creating "${outputPath}"...`);
 	await fs.writeFile(outputPath, schemaString);
+	console.log('Done.');
 }
 
 await generate();

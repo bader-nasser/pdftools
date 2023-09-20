@@ -1,0 +1,17 @@
+{
+	// # Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
+	"$schema": "../../data.schema.json",
+	"output": "../pdfs/output-meta.pdf",
+	"compress": true,
+	"dryRun": false,
+	"title": "اختبار",
+	"author": "بـدر بن ناصر",
+	"subject": "تجربة!",
+	"files": [
+		"../pdfs/input-2.pdf",
+		{
+			"name": "../pdfs/input-4.pdf",
+			"data": "data-ar.txt"
+		}
+	]
+}
