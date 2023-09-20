@@ -1,0 +1,26 @@
+%YAML 1.2
+---
+# Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
+# yaml-language-server: $schema=../../data.schema.json
+output: '../pdfs/output-example.pdf'
+compress: false
+dryRun: false
+silent: true
+title: 'PDF tools!'
+subject: Waw
+author: 'Bader Nasser'
+creationDate: '2018-06-24T01:58:37.228Z'
+modificationDate: '2018-06-24T01:58:37.228Z'
+creator: pdftools (https://github.com/bader-nasser/pdftools)
+producer: pdftools
+keywords:
+  - 'pdf'
+  - 'tools'
+files:
+  - ../pdfs/input-3.pdf
+  - name: ../pdfs/input-4.pdf
+    pages:
+      - 2
+      - '5-10even'
+  - name: ../pdfs/input-1.pdf
+    data: data.txt

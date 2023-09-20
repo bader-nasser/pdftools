@@ -27,6 +27,7 @@ export default class Process extends BaseCommandWithCompression {
 		file: Args.string({
 			description: `Data file to process (can be JSON5 or YAML or TOML)
 See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
+See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/example.yaml
 Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
 Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 			required: true,

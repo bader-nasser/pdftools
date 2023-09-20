@@ -11,6 +11,9 @@ PDF tools to merge PDF files (using [JSON5](test/docs/data.json) or
 extract pages (from command line or using a [text file](test/docs/data.txt)).
 This cli exposes two binaries: `pdftools` and `pdf-tools`.
 
+It can be used to update PDF's metadata using the `process` command,
+see [test/docs/example.yaml](test/docs/example.yaml) for more details.
+
 <!-- toc -->
 
 - [pdftools](#pdftools)
@@ -475,6 +478,7 @@ USAGE
 ARGUMENTS
   FILE  Data file to process (can be JSON5 or YAML or TOML)
         See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
+        See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/example.yaml
         Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
         Use / in the paths. On Windows, \ can be changed to either / or \\
 
@@ -561,3 +565,7 @@ EXAMPLES
 _See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.0/dist/commands/uncompress/index.ts)_
 
 <!-- commandsstop -->
+
+## Spread the word
+
+If you find the app useful, let others know about it :)

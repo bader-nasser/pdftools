@@ -19,10 +19,19 @@
 و
 `pdf-tools`.
 
+يمكن استعمال البرنامج لتغيير معلومات الملف المبدأف عند استعمال الأمر معالجة الملف
+`process`
+، انظر الملف
+[test/docs/example.yaml](test/docs/example.yaml)
+للتفاصيل.
+
 ## متطلبات البرنامج
 
 - [Node.js](https://nodejs.org/en/download) (النسخة 18.11.0 على الأقل)
 - [PDFtk](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/)
+
+إذا كنت تعرف برنامجا أو مكتبة برمجية أفضل مما أستعمله فأرجو أن تدلني عليها:
+https://github.com/bader-nasser/pdftools/issues
 
 ## لماذا البرنامج بالإنجليزية؟
 
@@ -332,3 +341,7 @@ pdftools process test/docs/data.json
 	],
 }
 ```
+
+## رجاء
+
+إذا استـفـدتَّ من البرنامج فـدُلَّ عليه الناسَ حتى يعُـمَّ النفعُ، والدالُّ على الخير كفاعله.
