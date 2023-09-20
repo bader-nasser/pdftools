@@ -40,7 +40,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/2.1.1 linux-x64 node-v20.7.0
+@bader-nasser/pdftools/2.2.0 linux-x64 node-v20.7.0
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -83,6 +83,7 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 - [`pdftools process FILE`](#pdftools-process-file)
 - [`pdftools repair INPUT`](#pdftools-repair-input)
 - [`pdftools uncompress INPUT`](#pdftools-uncompress-input)
+- [`pdftools update-metadata INPUT`](#pdftools-update-metadata-input)
 
 ## `pdftools autocomplete [SHELL]`
 
@@ -143,7 +144,7 @@ EXAMPLES
   $ pdftools compress uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/compress/index.ts)_
+_See code: [dist/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.2.0/dist/commands/compress/index.ts)_
 
 ## `pdftools convert INPUT`
 
@@ -170,7 +171,7 @@ EXAMPLES
   $ pdftools convert file.pdf -o file-text.txt
 ```
 
-_See code: [dist/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/convert/index.ts)_
+_See code: [dist/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.2.0/dist/commands/convert/index.ts)_
 
 ## `pdftools extract`
 
@@ -242,7 +243,7 @@ EXAMPLES
     $ pdftools extract -i input.pdf -o output.pdf --data file.txt
 ```
 
-_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/extract/index.ts)_
+_See code: [dist/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.2.0/dist/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -303,7 +304,7 @@ EXAMPLES
     $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/merge/index.ts)_
+_See code: [dist/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.2.0/dist/commands/merge/index.ts)_
 
 ## `pdftools plugins`
 
@@ -500,7 +501,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/process/index.ts)_
+_See code: [dist/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.2.0/dist/commands/process/index.ts)_
 
 ## `pdftools repair INPUT`
 
@@ -530,7 +531,7 @@ EXAMPLES
   $ pdftools repair broken.pdf -o fixed.pdf
 ```
 
-_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/repair/index.ts)_
+_See code: [dist/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.2.0/dist/commands/repair/index.ts)_
 
 ## `pdftools uncompress INPUT`
 
@@ -562,7 +563,50 @@ EXAMPLES
   $ pdftools uncompress doc.pdf -o doc-uncompressed.pdf
 ```
 
-_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.1.1/dist/commands/uncompress/index.ts)_
+_See code: [dist/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.2.0/dist/commands/uncompress/index.ts)_
+
+## `pdftools update-metadata INPUT`
+
+Update PDF's metadata
+
+```
+USAGE
+  $ pdftools update-metadata INPUT [-D] [-s] [-f <value>] [-t <value>] [-a <value>] [-S <value>] [-k <value>] [-p
+    <value>] [-c <value>] [-d <value>] [-m <value>] [-o <value>]
+
+ARGUMENTS
+  INPUT  Input PDF to update
+
+FLAGS
+  -D, --dry-run                    Pretend to work!
+  -S, --subject=<value>
+  -a, --author=<value>
+  -c, --creator=<value>
+  -d, --creation-date=<value>
+  -f, --file=<value>               Metadata file (.json or .yaml or .toml)
+  -k, --keywords=<value>...
+  -m, --modification-date=<value>
+  -o, --output=<value>             Output file
+  -p, --producer=<value>
+  -s, --silent                     Work silently unless there is an error!
+  -t, --title=<value>
+
+DESCRIPTION
+  Update PDF's metadata
+
+ALIASES
+  $ pdftools up-meta
+  $ pdftools meta
+
+EXAMPLES
+  $ pdftools update-metadata input.pdf -f meta.json
+
+  $ pdftools update-metadata input.pdf -f meta.toml -o updated.pdf
+
+  $ pdftools update-metadata input.pdf -o updated.pdf -f meta.yaml -a "Bader Nasser" -t awesome
+```
+
+_See code: [dist/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.2.0/dist/commands/update-metadata/index.ts)_
 
 <!-- commandsstop -->
 

@@ -9,10 +9,10 @@
 		"target": "ES2019",
 		"moduleResolution": "Node16",
 		"lib": ["ES2022"],
-		"allowSyntheticDefaultImports": true
-		// "composite": true
+		"allowSyntheticDefaultImports": true,
+		"composite": false
 	},
-	"include": ["src/**/*"],
+	"include": ["src/**/*", "src/*"],
 	"ts-node": {
 		"esm": true
 	}
