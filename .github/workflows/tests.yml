@@ -50,17 +50,26 @@ jobs:
 
       - run: pnpm install
 
-      - name: test (NOT windows)
-        if: matrix.os != 'windows-latest'
-        run: pnpm test
-
-      - name: test (windows only)
-        if: matrix.os == 'windows-latest'
+      - name: test
         run: |
           export PATH="/c/tools/pdftk-java:$PATH"
-          alias pdftk=pdftk.bat
-          # cp test/pdfs/input-1.pdf C:/tools/pdftk-java/input-1.pdf
+          # alias pdftk=pdftk.bat
           pnpm test-mocha
-          # pnpm dev p test/docs/data.windows.json
           pnpm lint || pnpm fmt
+        shell: bash
+
+      - name: Pack cli
+        run: pnpm pack
+
+      - name: Install cli
+        run: npm i -g ./bader-nasser-pdftools-*.tgz
+        shell: bash
+
+      - name: Use cli
+        run: |
+          export PATH="/c/tools/pdftk-java:$PATH"
+          pdf-tools -h
+          pdf-tools p -h
+          pdf-tools p test/docs/data.json
+          pdftools m -i test/pdfs/input-*.pdf -o output.pdf -c
         shell: bash
