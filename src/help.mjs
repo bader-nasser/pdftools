@@ -1,11 +1,11 @@
 // https://oclif.io/docs/help_classes/
-const {Help} = require('@oclif/core');
+import {Help} from '@oclif/core';
 
 /** @typedef {import("@oclif/core").Command.Loadable} Loadable */
 /** @typedef {import("@oclif/core").Command.Class} Class */
 /** @typedef {import("@oclif/core").Command.Cached} Cached */
 
-module.exports = class HelpClass extends Help {
+export default class HelpClass extends Help {
 	// credit:
 	// https://github.com/oclif/oclif/issues/888#issuecomment-1370961228
 	/**
@@ -41,4 +41,4 @@ module.exports = class HelpClass extends Help {
 
 		return this.section('COMMANDS', body);
 	}
-};
+}

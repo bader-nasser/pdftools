@@ -90,6 +90,7 @@
 	"files": [
 		"/bin",
 		"/dist",
+		"/src/help.mjs",
 		"/npm-shrinkwrap.json",
 		"/oclif.manifest.json",
 		"/data.schema.json"
