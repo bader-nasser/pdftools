@@ -2,20 +2,9 @@
 ---
 # Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
 # yaml-language-server: $schema=../../data.schema.json
+# حقلان ضروريان
+# Required fields
 output: '../pdfs/output-example.pdf'
-compress: false
-dryRun: false
-silent: true
-title: 'PDF tools!'
-subject: Waw
-author: 'Bader Nasser'
-creationDate: '2018-06-24T01:58:37.228Z'
-modificationDate: '2018-06-24T01:58:37.228Z'
-creator: pdftools (https://github.com/bader-nasser/pdftools)
-producer: pdftools
-keywords:
-  - 'pdf'
-  - 'tools'
 files:
   - ../pdfs/input-3.pdf
   - name: ../pdfs/input-4.pdf
@@ -24,3 +13,21 @@ files:
       - '5-10even'
   - name: ../pdfs/input-1.pdf
     data: data.txt
+# حقول اختيارية
+# optional fields
+compress: false
+dryRun: false
+silent: true
+# حقول اختيارية لتغيير بيانات الملف، استعملها مع الأمرين:
+# optional fields to change metadata, use it with commands
+# process & edit-metadata
+title: 'PDF tools!'
+subject: Waw
+author: 'Bader Nasser'
+creationDate: '2018-06-24T01:58:37.228Z'
+modificationDate: '2018-06-24T01:58:37.228Z'
+creator: pdftools (https://npmjs.com/package/@bader-nasser/pdftools)
+producer: pdftools
+keywords:
+  - 'pdf'
+  - 'tools'

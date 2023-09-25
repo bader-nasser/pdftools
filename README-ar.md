@@ -7,10 +7,10 @@
 # pdftools
 
 [![Version](https://img.shields.io/npm/v/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
-[![Downloads/month](https://img.shields.io/npm/dm/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
-[![Downloads](https://img.shields.io/npm/dt/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
-[![GitHub license](https://img.shields.io/github/license/bader-nasser/pdftools)](https://github.com/bader-nasser/pdftools/blob/main/LICENSE)
 [![Tests](https://github.com/bader-nasser/pdftools/actions/workflows/tests.yml/badge.svg)](https://github.com/bader-nasser/pdftools/actions/workflows/tests.yml)
+[![Downloads/week](https://img.shields.io/npm/dw/@bader-nasser/pdftools.svg)](https://img.shields.io/npm/dw/@bader-nasser/pdftools.svg)
+[![Downloads/month](https://img.shields.io/npm/dm/@bader-nasser/pdftools.svg)](https://img.shields.io/npm/dm/@bader-nasser/pdftools.svg)
+[![Downloads/total](https://img.shields.io/npm/dt/@bader-nasser/pdftools.svg)](https://img.shields.io/npm/dt/@bader-nasser/pdftools.svg)
 
 برنامجٌ لِّاستخراج الصفَحاتِ من الملفات المبدأفةِ، أو لجمع عدّةِ ملفاتٍ في ملفٍ وَّاحدٍ مع إمكانيةِ اختيارِ بعضِ الصفحاتِ من كل ملف.
 

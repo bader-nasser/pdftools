@@ -57,14 +57,14 @@ export default class Extract extends BaseCommandWithCompression {
 			char: 'i',
 			description: `Relative or absolute path to the PDF file to be used.
 Use / in the path. On Windows, \\ can be changed to either / or \\\\.
-Surround the path with " or ' if it contains spaces.`,
+Surround the path by " or ' if it contains spaces.`,
 			required: true,
 		}),
 		output: Flags.string({
 			char: 'o',
 			description: `Relative or absolute path to the PDF file to be created.
 Use / in the path. On Windows, \\ can be changed to either / or \\\\.
-Surround the path with " or ' if it contains spaces.`,
+Surround the path by " or ' if it contains spaces.`,
 			required: true,
 		}),
 		firstPage: Flags.string({

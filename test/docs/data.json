@@ -1,11 +1,12 @@
-// مسموحٌ التعليقُ في الملف!
+// التعليقُ مسموح في الملف!
 // comments are allowed!
 // https://json5.org/
 {
 	// Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
 	"$schema": "../../data.schema.json",
+	// هذان الحقلان ضروريان
+	//  required fields
 	"output": "../pdfs/output.pdf",
-	"compress": true,
 	"files": [
 		"../pdfs/input-1.pdf",
 		{
@@ -44,5 +45,21 @@
 			"name": "../pdfs/input-3.pdf",
 			"data": "data.txt"
 		}
-	]
+	],
+	// حقول اختيارية
+	// optional fields
+	"compress": true,
+	"dryRun": false,
+	"silent": false,
+	// حقول اختيارية لتغيير بيانات الملف، استعملها مع الأمرين:
+	// optional fields to change metadata, use it with commands
+	// process & edit-metadata
+	"title": "Output",
+	"author": "Bader Nasser",
+	"subject": "Test",
+	"creationDate": "2018-06-24T01:58:37.228Z",
+	"modificationDate": "2018-06-24T01:58:37.228Z",
+	"creator": "pdftools (https://npmjs.com/package/@bader-nasser/pdftools)",
+	"producer": "pdftools",
+	"keywords": ["pdf", "tools"]
 }

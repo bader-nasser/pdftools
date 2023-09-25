@@ -1,10 +1,10 @@
 # pdftools
 
 [![Version](https://img.shields.io/npm/v/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
-[![Downloads/month](https://img.shields.io/npm/dm/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
-[![Downloads](https://img.shields.io/npm/dt/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
-[![GitHub license](https://img.shields.io/github/license/bader-nasser/pdftools)](https://github.com/bader-nasser/pdftools/blob/main/LICENSE)
 [![Tests](https://github.com/bader-nasser/pdftools/actions/workflows/tests.yml/badge.svg)](https://github.com/bader-nasser/pdftools/actions/workflows/tests.yml)
+[![Downloads/week](https://img.shields.io/npm/dw/@bader-nasser/pdftools.svg)](https://img.shields.io/npm/dw/@bader-nasser/pdftools.svg)
+[![Downloads/month](https://img.shields.io/npm/dm/@bader-nasser/pdftools.svg)](https://img.shields.io/npm/dm/@bader-nasser/pdftools.svg)
+[![Downloads/total](https://img.shields.io/npm/dt/@bader-nasser/pdftools.svg)](https://img.shields.io/npm/dt/@bader-nasser/pdftools.svg)
 
 PDF tools to merge PDF files (using [JSON5](test/docs/data.json) or
 [YAML](test/docs/data.yaml) or [TOML](test/docs/data.toml) file) and
@@ -192,12 +192,12 @@ FLAGS
   -f, --firstPage=<value>   First page (defaults to lastPage)
   -i, --input=<value>       (required) Relative or absolute path to the PDF file to be used.
                             Use / in the path. On Windows, \ can be changed to either / or \\.
-                            Surround the path with " or ' if it contains spaces.
+                            Surround the path by " or ' if it contains spaces.
   -k, --keep                Keep output's name
   -l, --lastPage=<value>    Last page (defaults to firstPage)
   -o, --output=<value>      (required) Relative or absolute path to the PDF file to be created.
                             Use / in the path. On Windows, \ can be changed to either / or \\.
-                            Surround the path with " or ' if it contains spaces.
+                            Surround the path by " or ' if it contains spaces.
   -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
                             See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
