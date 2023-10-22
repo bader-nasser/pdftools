@@ -90,7 +90,6 @@
 	"files": [
 		"/bin",
 		"/dist",
-		"/src/help.mjs",
 		"/npm-shrinkwrap.json",
 		"/oclif.manifest.json",
 		"/data.schema.json"
@@ -118,7 +117,7 @@
 		"scope": "bader-nasser",
 		"dirname": "pdftools",
 		"commands": "./dist/commands",
-		"helpClass": "./src/help",
+		"helpClass": "./dist/custom-help",
 		"additionalHelpFlags": [
 			"-h"
 		],
