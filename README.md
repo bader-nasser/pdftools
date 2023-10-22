@@ -40,7 +40,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/2.3.3 linux-x64 node-v21.0.0
+@bader-nasser/pdftools/2.4.3 linux-x64 node-v21.0.0
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -144,7 +144,7 @@ EXAMPLES
   $ pdftools compress uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [src/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.3.3/src/commands/compress/index.ts)_
+_See code: [src/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.3/src/commands/compress/index.ts)_
 
 ## `pdftools convert INPUT`
 
@@ -171,7 +171,7 @@ EXAMPLES
   $ pdftools convert file.pdf -o file-text.txt
 ```
 
-_See code: [src/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.3.3/src/commands/convert/index.ts)_
+_See code: [src/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.3/src/commands/convert/index.ts)_
 
 ## `pdftools extract`
 
@@ -183,29 +183,29 @@ USAGE
     |  | ] [-q even|odd] [-r north|south|east|west|left|right|down] [-k]
 
 FLAGS
-  -D, --dry-run             Pretend to work!
-  -c, --compress            Reduce file size
-                            See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
-                            You also may want to try: https://www.ilovepdf.com/compress_pdf
-  -d, --data=<value>        Data file (lines of page ranges)
-                            See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
-  -f, --firstPage=<value>   First page (defaults to lastPage)
-  -i, --input=<value>       (required) Relative or absolute path to the PDF file to be used.
-                            Use / in the path. On Windows, \ can be changed to either / or \\.
-                            Surround the path by " or ' if it contains spaces.
-  -k, --keep                Keep output's name
-  -l, --lastPage=<value>    Last page (defaults to firstPage)
-  -o, --output=<value>      (required) Relative or absolute path to the PDF file to be created.
-                            Use / in the path. On Windows, \ can be changed to either / or \\.
-                            Surround the path by " or ' if it contains spaces.
-  -p, --pageRanges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
-                            See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
-                            See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
-  -q, --qualifier=<option>  See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
-                            <options: even|odd>
-  -r, --rotation=<option>   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
-                            <options: north|south|east|west|left|right|down>
-  -s, --silent              Work silently unless there is an error!
+  -D, --dry-run              Pretend to work!
+  -c, --compress             Reduce file size
+                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
+                             You also may want to try: https://www.ilovepdf.com/compress_pdf
+  -d, --data=<value>         Data file (lines of page ranges)
+                             See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
+  -f, --first-page=<value>   First page (defaults to last-page)
+  -i, --input=<value>        (required) Relative or absolute path to the PDF file to be used.
+                             Use / in the path. On Windows, \ can be changed to either / or \\.
+                             Surround the path by " or ' if it contains spaces.
+  -k, --keep                 Keep output's name
+  -l, --last-page=<value>    Last page (defaults to first-page)
+  -o, --output=<value>       (required) Relative or absolute path to the PDF file to be created.
+                             Use / in the path. On Windows, \ can be changed to either / or \\.
+                             Surround the path by " or ' if it contains spaces.
+  -p, --page-ranges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
+                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+                             See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
+  -q, --qualifier=<option>   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+                             <options: even|odd>
+  -r, --rotation=<option>    See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
+                             <options: north|south|east|west|left|right|down>
+  -s, --silent               Work silently unless there is an error!
 
 DESCRIPTION
   Extract pages from PDF file
@@ -243,7 +243,7 @@ EXAMPLES
     $ pdftools extract -i input.pdf -o output.pdf --data file.txt
 ```
 
-_See code: [src/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.3.3/src/commands/extract/index.ts)_
+_See code: [src/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.3/src/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -304,7 +304,7 @@ EXAMPLES
     $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.3.3/src/commands/merge/index.ts)_
+_See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.3/src/commands/merge/index.ts)_
 
 ## `pdftools plugins`
 
@@ -502,7 +502,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [src/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.3.3/src/commands/process/index.ts)_
+_See code: [src/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.3/src/commands/process/index.ts)_
 
 ## `pdftools repair INPUT`
 
@@ -532,7 +532,7 @@ EXAMPLES
   $ pdftools repair broken.pdf -o fixed.pdf
 ```
 
-_See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.3.3/src/commands/repair/index.ts)_
+_See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.3/src/commands/repair/index.ts)_
 
 ## `pdftools uncompress INPUT`
 
@@ -564,7 +564,7 @@ EXAMPLES
   $ pdftools uncompress doc.pdf -o doc-uncompressed.pdf
 ```
 
-_See code: [src/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.3.3/src/commands/uncompress/index.ts)_
+_See code: [src/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.3/src/commands/uncompress/index.ts)_
 
 ## `pdftools update-metadata INPUT`
 
@@ -607,7 +607,7 @@ EXAMPLES
   $ pdftools update-metadata input.pdf -o updated.pdf -f meta.yaml -a "Bader Nasser" -t awesome
 ```
 
-_See code: [src/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.3.3/src/commands/update-metadata/index.ts)_
+_See code: [src/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.3/src/commands/update-metadata/index.ts)_
 
 <!-- commandsstop -->
 

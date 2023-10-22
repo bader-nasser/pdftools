@@ -67,32 +67,35 @@ Use / in the path. On Windows, \\ can be changed to either / or \\\\.
 Surround the path by " or ' if it contains spaces.`,
 			required: true,
 		}),
-		firstPage: Flags.string({
+		'first-page': Flags.string({
 			char: 'f',
-			description: 'First page (defaults to lastPage)',
+			aliases: ['firstPage'],
+			description: 'First page (defaults to last-page)',
 			// This flag cannot be specified alongside these other flags
-			exclusive: ['pageRanges', 'data'],
+			exclusive: ['page-ranges', 'data'],
 		}),
-		lastPage: Flags.string({
+		'last-page': Flags.string({
 			char: 'l',
-			description: 'Last page (defaults to firstPage)',
+			aliases: ['lastPage'],
+			description: 'Last page (defaults to first-page)',
 			// This flag cannot be specified alongside these other flags
-			exclusive: ['pageRanges', 'data'],
+			exclusive: ['page-ranges', 'data'],
 		}),
-		pageRanges: Flags.string({
+		'page-ranges': Flags.string({
 			char: 'p',
+			aliases: ['pageRanges'],
 			description: `Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
 See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
 See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 			// This flag cannot be specified alongside these other flags
-			exclusive: ['firstPage', 'lastPage', 'data'],
+			exclusive: ['first-page', 'last-page', 'data'],
 		}),
 		data: Flags.string({
 			char: 'd',
 			description: `Data file (lines of page ranges)
 See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 			// This flag cannot be specified alongside these other flags
-			exclusive: ['firstPage', 'lastPage', 'pageRanges'],
+			exclusive: ['first-page', 'last-page', 'page-ranges'],
 		}),
 		qualifier: Flags.string({
 			char: 'q',
@@ -101,9 +104,9 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 				'See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat',
 			relationships: [
 				// Make this flag dependent on at least one of these flags
-				{type: 'some', flags: ['firstPage', 'lastPage']},
+				{type: 'some', flags: ['first-page', 'last-page']},
 				// Make this flag exclusive of all these flags
-				{type: 'none', flags: ['pageRanges', 'data']},
+				{type: 'none', flags: ['page-ranges', 'data']},
 			],
 		}),
 		rotation: Flags.string({
@@ -113,9 +116,9 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 				'See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat',
 			relationships: [
 				// Make this flag dependent on at least one of these flags
-				{type: 'some', flags: ['firstPage', 'lastPage']},
+				{type: 'some', flags: ['first-page', 'last-page']},
 				// Make this flag exclusive of all these flags
-				{type: 'none', flags: ['pageRanges', 'data']},
+				{type: 'none', flags: ['page-ranges', 'data']},
 			],
 		}),
 		keep: Flags.boolean({
@@ -129,7 +132,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 		const {
 			input,
 			output,
-			pageRanges,
+			'page-ranges': pageRanges,
 			data,
 			qualifier = '',
 			rotation = '',
@@ -138,7 +141,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 			silent,
 			keep,
 		} = flags;
-		let {firstPage, lastPage} = flags;
+		let {'first-page': firstPage, 'last-page': lastPage} = flags;
 
 		firstPage = firstPage ?? lastPage;
 		lastPage = lastPage ?? firstPage;
