@@ -34,43 +34,48 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
 
-      - name: install pdftk-java (windows only)
+      - name: install deps (windows only)
         if: matrix.os == 'windows-latest'
         run: |
           choco install pdftk-java --params "'/AddToUserPath:yes /AddToSystemPath:yes'"
+          choco install mupdf
 
-      - name: install pdftk-java (macos only)
-        if: matrix.os == 'macos-latest'
-        run: brew install pdftk-java
-
-      - name: install pdftk-java (ubuntu only)
+      - name: install deps (ubuntu only)
         if: matrix.os == 'ubuntu-latest'
         run: |
-          sudo apt-get update
+          sudo apt update
           sudo apt install pdftk-java
+          sudo apt install mupdf-tools
+
+      - name: install deps (macos only)
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew install pdftk-java
+          brew install mupdf
 
       - run: pnpm install
 
       - name: test
+        shell: bash
         run: |
           export PATH="/c/tools/pdftk-java:$PATH"
-          # alias pdftk=pdftk.bat
           pnpm test-mocha
           pnpm lint || pnpm fmt
-        shell: bash
 
       - name: Pack cli
         run: pnpm pack
 
       - name: Install cli
-        run: npm i -g ./bader-nasser-pdftools-*.tgz
         shell: bash
+        run: npm i -g ./bader-nasser-pdftools-*.tgz
 
       - name: Use cli
+        shell: bash
         run: |
           export PATH="/c/tools/pdftk-java:$PATH"
           pdf-tools -h
           pdf-tools p -h
           pdf-tools p test/docs/data.json
           pdftools m -i test/pdfs/input-*.pdf -o output.pdf -c
-        shell: bash
+          pdftools m2 -i test/pdfs/input-*.pdf -o output2.pdf -c
+          pdftools m2 -i test/pdfs/input-*.pdf test/pdfs/input-2.pdf 2 -o output3.pdf -cl

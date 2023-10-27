@@ -82,6 +82,7 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 - [`pdftools extract`](#pdftools-extract)
 - [`pdftools help [COMMANDS]`](#pdftools-help-commands)
 - [`pdftools merge`](#pdftools-merge)
+- [`pdftools merge2`](#pdftools-merge2)
 - [`pdftools plugins`](#pdftools-plugins)
 - [`pdftools plugins:inspect PLUGIN...`](#pdftools-pluginsinspect-plugin)
 - [`pdftools plugins:install PLUGIN...`](#pdftools-pluginsinstall-plugin)
@@ -312,6 +313,59 @@ EXAMPLES
 ```
 
 _See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/merge/index.ts)_
+
+## `pdftools merge2`
+
+Merge PDFs (mutool)
+
+```
+USAGE
+  $ pdftools merge2 -i <value> -o <value> [-D] [-s] [-c | -d] [--compress-fonts | ] [--compress-images | ]
+    [-l] [-g] [--garbage-compact] [--garbage-deduplicate] [-k]
+
+FLAGS
+  -D, --dry-run           Pretend to work!
+  -c, --compress          Compress all streams
+  -d, --decompress        Decompress all streams (except compress-fonts/images)
+  -g, --garbage           Garbage collect unused objects
+  -i, --input=<value>...  (required) PDF files followed by comma-seperated page numbers or ranges
+                          (e.g. cover.pdf part-*.pdf file.pdf 2,11,4-6,10-8 otherfile.pdf)
+  -k, --keep              Keep output's name
+  -l, --linearize         Optimize for web browsers (ALIASES: --optimize)
+  -o, --output=<value>    (required) Output file
+  -s, --silent            Work silently unless there is an error!
+  --compress-fonts        Compress embedded fonts (ALIASES: --cf)
+  --compress-images       Compress images (ALIASES: --ci)
+  --garbage-compact       ... and compact cross reference table (ALIASES: --gc, --compact)
+  --garbage-deduplicate   ... and remove duplicate objects (ALIASES: --gd, --deduplicate)
+
+DESCRIPTION
+  Merge PDFs (mutool)
+
+ALIASES
+  $ pdftools m2
+  $ pdftools join2
+  $ pdftools j2
+
+EXAMPLES
+  Merge all .pdf files
+
+    $ pdftools merge2 -i *.pdf -o output.pdf
+
+  Merge all .pdf files that start with input- & compress the output
+
+    $ pdftools merge2 -i input-*.pdf -o output.pdf -c
+
+  Merge cover.pdf with all .pdf files that start with input-, and notes.pdf
+
+    $ pdftools merge2 -i cover.pdf input-*.pdf notes.pdf -o output.pdf
+
+  Merge all .pdf files and optimize the output for web browsers
+
+    $ pdftools merge2 -i input-*.pdf -o output -l
+```
+
+_See code: [src/commands/merge2/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/merge2/index.ts)_
 
 ## `pdftools plugins`
 
