@@ -25,8 +25,16 @@ see [test/docs/example.yaml](test/docs/example.yaml) for more details.
 
 ## Requirements
 
-- [Node.js](https://nodejs.org/en/download) (at least v 18.11.0)
+- [Node.js](https://nodejs.org/en/download) (at least v18.11.0)
 - [PDFtk server](https://www.pdflabs.com/tools/pdftk-server/)
+- [mutool](https://mupdf.com/releases/index.html) for some commands:
+  - macOS & Linux ([Homebrew](https://brew.sh/)): `brew install mupdf`
+  - Ubuntu: `sudo apt install mupdf-tools`
+  - Windows:
+    - [winget](https://github.com/microsoft/winget-cli):
+      `winget install ArtifexSoftware.mutool` (maybe just `mutool`)
+    - [Chocolatey](https://docs.chocolatey.org/en-us/choco/setup):
+      `choco install mupdf`
 
 Let me know if I should use any other program or library to perform the current tasks
 or any other [suggested tasks](https://github.com/bader-nasser/pdftools/issues).
@@ -40,7 +48,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/2.4.1 linux-x64 node-v21.1.0
+@bader-nasser/pdftools/3.0.0 linux-x64 node-v21.1.0
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -82,6 +90,7 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 - [`pdftools plugins update`](#pdftools-plugins-update)
 - [`pdftools process FILE`](#pdftools-process-file)
 - [`pdftools repair INPUT`](#pdftools-repair-input)
+- [`pdftools split INPUT`](#pdftools-split-input)
 - [`pdftools uncompress INPUT`](#pdftools-uncompress-input)
 - [`pdftools update-metadata INPUT`](#pdftools-update-metadata-input)
 
@@ -144,7 +153,7 @@ EXAMPLES
   $ pdftools compress uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [src/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.1/src/commands/compress/index.ts)_
+_See code: [src/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/compress/index.ts)_
 
 ## `pdftools convert INPUT`
 
@@ -171,7 +180,7 @@ EXAMPLES
   $ pdftools convert file.pdf -o file-text.txt
 ```
 
-_See code: [src/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.1/src/commands/convert/index.ts)_
+_See code: [src/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/convert/index.ts)_
 
 ## `pdftools extract`
 
@@ -214,8 +223,6 @@ ALIASES
   $ pdftools ext
   $ pdftools ex
   $ pdftools e
-  $ pdftools split
-  $ pdftools s
 
 EXAMPLES
   Extract page number 5 from input.pdf to output.pdf
@@ -243,7 +250,7 @@ EXAMPLES
     $ pdftools extract -i input.pdf -o output.pdf --data file.txt
 ```
 
-_See code: [src/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.1/src/commands/extract/index.ts)_
+_See code: [src/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -304,7 +311,7 @@ EXAMPLES
     $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.1/src/commands/merge/index.ts)_
+_See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/merge/index.ts)_
 
 ## `pdftools plugins`
 
@@ -503,7 +510,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [src/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.1/src/commands/process/index.ts)_
+_See code: [src/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/process/index.ts)_
 
 ## `pdftools repair INPUT`
 
@@ -533,7 +540,42 @@ EXAMPLES
   $ pdftools repair broken.pdf -o fixed.pdf
 ```
 
-_See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.1/src/commands/repair/index.ts)_
+_See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/repair/index.ts)_
+
+## `pdftools split INPUT`
+
+Split each page into many tiles (mutool)
+
+```
+USAGE
+  $ pdftools split INPUT [-D] [-s] [-o <value>] [-x <value>] [-y <value>] [-r]
+
+ARGUMENTS
+  INPUT  Input PDF file
+
+FLAGS
+  -D, --dry-run         Pretend to work!
+  -o, --output=<value>  Output file
+  -r, --r               Split horizontally from right to left (default splits from left to right). (v1.23.0+)
+  -s, --silent          Work silently unless there is an error!
+  -x, --x=<value>       Pieces to horizontally divide each page into.
+  -y, --y=<value>       Pieces to vertically divide each page into.
+
+DESCRIPTION
+  Split each page into many tiles (mutool)
+
+ALIASES
+  $ pdftools s
+
+EXAMPLES
+  $ pdftools split input.pdf -x 2
+
+  $ pdftools split input.pdf -o splitted.pdf -y 2
+
+  $ pdftools split input.pdf -x 2 -y 3 -r
+```
+
+_See code: [src/commands/split/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/split/index.ts)_
 
 ## `pdftools uncompress INPUT`
 
@@ -565,7 +607,7 @@ EXAMPLES
   $ pdftools uncompress doc.pdf -o doc-uncompressed.pdf
 ```
 
-_See code: [src/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.1/src/commands/uncompress/index.ts)_
+_See code: [src/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/uncompress/index.ts)_
 
 ## `pdftools update-metadata INPUT`
 
@@ -608,7 +650,7 @@ EXAMPLES
   $ pdftools update-metadata input.pdf -o updated.pdf -f meta.yaml -a "Bader Nasser" -t awesome
 ```
 
-_See code: [src/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v2.4.1/src/commands/update-metadata/index.ts)_
+_See code: [src/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.0.0/src/commands/update-metadata/index.ts)_
 
 <!-- commandsstop -->
 

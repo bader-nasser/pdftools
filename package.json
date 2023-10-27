@@ -1,7 +1,7 @@
 {
 	"name": "@bader-nasser/pdftools",
-	"description": "PDF tools to extract and process PDF files",
-	"version": "2.4.1",
+	"description": "PDF tools to manipulate and process PDF files",
+	"version": "3.0.0",
 	"type": "module",
 	"license": "MIT",
 	"author": "Bader Nasser",
@@ -106,7 +106,8 @@
 		"compress",
 		"extract pages",
 		"merge pdfs",
-		"rearrange pdf"
+		"rearrange pdf",
+		"manipulate pdfs"
 	],
 	"oclif": {
 		"bin": "pdftools",

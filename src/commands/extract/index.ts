@@ -12,7 +12,7 @@ import {
 import {BaseCommandWithCompression} from '../../base-command-with-compression.js';
 
 export default class Extract extends BaseCommandWithCompression {
-	static aliases = ['ext', 'ex', 'e', 'split', 's'];
+	static aliases = ['ext', 'ex', 'e'];
 
 	static description = 'Extract pages from PDF file';
 
