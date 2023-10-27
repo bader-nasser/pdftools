@@ -62,7 +62,7 @@ USAGE
 There are many commands but the most important ones are:
 
 - [`extract`](#pdftools-extract)
-  - aliases: `ext`, `ex`, `e`, `split` & `s`
+  - aliases: `ext`, `ex` & `e`
 - [`process`](#pdftools-process-file)
   - alias: `p`
 

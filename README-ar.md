@@ -205,7 +205,7 @@ cd "C:\users\your name\downloads"
 - لاستخراج الصفحات من ملف معين استعمل أحد هذه الأوامر أو جربها كلها:
 
 - **ملحوظة أخرى**: الأمر (استخراج الصفحات) له عدة اختصارات وهي:
-  extract, ext, ex, e, split, s
+  extract, ext, ex, e
 
 ```bash
 # هذا تعليق -وليس أمرا- يبدأ بعلامة الوسم أو المربع
@@ -246,7 +246,7 @@ pdftools ext -i files/input.pdf -o output.pdf -f 9 -l 5 -c -r left -q even
 # ثم الصفحة 5 وأدرها إلى جهة الشرق
 # ثم الصفحات الفردية من 7 إلى 4
 # -p OR --pageRanges
-pdf-tools s -i input.pdf -o output.pdf -p "1-3, 5east, 7-4odd"
+pdf-tools ex -i input.pdf -o output.pdf -p "1-3, 5east, 7-4odd"
 
 # استعمل ملف input.pdf
 # الموجود في المجلد السابق للمجلد الذي تستعمل فيه البرنامج
@@ -254,7 +254,7 @@ pdf-tools s -i input.pdf -o output.pdf -p "1-3, 5east, 7-4odd"
 # واستخرج الصفحات حسَب ما كُتب في ملف test/docs/data-ar.txt
 # واعمل بصمت أيها البرنامج بدون إظهار أي رسالة إلا أن يكون هناك خطأ ما!
 # -s OR --silent
-pdftools split -i ../input.pdf -o output.pdf --data test/docs/data-ar.txt -s
+pdftools e -i ../input.pdf -o output.pdf --data test/docs/data-ar.txt -s
 ```
 
 انظر
