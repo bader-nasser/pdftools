@@ -27,9 +27,25 @@ see [test/docs/example.yaml](test/docs/example.yaml) for more details.
 
 - [Node.js](https://nodejs.org/en/download) (at least v18.11.0)
 - [PDFtk server](https://www.pdflabs.com/tools/pdftk-server/)
+  or [`pdftk-java`](https://gitlab.com/pdftk-java/pdftk):
+
+  - Offical:
+    - Windows & macOS: https://www.pdflabs.com/tools/pdftk-server/
+    - Windows ([winget](https://github.com/microsoft/winget-cli)):
+      `winget install PDFLabs.PDFtk.Server`
+  - pdftk-java:
+
+    - Ubuntu: `sudo apt install pdftk-java`
+    - macOS & Linux ([Homebrew](https://brew.sh/)): `brew install pdftk-java`
+    - Windows ([Chocolatey](https://docs.chocolatey.org/en-us/choco/setup)):
+      `choco install pdftk-java --params "'/AddToUserPath:yes /AddToSystemPath:yes'"`
+
+  - Note: You might be interested in a GUI like
+    [PDF Chain](https://pdfchain.sourceforge.io/index.html).
+
 - [mutool](https://mupdf.com/releases/index.html) for some commands:
-  - macOS & Linux ([Homebrew](https://brew.sh/)): `brew install mupdf`
   - Ubuntu: `sudo apt install mupdf-tools`
+  - macOS & Linux ([Homebrew](https://brew.sh/)): `brew install mupdf`
   - Windows:
     - [winget](https://github.com/microsoft/winget-cli):
       `winget install ArtifexSoftware.mutool` (maybe just `mutool`)
@@ -348,31 +364,30 @@ _See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftool
 
 ## `pdftools merge2`
 
-Merge PDFs (mutool)
+Merge PDFs [mutool]
 
 ```
 USAGE
-  $ pdftools merge2 -i <value> -o <value> [-D] [-s] [-c | -d] [--compress-fonts | ] [--compress-images | ]
-    [-l] [-g] [--garbage-compact] [--garbage-deduplicate] [-k]
+  $ pdftools merge2 -i <value> -o <value> [-D] [-s] [-c | -d] [-F | ] [-I | ] [-l] [-g] [-C] [-G] [-k]
 
 FLAGS
-  -D, --dry-run           Pretend to work!
-  -c, --compress          Compress all streams
-  -d, --decompress        Decompress all streams (except compress-fonts/images)
-  -g, --garbage           Garbage collect unused objects
-  -i, --input=<value>...  (required) PDF files followed by comma-seperated page numbers or ranges
-                          (e.g. cover.pdf part-*.pdf file.pdf 2,11,4-6,10-8 otherfile.pdf)
-  -k, --keep              Keep output's name
-  -l, --linearize         Optimize for web browsers (ALIASES: --optimize)
-  -o, --output=<value>    (required) Output file
-  -s, --silent            Work silently unless there is an error!
-  --compress-fonts        Compress embedded fonts (ALIASES: --cf)
-  --compress-images       Compress images (ALIASES: --ci)
-  --garbage-compact       ... and compact cross reference table (ALIASES: --gc, --compact)
-  --garbage-deduplicate   ... and remove duplicate objects (ALIASES: --gd, --deduplicate)
+  -C, --garbage-compact      ... and compact cross reference table (ALIASES: --gc, --compact)
+  -D, --dry-run              Pretend to work!
+  -F, --compress-fonts       Compress embedded fonts (ALIASES: --cf)
+  -G, --garbage-deduplicate  ... and remove duplicate objects (ALIASES: --gd, --deduplicate)
+  -I, --compress-images      Compress images (ALIASES: --ci)
+  -c, --compress             Compress all streams
+  -d, --decompress           Decompress all streams (except compress-fonts/images)
+  -g, --garbage              Garbage collect unused objects
+  -i, --input=<value>...     (required) PDF files followed by comma-seperated page numbers or ranges
+                             (e.g. cover.pdf part-*.pdf file.pdf 2,11,4-6,10-8 otherfile.pdf)
+  -k, --keep                 Keep output's name
+  -l, --linearize            Optimize for web browsers (ALIASES: -O, --optimize)
+  -o, --output=<value>       (required) Output file
+  -s, --silent               Work silently unless there is an error!
 
 DESCRIPTION
-  Merge PDFs (mutool)
+  Merge PDFs [mutool]
 
 ALIASES
   $ pdftools m2
@@ -630,7 +645,7 @@ _See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftoo
 
 ## `pdftools split INPUT`
 
-Split each page into many tiles (mutool)
+Split each page into many tiles [mutool]
 
 ```
 USAGE
@@ -648,7 +663,7 @@ FLAGS
   -y, --y=<value>       Pieces to vertically divide each page into.
 
 DESCRIPTION
-  Split each page into many tiles (mutool)
+  Split each page into many tiles [mutool]
 
 ALIASES
   $ pdftools s

@@ -12,7 +12,7 @@ import {BaseCommandWithCompression} from '../../base-command-with-compression.js
 export default class Merge2 extends BaseCommandWithCompression {
 	static aliases = ['m2', 'join2', 'j2'];
 
-	static description = 'Merge PDFs (mutool)';
+	static description = 'Merge PDFs [mutool]';
 
 	static examples = [
 		{
@@ -60,11 +60,13 @@ export default class Merge2 extends BaseCommandWithCompression {
 			exclusive: ['decompress'],
 		}),
 		'compress-fonts': Flags.boolean({
+			char: 'F',
 			aliases: ['cf'],
 			description: 'Compress embedded fonts (ALIASES: --cf)',
 			exclusive: ['decompress'],
 		}),
 		'compress-images': Flags.boolean({
+			char: 'I',
 			aliases: ['ci'],
 			description: 'Compress images (ALIASES: --ci)',
 			exclusive: ['decompress'],
@@ -72,18 +74,21 @@ export default class Merge2 extends BaseCommandWithCompression {
 		linearize: Flags.boolean({
 			char: 'l',
 			aliases: ['optimize'],
-			description: 'Optimize for web browsers (ALIASES: --optimize)',
+			charAliases: ['O'],
+			description: 'Optimize for web browsers (ALIASES: -O, --optimize)',
 		}),
 		garbage: Flags.boolean({
 			char: 'g',
 			description: 'Garbage collect unused objects',
 		}),
 		'garbage-compact': Flags.boolean({
+			char: 'C',
 			aliases: ['compact', 'gc'],
 			description:
 				'... and compact cross reference table (ALIASES: --gc, --compact)',
 		}),
 		'garbage-deduplicate': Flags.boolean({
+			char: 'G',
 			aliases: ['deduplicate', 'gd'],
 			description:
 				'... and remove duplicate objects (ALIASES: --gd, --deduplicate)',
@@ -130,7 +135,7 @@ export default class Merge2 extends BaseCommandWithCompression {
 			}
 		}
 
-		if (compress) {
+		if (compress || compressFonts || compressImages) {
 			outputOptions.push('compress');
 			if (!keep) {
 				finalOutput = `${finalOutput}-compressed`;
@@ -158,7 +163,7 @@ export default class Merge2 extends BaseCommandWithCompression {
 			}
 		}
 
-		if (garbage) {
+		if (garbage || garbageCompact || garbageDeduplicate) {
 			outputOptions.push('garbage');
 			if (!keep) {
 				finalOutput = `${finalOutput}-garbaged`;

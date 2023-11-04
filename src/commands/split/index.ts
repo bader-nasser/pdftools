@@ -11,7 +11,7 @@ import {BaseCommand} from '../../base-command.js';
 export default class Split extends BaseCommand {
 	static aliases = ['s'];
 
-	static description = `Split each page into many tiles (mutool)`;
+	static description = `Split each page into many tiles [mutool]`;
 
 	static examples = [
 		'<%= config.bin %> <%= command.id %> input.pdf -x 2',
