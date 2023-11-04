@@ -184,10 +184,10 @@ USAGE
 FLAGS
   -D, --dry-run           Pretend to work!
   -i, --input=<value>     (required) Uncompressed PDF file
-  -l, --linearize         linearize PDF (optimize for web browsers) (ALIASES: -O, --optimize)
-  -m, --metadata          preserve metadata
+  -l, --linearize         Linearize PDF (optimize for web browsers) (ALIASES: -O, --optimize)
+  -m, --metadata          Preserve metadata
   -o, --output=<value>    Output file
-  -p, --pages=<value>...  comma/space separated list of page numbers and ranges
+  -p, --pages=<value>...  Comma/space separated list of page numbers and ranges (1,3-5 12-9 N)
   -s, --silent            Work silently unless there is an error!
 
 DESCRIPTION

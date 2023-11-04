@@ -33,16 +33,17 @@ export default class Compress2 extends BaseCommand {
 			aliases: ['optimize'],
 			charAliases: ['O'],
 			description:
-				'linearize PDF (optimize for web browsers) (ALIASES: -O, --optimize)',
+				'Linearize PDF (optimize for web browsers) (ALIASES: -O, --optimize)',
 		}),
 		pages: Flags.string({
 			char: 'p',
 			multiple: true,
-			description: 'comma/space separated list of page numbers and ranges',
+			description:
+				'Comma/space separated list of page numbers and ranges (1,3-5 12-9 N)',
 		}),
 		metadata: Flags.boolean({
 			char: 'm',
-			description: 'preserve metadata',
+			description: 'Preserve metadata',
 		}),
 	};
 
