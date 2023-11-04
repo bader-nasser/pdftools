@@ -1,7 +1,7 @@
 {
 	"name": "@bader-nasser/pdftools",
 	"description": "PDF tools to manipulate and process PDF files",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"type": "module",
 	"license": "MIT",
 	"author": "Bader Nasser",
