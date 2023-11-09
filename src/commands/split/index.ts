@@ -14,6 +14,7 @@ export default class Split extends BaseCommand {
 	static description = `Split each page into many tiles [mutool]`;
 
 	static examples = [
+		'<%= config.bin %> <%= command.id %> input.pdf',
 		'<%= config.bin %> <%= command.id %> input.pdf -x 2',
 		'<%= config.bin %> <%= command.id %> input.pdf -o splitted.pdf -y 2',
 		'<%= config.bin %> <%= command.id %> input.pdf -x 2 -y 3 -r',
@@ -33,7 +34,13 @@ export default class Split extends BaseCommand {
 		}),
 		x: Flags.integer({
 			char: 'x',
-			description: 'Pieces to horizontally divide each page into.',
+			description:
+				'Pieces to horizontally divide each page into. (Uses default only if --y is NOT used)',
+			async default(context) {
+				if (!context.flags.y) {
+					return 2;
+				}
+			},
 		}),
 		y: Flags.integer({
 			char: 'y',
@@ -56,10 +63,6 @@ export default class Split extends BaseCommand {
 		} else {
 			finalOutput = removeExtension(input);
 			finalOutput = `${finalOutput}-splitted`;
-		}
-
-		if (!x && !y) {
-			this.error('You must use -x or -y');
 		}
 
 		finalOutput = addExtension(finalOutput);

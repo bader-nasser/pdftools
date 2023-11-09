@@ -706,7 +706,8 @@ FLAGS
   -o, --output=<value>  Output file
   -r, --r               Split horizontally from right to left (default splits from left to right). (v1.23.0+)
   -s, --silent          Work silently unless there is an error!
-  -x, --x=<value>       Pieces to horizontally divide each page into.
+  -x, --x=<value>       [default: 2] Pieces to horizontally divide each page into. (Uses default only if --y is NOT
+                        used)
   -y, --y=<value>       Pieces to vertically divide each page into.
 
 DESCRIPTION
@@ -716,6 +717,8 @@ ALIASES
   $ pdftools s
 
 EXAMPLES
+  $ pdftools split input.pdf
+
   $ pdftools split input.pdf -x 2
 
   $ pdftools split input.pdf -o splitted.pdf -y 2
