@@ -97,6 +97,7 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 - [`pdftools compress2`](#pdftools-compress2)
 - [`pdftools convert INPUT`](#pdftools-convert-input)
 - [`pdftools decompress2 INPUT`](#pdftools-decompress2-input)
+- [`pdftools drop-xfa INPUT`](#pdftools-drop-xfa-input)
 - [`pdftools extract`](#pdftools-extract)
 - [`pdftools help [COMMANDS]`](#pdftools-help-commands)
 - [`pdftools merge`](#pdftools-merge)
@@ -266,6 +267,36 @@ EXAMPLES
 ```
 
 _See code: [src/commands/decompress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/decompress2/index.ts)_
+
+## `pdftools drop-xfa INPUT`
+
+Remove the form's XFA data
+
+```
+USAGE
+  $ pdftools drop-xfa INPUT [-D] [-s] [-o <value>]
+
+ARGUMENTS
+  INPUT  PDF with XFA data
+
+FLAGS
+  -D, --dry-run         Pretend to work!
+  -o, --output=<value>  Output file
+  -s, --silent          Work silently unless there is an error!
+
+DESCRIPTION
+  Remove the form's XFA data
+
+ALIASES
+  $ pdftools drop
+
+EXAMPLES
+  $ pdftools drop-xfa pdf-with-xfa.pdf
+
+  $ pdftools drop-xfa pdf-with-xfa.pdf -o pdf-no-xfa.pdf
+```
+
+_See code: [src/commands/drop-xfa/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/drop-xfa/index.ts)_
 
 ## `pdftools extract`
 
