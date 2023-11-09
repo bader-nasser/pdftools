@@ -64,7 +64,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/3.1.0 linux-x64 node-v21.1.0
+@bader-nasser/pdftools/3.1.1 linux-x64 node-v21.1.0
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -104,6 +104,7 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 - [`pdftools plugins:inspect PLUGIN...`](#pdftools-pluginsinspect-plugin)
 - [`pdftools plugins:install PLUGIN...`](#pdftools-pluginsinstall-plugin)
 - [`pdftools plugins:link PLUGIN`](#pdftools-pluginslink-plugin)
+- [`pdftools plugins reset`](#pdftools-plugins-reset)
 - [`pdftools plugins:uninstall PLUGIN...`](#pdftools-pluginsuninstall-plugin)
 - [`pdftools plugins update`](#pdftools-plugins-update)
 - [`pdftools process FILE`](#pdftools-process-file)
@@ -171,7 +172,7 @@ EXAMPLES
   $ pdftools compress uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [src/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/compress/index.ts)_
+_See code: [src/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/compress/index.ts)_
 
 ## `pdftools compress2`
 
@@ -202,7 +203,7 @@ EXAMPLES
   $ pdftools compress2 -i uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [src/commands/compress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/compress2/index.ts)_
+_See code: [src/commands/compress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/compress2/index.ts)_
 
 ## `pdftools convert INPUT`
 
@@ -229,7 +230,7 @@ EXAMPLES
   $ pdftools convert file.pdf -o file-text.txt
 ```
 
-_See code: [src/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/convert/index.ts)_
+_See code: [src/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/convert/index.ts)_
 
 ## `pdftools extract`
 
@@ -299,7 +300,7 @@ EXAMPLES
     $ pdftools extract -i input.pdf -o output.pdf --data file.txt
 ```
 
-_See code: [src/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/extract/index.ts)_
+_See code: [src/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -360,7 +361,7 @@ EXAMPLES
     $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/merge/index.ts)_
+_See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/merge/index.ts)_
 
 ## `pdftools merge2`
 
@@ -412,7 +413,7 @@ EXAMPLES
     $ pdftools merge2 -i input-*.pdf -o output -l
 ```
 
-_See code: [src/commands/merge2/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/merge2/index.ts)_
+_See code: [src/commands/merge2/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/merge2/index.ts)_
 
 ## `pdftools plugins`
 
@@ -435,7 +436,7 @@ EXAMPLES
   $ pdftools plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.0.2/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.2/src/commands/plugins/index.ts)_
 
 ## `pdftools plugins:inspect PLUGIN...`
 
@@ -462,7 +463,7 @@ EXAMPLES
   $ pdftools plugins:inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.0.2/src/commands/plugins/inspect.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.2/src/commands/plugins/inspect.ts)_
 
 ## `pdftools plugins:install PLUGIN...`
 
@@ -503,7 +504,7 @@ EXAMPLES
   $ pdftools plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.0.2/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.2/src/commands/plugins/install.ts)_
 
 ## `pdftools plugins:link PLUGIN`
 
@@ -533,7 +534,18 @@ EXAMPLES
   $ pdftools plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.0.2/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.2/src/commands/plugins/link.ts)_
+
+## `pdftools plugins reset`
+
+Remove all user-installed and linked plugins.
+
+```
+USAGE
+  $ pdftools plugins reset
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.2/src/commands/plugins/reset.ts)_
 
 ## `pdftools plugins:uninstall PLUGIN...`
 
@@ -558,7 +570,7 @@ ALIASES
   $ pdftools plugins remove
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.0.2/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.2/src/commands/plugins/uninstall.ts)_
 
 ## `pdftools plugins update`
 
@@ -576,7 +588,7 @@ DESCRIPTION
   Update installed plugins.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.0.2/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v4.1.2/src/commands/plugins/update.ts)_
 
 ## `pdftools process FILE`
 
@@ -611,7 +623,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [src/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/process/index.ts)_
+_See code: [src/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/process/index.ts)_
 
 ## `pdftools repair INPUT`
 
@@ -641,7 +653,7 @@ EXAMPLES
   $ pdftools repair broken.pdf -o fixed.pdf
 ```
 
-_See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/repair/index.ts)_
+_See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/repair/index.ts)_
 
 ## `pdftools split INPUT`
 
@@ -676,7 +688,7 @@ EXAMPLES
   $ pdftools split input.pdf -x 2 -y 3 -r
 ```
 
-_See code: [src/commands/split/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/split/index.ts)_
+_See code: [src/commands/split/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/split/index.ts)_
 
 ## `pdftools uncompress INPUT`
 
@@ -708,7 +720,7 @@ EXAMPLES
   $ pdftools uncompress doc.pdf -o doc-uncompressed.pdf
 ```
 
-_See code: [src/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/uncompress/index.ts)_
+_See code: [src/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/uncompress/index.ts)_
 
 ## `pdftools update-metadata INPUT`
 
@@ -751,7 +763,7 @@ EXAMPLES
   $ pdftools update-metadata input.pdf -o updated.pdf -f meta.yaml -a "Bader Nasser" -t awesome
 ```
 
-_See code: [src/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.0/src/commands/update-metadata/index.ts)_
+_See code: [src/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.1.1/src/commands/update-metadata/index.ts)_
 
 <!-- commandsstop -->
 
