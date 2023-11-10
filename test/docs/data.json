@@ -3,6 +3,7 @@
 // https://json5.org/
 // https://learnxinyminutes.com/docs/json/
 {
+	// https://json-schema.org/implementations.html#editors
 	// Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
 	"$schema": "../../data.schema.json",
 	// هذان الحقلان ضروريان

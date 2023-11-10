@@ -12,7 +12,10 @@ import {BaseCommandWithCompression} from '../../base-command-with-compression.js
 export default class Merge2 extends BaseCommandWithCompression {
 	static aliases = ['m2', 'join2', 'j2'];
 
-	static description = 'Merge PDFs [mutool]';
+	static summary = `Merge PDFs [mutool]`;
+
+	static description =
+		'Note: Compression & garbage collection flags do NOT seem to work!';
 
 	static examples = [
 		{
@@ -45,7 +48,7 @@ export default class Merge2 extends BaseCommandWithCompression {
 	static args = {
 		input: Args.string({
 			description: `PDF files followed by comma-seperated page numbers or ranges
-(e.g. cover.pdf part-*.pdf file.pdf 2,11,4-6,10-8 otherfile.pdf)`,
+(e.g. cover.pdf part-*.pdf file.pdf 2,11,4-6,10-8,13-N otherfile.pdf)`,
 			required: true,
 			// multiple: true,
 		}),

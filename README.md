@@ -29,7 +29,7 @@ see [test/docs/example.yaml](test/docs/example.yaml) for more details.
 - [PDFtk server](https://www.pdflabs.com/tools/pdftk-server/)
   or [`pdftk-java`](https://gitlab.com/pdftk-java/pdftk):
 
-  - Offical:
+  - Official:
     - Windows & macOS: https://www.pdflabs.com/tools/pdftk-server/
     - Windows ([winget](https://github.com/microsoft/winget-cli)):
       `winget install PDFLabs.PDFtk.Server`
@@ -81,14 +81,6 @@ There are many commands but the most important ones are:
   - aliases: `ext`, `ex` & `e`
 - [`process`](#pdftools-process-file)
   - alias: `p`
-
-In the [JSON data file](test/docs/data.json) you can add:
-
-```json
-"$schema": "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json",
-```
-
-to get some help in your [editor](https://json-schema.org/implementations.html#editors).
 
 <!-- commands -->
 
@@ -480,7 +472,7 @@ USAGE
 
 ARGUMENTS
   INPUT  PDF files followed by comma-seperated page numbers or ranges
-         (e.g. cover.pdf part-*.pdf file.pdf 2,11,4-6,10-8 otherfile.pdf)
+         (e.g. cover.pdf part-*.pdf file.pdf 2,11,4-6,10-8,13-N otherfile.pdf)
 
 FLAGS
   -C, --garbage-compact      ... and compact cross reference table (ALIASES: --gc, --compact)
@@ -498,6 +490,8 @@ FLAGS
 
 DESCRIPTION
   Merge PDFs [mutool]
+
+  Note: Compression & garbage collection flags do NOT seem to work!
 
 ALIASES
   $ pdftools m2
@@ -705,7 +699,7 @@ _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/
 
 ## `pdftools process FILE`
 
-Merge PDFs, extract pages and update metadata using simple file. (JSON5/YAML/TOML)
+Merge PDFs, extract pages and update metadata using simple file
 
 ```
 USAGE
@@ -713,9 +707,7 @@ USAGE
 
 ARGUMENTS
   FILE  Data file to process (JSON5 or YAML or TOML)
-        See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
-        See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/example.yaml
-        Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
+        See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json (or .yaml or .toml)
         Use / in the paths. On Windows, \ can be changed to either / or \\
 
 FLAGS
@@ -727,7 +719,7 @@ FLAGS
   -s, --silent    Work silently unless there is an error!
 
 DESCRIPTION
-  Merge PDFs, extract pages and update metadata using simple file. (JSON5/YAML/TOML)
+  Merge PDFs, extract pages and update metadata using simple file
 
 ALIASES
   $ pdftools p
@@ -825,6 +817,8 @@ FLAGS
   -c, --creator=<value>
   -d, --creation-date=<value>
   -f, --file=<value>               Metadata file (JSON5 or YAML or TOML)
+                                   See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/meta-only.json (or
+                                   .yaml or .toml)
   -k, --keywords=<value>...
   -m, --modification-date=<value>
   -o, --output=<value>             Output file

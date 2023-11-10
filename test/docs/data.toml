@@ -1,4 +1,6 @@
 # https://learnxinyminutes.com/docs/toml/
+# # In VSCode, use tamasfe.even-better-toml extension
+# https://json-schema.org/implementations.html#editors
 # Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
 #:schema ../../data.schema.json
 # هذان الحقلان ضروريان

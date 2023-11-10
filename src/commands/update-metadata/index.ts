@@ -36,7 +36,9 @@ export default class UpdateMetadata extends BaseCommand {
 	static flags = {
 		file: Flags.string({
 			char: 'f',
-			description: 'Metadata file (JSON5 or YAML or TOML)',
+			description: `Metadata file (JSON5 or YAML or TOML)
+See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/meta-only.json (or .yaml or .toml)
+			`,
 		}),
 		title: Flags.string({
 			char: 't',

@@ -23,16 +23,14 @@ export default class Process extends BaseCommandWithCompression {
 	static aliases = ['p'];
 
 	static description =
-		'Merge PDFs, extract pages and update metadata using simple file. (JSON5/YAML/TOML)';
+		'Merge PDFs, extract pages and update metadata using simple file';
 
 	static examples = ['<%= config.bin %> <%= command.id %> data.json'];
 
 	static args = {
 		file: Args.string({
 			description: `Data file to process (JSON5 or YAML or TOML)
-See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
-See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/example.yaml
-Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
+See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json (or .yaml or .toml)
 Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 			required: true,
 		}),

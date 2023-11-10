@@ -56,9 +56,9 @@ https://github.com/bader-nasser/pdftools/issues
 فكتابة مثل هذه الأسطر أسهل وأسرع وأنفع من استعمال الواجهةِ الرسوميةِ والضغطِ على الأزرار:
 
 ```bash
-pdftools extract relative/path/to/input.pdf /absolute/path/to/output.pdf --data datafile.txt
+pdftools extract -i relative/path/to/input.pdf -o /absolute/path/to/output.pdf --data datafile.txt
 
-pdftools e /absolute/path/in.pdf ../relative/path/out --compress --pageRanges "5, 9-3even, end, 1south"
+pdftools e -i /absolute/path/in.pdf -o ../relative/path/out --compress --pageRanges "5, 9-3even, end, 1south"
 
 pdf-tools process file.yml # .json/.json5/.yaml/.yml/.toml
 ```
