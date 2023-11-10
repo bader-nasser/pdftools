@@ -97,6 +97,8 @@ export default class UpdateMetadata extends BaseCommand {
 			this.exit(1);
 		}
 
+		this.logger(`Updating metadata for ${finalOutput}...`, silent);
+
 		if (file) {
 			try {
 				const filePath = path.join(process.cwd(), file);
@@ -118,7 +120,6 @@ export default class UpdateMetadata extends BaseCommand {
 					this.exit(1);
 				}
 
-				this.logger(`Updating metadata using ${file}...`, silent);
 				await updateMetadata({filePath: finalOutput, meta: fileObject, dryRun});
 			} catch (error) {
 				console.error(error);

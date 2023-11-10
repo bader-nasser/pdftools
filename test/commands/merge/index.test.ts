@@ -8,8 +8,15 @@ const output2 = 'test/pdfs/output-merged-with-1.pdf';
 describe('merge', () => {
 	test
 		.stdout()
-		.command(['merge', input, '-o', output])
+		.command(['merge', input])
 		.it('runs merge cmd', (ctx) => {
+			expect(ctx.stdout).to.contain('Creating merged.pdf...');
+		});
+
+	test
+		.stdout()
+		.command(['merge', input, '-o', output])
+		.it('runs merge cmd w/ -o', (ctx) => {
 			expect(ctx.stdout).to.contain('Creating test/pdfs/output-merged.pdf...');
 		});
 

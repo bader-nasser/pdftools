@@ -1,6 +1,7 @@
 // التعليقُ مسموح في الملف!
 // comments are allowed!
 // https://json5.org/
+// https://learnxinyminutes.com/docs/json/
 {
 	// Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
 	"$schema": "../../data.schema.json",
@@ -51,8 +52,8 @@
 	"compress": true,
 	"dryRun": false,
 	"silent": false,
-	// حقول اختيارية لتغيير بيانات الملف، استعملها مع الأمرين:
 	// optional fields to change metadata, use it with commands
+	// حقول اختيارية لتغيير بيانات الملف، استعملها مع الأمرين:
 	// process & edit-metadata
 	"title": "Output",
 	"author": "Bader Nasser",

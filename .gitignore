@@ -16,6 +16,7 @@ test/pdfs/input*ed.pdf
 test/pdfs/*.txt
 /test/pdfz
 /test/docs/aaa
+/test/pdfs/*.pdf
 
 *.tgz
 /*.pdf

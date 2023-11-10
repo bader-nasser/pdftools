@@ -76,6 +76,6 @@ jobs:
           pdf-tools -h
           pdf-tools p -h
           pdf-tools p test/docs/data.json
-          pdftools m -i test/pdfs/input-*.pdf -o output.pdf -c
-          pdftools m2 -i test/pdfs/input-*.pdf -o output2.pdf -c
-          pdftools m2 -i test/pdfs/input-*.pdf test/pdfs/input-2.pdf 2 -o output3.pdf -cl
+          pdftools m test/pdfs/input-*.pdf -o output.pdf -c
+          pdftools m2 test/pdfs/input-*.pdf -o output2.pdf -c
+          pdftools m2 test/pdfs/input-*.pdf test/pdfs/input-2.pdf 2 -o output3.pdf -cl

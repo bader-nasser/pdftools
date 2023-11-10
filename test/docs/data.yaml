@@ -1,10 +1,11 @@
 %YAML 1.2
 ---
+# https://learnxinyminutes.com/docs/yaml/
 # Use https://github.com/bader-nasser/pdftools/raw/main/data.schema.json
 # yaml-language-server: $schema=../../data.schema.json
+# هذان الحقلان ضروريان
+# required fields
 output: '../pdfs/output-yaml.pdf'
-compress: false
-dryRun: false
 files:
   - ../pdfs/input-3.pdf
   - name: ../pdfs/input-4.pdf
@@ -13,3 +14,19 @@ files:
       - '5-10even'
   - name: ../pdfs/input-1.pdf
     data: data.txt
+# حقول اختيارية
+# optional fields
+compress: false
+dryRun: false
+silent: false
+# optional fields to change metadata, use it with commands
+# حقول اختيارية لتغيير بيانات الملف، استعملها مع الأمرين:
+# process & edit-metadata
+title: 'Merged using yaml!'
+author: 'Bader Nasser'
+subject: 'Yamled!!'
+creationDate: '2018-06-24T01:58:37.228Z'
+modificationDate: '2018-06-24T01:58:37.228Z'
+creator: 'pdftools (https://npmjs.com/package/@bader-nasser/pdftools)'
+producer: 'pdftools'
+keywords: ['pdf', 'tools']

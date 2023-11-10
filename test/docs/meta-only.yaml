@@ -1,0 +1,13 @@
+%YAML 1.2
+---
+# https://learnxinyminutes.com/docs/yaml/
+# optional fields to change metadata
+# حقول اختيارية لتغيير بيانات الملف
+title: 'metadata edited using yaml!'
+author: 'Bader Nasser'
+subject: 'Yamled!!'
+creationDate: '2018-06-24T01:58:37.228Z'
+modificationDate: '2018-06-24T01:58:37.228Z'
+creator: 'pdftools (https://npmjs.com/package/@bader-nasser/pdftools)'
+producer: 'pdftools'
+keywords: ['pdf', 'tools']
