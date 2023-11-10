@@ -14,16 +14,18 @@ export default class Compress2 extends BaseCommand {
 	static description = `Compress streams [mutool]`;
 
 	static examples = [
-		'<%= config.bin %> <%= command.id %> -i uncompressed.pdf',
-		'<%= config.bin %> <%= command.id %> -i uncompressed.pdf -o compressed.pdf',
+		'<%= config.bin %> <%= command.id %> uncompressed.pdf',
+		'<%= config.bin %> <%= command.id %> uncompressed.pdf -o compressed.pdf',
 	];
 
-	static flags = {
-		input: Flags.string({
-			char: 'i',
+	static args = {
+		input: Args.string({
 			required: true,
 			description: `Uncompressed PDF file`,
 		}),
+	};
+
+	static flags = {
 		output: Flags.string({
 			char: 'o',
 			description: 'Output file',
@@ -48,9 +50,9 @@ export default class Compress2 extends BaseCommand {
 	};
 
 	async run(): Promise<void> {
-		const {flags} = await this.parse(Compress2);
+		const {args, flags} = await this.parse(Compress2);
+		const {input} = args;
 		const {
-			input,
 			output,
 			'dry-run': dryRun,
 			silent,

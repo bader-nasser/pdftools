@@ -1,5 +1,5 @@
 import path from 'node:path';
-import {Flags} from '@oclif/core';
+import {Args, Flags} from '@oclif/core';
 import fs from 'fs-extra';
 import {globby} from 'globby';
 import {
@@ -17,37 +17,45 @@ export default class Merge2 extends BaseCommandWithCompression {
 	static examples = [
 		{
 			description: 'Merge all .pdf files',
-			command: '<%= config.bin %> <%= command.id %> -i *.pdf -o output.pdf',
+			command: '<%= config.bin %> <%= command.id %> *.pdf',
+		},
+		{
+			description: 'Merge all .pdf files',
+			command: '<%= config.bin %> <%= command.id %> *.pdf -o output.pdf',
 		},
 		{
 			description:
 				'Merge all .pdf files that start with input- & compress the output',
-			command: `<%= config.bin %> <%= command.id %> -i input-*.pdf -o output.pdf -c`,
+			command: `<%= config.bin %> <%= command.id %> input-*.pdf -o output.pdf -c`,
 		},
 		{
 			description:
 				'Merge cover.pdf with all .pdf files that start with input-, and notes.pdf',
-			command: `<%= config.bin %> <%= command.id %> -i cover.pdf input-*.pdf notes.pdf -o output.pdf`,
+			command: `<%= config.bin %> <%= command.id %> cover.pdf input-*.pdf notes.pdf -o output.pdf`,
 		},
 		{
 			description:
 				'Merge all .pdf files and optimize the output for web browsers',
-			command: `<%= config.bin %> <%= command.id %> -i input-*.pdf -o output -l`,
+			command: `<%= config.bin %> <%= command.id %> input-*.pdf -o output -l`,
 		},
 	];
 
-	static flags = {
-		input: Flags.string({
-			char: 'i',
+	static strict = false;
+
+	static args = {
+		input: Args.string({
 			description: `PDF files followed by comma-seperated page numbers or ranges
 (e.g. cover.pdf part-*.pdf file.pdf 2,11,4-6,10-8 otherfile.pdf)`,
 			required: true,
-			multiple: true,
+			// multiple: true,
 		}),
+	};
+
+	static flags = {
 		output: Flags.string({
 			char: 'o',
 			description: 'Output file',
-			required: true,
+			default: 'merged.pdf',
 		}),
 		decompress: Flags.boolean({
 			char: 'd',
@@ -100,9 +108,9 @@ export default class Merge2 extends BaseCommandWithCompression {
 	};
 
 	async run(): Promise<void> {
-		const {flags} = await this.parse(Merge2);
+		const {argv, flags} = await this.parse(Merge2);
+		const input = argv as string[];
 		const {
-			input,
 			output,
 			'dry-run': dryRun,
 			silent,

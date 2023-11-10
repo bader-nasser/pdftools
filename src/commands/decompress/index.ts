@@ -8,10 +8,10 @@ import {
 } from '../../utils.js';
 import {BaseCommand} from '../../base-command.js';
 
-export default class Uncompress extends BaseCommand {
-	static aliases = ['u', 'decompress', 'd'];
+export default class Decompress extends BaseCommand {
+	static aliases = ['d', 'uncompress', 'u'];
 
-	static description = `Uncompress PDF page streams for editing the PDF in a text editor`;
+	static description = `Decompress PDF page streams for editing the PDF in a text editor`;
 
 	static examples = [
 		'<%= config.bin %> <%= command.id %> doc.pdf',
@@ -34,7 +34,7 @@ export default class Uncompress extends BaseCommand {
 	};
 
 	async run(): Promise<void> {
-		const {args, flags} = await this.parse(Uncompress);
+		const {args, flags} = await this.parse(Decompress);
 		const {input} = args;
 		const {output, 'dry-run': dryRun, silent} = flags;
 		let finalOutput: string;
@@ -42,7 +42,7 @@ export default class Uncompress extends BaseCommand {
 			finalOutput = removeExtension(output);
 		} else {
 			finalOutput = removeExtension(input);
-			finalOutput = `${finalOutput}-uncompressed`;
+			finalOutput = `${finalOutput}-decompressed`;
 		}
 
 		finalOutput = addExtension(finalOutput);

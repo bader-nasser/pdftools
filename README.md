@@ -64,7 +64,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/3.2.0 linux-x64 node-v21.1.0
+@bader-nasser/pdftools/4.0.0 linux-x64 node-v21.1.0
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -94,14 +94,15 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 
 - [`pdftools autocomplete [SHELL]`](#pdftools-autocomplete-shell)
 - [`pdftools compress INPUT`](#pdftools-compress-input)
-- [`pdftools compress2`](#pdftools-compress2)
+- [`pdftools compress2 INPUT`](#pdftools-compress2-input)
 - [`pdftools convert INPUT`](#pdftools-convert-input)
+- [`pdftools decompress INPUT`](#pdftools-decompress-input)
 - [`pdftools decompress2 INPUT`](#pdftools-decompress2-input)
 - [`pdftools drop-xfa INPUT`](#pdftools-drop-xfa-input)
 - [`pdftools extract`](#pdftools-extract)
 - [`pdftools help [COMMANDS]`](#pdftools-help-commands)
-- [`pdftools merge`](#pdftools-merge)
-- [`pdftools merge2`](#pdftools-merge2)
+- [`pdftools merge INPUT`](#pdftools-merge-input)
+- [`pdftools merge2 INPUT`](#pdftools-merge2-input)
 - [`pdftools plugins`](#pdftools-plugins)
 - [`pdftools plugins:inspect PLUGIN...`](#pdftools-pluginsinspect-plugin)
 - [`pdftools plugins:install PLUGIN...`](#pdftools-pluginsinstall-plugin)
@@ -112,7 +113,6 @@ to get some help in your [editor](https://json-schema.org/implementations.html#e
 - [`pdftools process FILE`](#pdftools-process-file)
 - [`pdftools repair INPUT`](#pdftools-repair-input)
 - [`pdftools split INPUT`](#pdftools-split-input)
-- [`pdftools uncompress INPUT`](#pdftools-uncompress-input)
 - [`pdftools update-metadata INPUT`](#pdftools-update-metadata-input)
 
 ## `pdftools autocomplete [SHELL]`
@@ -174,19 +174,21 @@ EXAMPLES
   $ pdftools compress uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [src/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/compress/index.ts)_
+_See code: [src/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/compress/index.ts)_
 
-## `pdftools compress2`
+## `pdftools compress2 INPUT`
 
 Compress streams [mutool]
 
 ```
 USAGE
-  $ pdftools compress2 -i <value> [-D] [-s] [-o <value>] [-l] [-p <value>] [-m]
+  $ pdftools compress2 INPUT [-D] [-s] [-o <value>] [-l] [-p <value>] [-m]
+
+ARGUMENTS
+  INPUT  Uncompressed PDF file
 
 FLAGS
   -D, --dry-run           Pretend to work!
-  -i, --input=<value>     (required) Uncompressed PDF file
   -l, --linearize         Linearize PDF (optimize for web browsers) (ALIASES: -O, --optimize)
   -m, --metadata          Preserve metadata
   -o, --output=<value>    Output file
@@ -200,12 +202,12 @@ ALIASES
   $ pdftools c2
 
 EXAMPLES
-  $ pdftools compress2 -i uncompressed.pdf
+  $ pdftools compress2 uncompressed.pdf
 
-  $ pdftools compress2 -i uncompressed.pdf -o compressed.pdf
+  $ pdftools compress2 uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [src/commands/compress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/compress2/index.ts)_
+_See code: [src/commands/compress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/compress2/index.ts)_
 
 ## `pdftools convert INPUT`
 
@@ -232,7 +234,39 @@ EXAMPLES
   $ pdftools convert file.pdf -o file-text.txt
 ```
 
-_See code: [src/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/convert/index.ts)_
+_See code: [src/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/convert/index.ts)_
+
+## `pdftools decompress INPUT`
+
+Decompress PDF page streams for editing the PDF in a text editor
+
+```
+USAGE
+  $ pdftools decompress INPUT [-D] [-s] [-o <value>]
+
+ARGUMENTS
+  INPUT  Compressed PDF file
+
+FLAGS
+  -D, --dry-run         Pretend to work!
+  -o, --output=<value>  Output file
+  -s, --silent          Work silently unless there is an error!
+
+DESCRIPTION
+  Decompress PDF page streams for editing the PDF in a text editor
+
+ALIASES
+  $ pdftools d
+  $ pdftools uncompress
+  $ pdftools u
+
+EXAMPLES
+  $ pdftools decompress doc.pdf
+
+  $ pdftools decompress doc.pdf -o doc-uncompressed.pdf
+```
+
+_See code: [src/commands/decompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/decompress/index.ts)_
 
 ## `pdftools decompress2 INPUT`
 
@@ -266,7 +300,7 @@ EXAMPLES
   $ pdftools decompress2 compressed.pdf -o decompressed.pdf
 ```
 
-_See code: [src/commands/decompress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/decompress2/index.ts)_
+_See code: [src/commands/decompress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/decompress2/index.ts)_
 
 ## `pdftools drop-xfa INPUT`
 
@@ -296,7 +330,7 @@ EXAMPLES
   $ pdftools drop-xfa pdf-with-xfa.pdf -o pdf-no-xfa.pdf
 ```
 
-_See code: [src/commands/drop-xfa/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/drop-xfa/index.ts)_
+_See code: [src/commands/drop-xfa/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/drop-xfa/index.ts)_
 
 ## `pdftools extract`
 
@@ -366,7 +400,7 @@ EXAMPLES
     $ pdftools extract -i input.pdf -o output.pdf --data file.txt
 ```
 
-_See code: [src/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/extract/index.ts)_
+_See code: [src/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -388,22 +422,25 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.5/src/commands/help.ts)_
 
-## `pdftools merge`
+## `pdftools merge INPUT`
 
 Merge PDFs
 
 ```
 USAGE
-  $ pdftools merge -i <value> -o <value> [-D] [-s] [-c]
+  $ pdftools merge INPUT [-D] [-s] [-c] [-o <value>] [-k]
+
+ARGUMENTS
+  INPUT  Input files (e.g. cover.pdf part-*.pdf)
 
 FLAGS
-  -D, --dry-run           Pretend to work!
-  -c, --compress          Reduce file size
-                          See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
-                          You also may want to try: https://www.ilovepdf.com/compress_pdf
-  -i, --input=<value>...  (required) Input files (e.g. cover.pdf part-*.pdf)
-  -o, --output=<value>    (required) Output file
-  -s, --silent            Work silently unless there is an error!
+  -D, --dry-run         Pretend to work!
+  -c, --compress        Reduce file size
+                        See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
+                        You also may want to try: https://www.ilovepdf.com/compress_pdf
+  -k, --keep            Keep output's name
+  -o, --output=<value>  [default: merged.pdf] Output file
+  -s, --silent          Work silently unless there is an error!
 
 DESCRIPTION
   Merge PDFs
@@ -416,26 +453,34 @@ ALIASES
 EXAMPLES
   Merge all .pdf files
 
-    $ pdftools merge -i *.pdf -o output.pdf
+    $ pdftools merge *.pdf
+
+  Merge all .pdf files
+
+    $ pdftools merge *.pdf -o output.pdf
 
   Merge all .pdf files that start with input- & compress the output
 
-    $ pdftools merge -i input-*.pdf -o output.pdf -c
+    $ pdftools merge input-*.pdf -o output.pdf -c
 
   Merge cover.pdf with all .pdf files that start with input-, and notes.pdf
 
-    $ pdftools merge -i cover.pdf input-*.pdf notes.pdf -o output.pdf
+    $ pdftools merge cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/merge/index.ts)_
+_See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/merge/index.ts)_
 
-## `pdftools merge2`
+## `pdftools merge2 INPUT`
 
 Merge PDFs [mutool]
 
 ```
 USAGE
-  $ pdftools merge2 -i <value> -o <value> [-D] [-s] [-c | -d] [-F | ] [-I | ] [-l] [-g] [-C] [-G] [-k]
+  $ pdftools merge2 INPUT [-D] [-s] [-c | -d] [-o <value>] [-F | ] [-I | ] [-l] [-g] [-C] [-G] [-k]
+
+ARGUMENTS
+  INPUT  PDF files followed by comma-seperated page numbers or ranges
+         (e.g. cover.pdf part-*.pdf file.pdf 2,11,4-6,10-8 otherfile.pdf)
 
 FLAGS
   -C, --garbage-compact      ... and compact cross reference table (ALIASES: --gc, --compact)
@@ -446,11 +491,9 @@ FLAGS
   -c, --compress             Compress all streams
   -d, --decompress           Decompress all streams (except compress-fonts/images)
   -g, --garbage              Garbage collect unused objects
-  -i, --input=<value>...     (required) PDF files followed by comma-seperated page numbers or ranges
-                             (e.g. cover.pdf part-*.pdf file.pdf 2,11,4-6,10-8 otherfile.pdf)
   -k, --keep                 Keep output's name
   -l, --linearize            Optimize for web browsers (ALIASES: -O, --optimize)
-  -o, --output=<value>       (required) Output file
+  -o, --output=<value>       [default: merged.pdf] Output file
   -s, --silent               Work silently unless there is an error!
 
 DESCRIPTION
@@ -464,22 +507,26 @@ ALIASES
 EXAMPLES
   Merge all .pdf files
 
-    $ pdftools merge2 -i *.pdf -o output.pdf
+    $ pdftools merge2 *.pdf
+
+  Merge all .pdf files
+
+    $ pdftools merge2 *.pdf -o output.pdf
 
   Merge all .pdf files that start with input- & compress the output
 
-    $ pdftools merge2 -i input-*.pdf -o output.pdf -c
+    $ pdftools merge2 input-*.pdf -o output.pdf -c
 
   Merge cover.pdf with all .pdf files that start with input-, and notes.pdf
 
-    $ pdftools merge2 -i cover.pdf input-*.pdf notes.pdf -o output.pdf
+    $ pdftools merge2 cover.pdf input-*.pdf notes.pdf -o output.pdf
 
   Merge all .pdf files and optimize the output for web browsers
 
-    $ pdftools merge2 -i input-*.pdf -o output -l
+    $ pdftools merge2 input-*.pdf -o output -l
 ```
 
-_See code: [src/commands/merge2/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/merge2/index.ts)_
+_See code: [src/commands/merge2/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/merge2/index.ts)_
 
 ## `pdftools plugins`
 
@@ -658,14 +705,14 @@ _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/
 
 ## `pdftools process FILE`
 
-Merge PDF files using data file. Can be used to merge some pages from each file.
+Merge PDFs, extract pages and update metadata using simple file. (JSON5/YAML/TOML)
 
 ```
 USAGE
   $ pdftools process FILE [-D] [-s] [-c] [-k]
 
 ARGUMENTS
-  FILE  Data file to process (can be JSON5 or YAML or TOML)
+  FILE  Data file to process (JSON5 or YAML or TOML)
         See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.json
         See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/example.yaml
         Set "$schema" to "https://github.com/bader-nasser/pdftools/raw/main/data.schema.json"
@@ -680,7 +727,7 @@ FLAGS
   -s, --silent    Work silently unless there is an error!
 
 DESCRIPTION
-  Merge PDF files using data file. Can be used to merge some pages from each file.
+  Merge PDFs, extract pages and update metadata using simple file. (JSON5/YAML/TOML)
 
 ALIASES
   $ pdftools p
@@ -689,7 +736,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [src/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/process/index.ts)_
+_See code: [src/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/process/index.ts)_
 
 ## `pdftools repair INPUT`
 
@@ -719,7 +766,7 @@ EXAMPLES
   $ pdftools repair broken.pdf -o fixed.pdf
 ```
 
-_See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/repair/index.ts)_
+_See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/repair/index.ts)_
 
 ## `pdftools split INPUT`
 
@@ -757,39 +804,7 @@ EXAMPLES
   $ pdftools split input.pdf -x 2 -y 3 -r
 ```
 
-_See code: [src/commands/split/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/split/index.ts)_
-
-## `pdftools uncompress INPUT`
-
-Uncompress PDF page streams for editing the PDF in a text editor
-
-```
-USAGE
-  $ pdftools uncompress INPUT [-D] [-s] [-o <value>]
-
-ARGUMENTS
-  INPUT  Compressed PDF file
-
-FLAGS
-  -D, --dry-run         Pretend to work!
-  -o, --output=<value>  Output file
-  -s, --silent          Work silently unless there is an error!
-
-DESCRIPTION
-  Uncompress PDF page streams for editing the PDF in a text editor
-
-ALIASES
-  $ pdftools u
-  $ pdftools decompress
-  $ pdftools d
-
-EXAMPLES
-  $ pdftools uncompress doc.pdf
-
-  $ pdftools uncompress doc.pdf -o doc-uncompressed.pdf
-```
-
-_See code: [src/commands/uncompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/uncompress/index.ts)_
+_See code: [src/commands/split/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/split/index.ts)_
 
 ## `pdftools update-metadata INPUT`
 
@@ -809,7 +824,7 @@ FLAGS
   -a, --author=<value>
   -c, --creator=<value>
   -d, --creation-date=<value>
-  -f, --file=<value>               Metadata file (.json or .yaml or .toml)
+  -f, --file=<value>               Metadata file (JSON5 or YAML or TOML)
   -k, --keywords=<value>...
   -m, --modification-date=<value>
   -o, --output=<value>             Output file
@@ -832,7 +847,7 @@ EXAMPLES
   $ pdftools update-metadata input.pdf -o updated.pdf -f meta.yaml -a "Bader Nasser" -t awesome
 ```
 
-_See code: [src/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v3.2.0/src/commands/update-metadata/index.ts)_
+_See code: [src/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/update-metadata/index.ts)_
 
 <!-- commandsstop -->
 

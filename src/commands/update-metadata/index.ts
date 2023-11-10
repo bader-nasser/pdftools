@@ -36,7 +36,7 @@ export default class UpdateMetadata extends BaseCommand {
 	static flags = {
 		file: Flags.string({
 			char: 'f',
-			description: 'Metadata file (.json or .yaml or .toml)',
+			description: 'Metadata file (JSON5 or YAML or TOML)',
 		}),
 		title: Flags.string({
 			char: 't',

@@ -2,7 +2,7 @@ import {expect, test} from '@oclif/test';
 
 const input = 'test/pdfs/input-1.pdf';
 const outputCompressed = 'test/pdfs/output-1-compressed.pdf';
-const outputUncompressed = 'test/pdfs/output-1-uncompressed.pdf';
+const outputUncompressed = 'test/pdfs/output-1-decompressed.pdf';
 
 describe('compression', () => {
 	test
@@ -25,19 +25,19 @@ describe('compression', () => {
 
 	test
 		.stdout()
-		.command(['uncompress', input])
-		.it('runs uncompress cmd without -o flag', (ctx) => {
+		.command(['decompress', input])
+		.it('runs decompress cmd without -o flag', (ctx) => {
 			expect(ctx.stdout).to.contain(
-				'Creating test/pdfs/input-1-uncompressed.pdf...',
+				'Creating test/pdfs/input-1-decompressed.pdf...',
 			);
 		});
 
 	test
 		.stdout()
-		.command(['uncompress', input, '-o', outputUncompressed])
-		.it('runs uncompress cmd', (ctx) => {
+		.command(['decompress', input, '-o', outputUncompressed])
+		.it('runs decompress cmd', (ctx) => {
 			expect(ctx.stdout).to.contain(
-				'Creating test/pdfs/output-1-uncompressed.pdf...',
+				'Creating test/pdfs/output-1-decompressed.pdf...',
 			);
 		});
 });

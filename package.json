@@ -1,7 +1,7 @@
 {
 	"name": "@bader-nasser/pdftools",
 	"description": "PDF tools to manipulate and process PDF files",
-	"version": "3.2.0",
+	"version": "4.0.0",
 	"type": "module",
 	"license": "MIT",
 	"author": "Bader Nasser",
@@ -14,7 +14,7 @@
 	"repository": "bader-nasser/pdftools",
 	"scripts": {
 		"prepare": "husky install",
-		"clean": "shx rm -rf dist test/pdfz test/docs/aaa test/pdfs/output*.pdf test/pdfs/input*ed.pdf test/pdfs/*.txt *.tgz",
+		"clean": "shx rm -rf dist test/pdfz test/docs/aaa test/pdfs/output*.pdf test/pdfs/input*ed.pdf test/pdfs/*.txt *.tgz *.pdf",
 		"generate-schema": "node generate-schema.mjs",
 		"generate-schema:watch": "ts-node generate-schema.mjs --watch",
 		"app-dev": "./bin/dev.js",
