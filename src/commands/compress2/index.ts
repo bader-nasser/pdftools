@@ -12,14 +12,14 @@ export default class Compress2 extends BaseCommand {
 	static description = `Compress streams [mutool]`;
 
 	static examples = [
-		'<%= config.bin %> <%= command.id %> uncompressed.pdf',
-		'<%= config.bin %> <%= command.id %> uncompressed.pdf -o compressed.pdf',
+		'<%= config.bin %> <%= command.id %> decompressed.pdf',
+		'<%= config.bin %> <%= command.id %> decompressed.pdf -o compressed.pdf',
 	];
 
 	static args = {
 		input: Args.string({
 			required: true,
-			description: `Uncompressed PDF file`,
+			description: `Decompressed PDF file`,
 		}),
 	};
 

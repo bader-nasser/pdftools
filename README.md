@@ -177,7 +177,7 @@ USAGE
   $ pdftools compress2 INPUT [-D] [-s] [-o <value>] [-l] [-p <value>] [-m]
 
 ARGUMENTS
-  INPUT  Uncompressed PDF file
+  INPUT  Decompressed PDF file
 
 FLAGS
   -D, --dry-run           Pretend to work!
@@ -194,9 +194,9 @@ ALIASES
   $ pdftools c2
 
 EXAMPLES
-  $ pdftools compress2 uncompressed.pdf
+  $ pdftools compress2 decompressed.pdf
 
-  $ pdftools compress2 uncompressed.pdf -o compressed.pdf
+  $ pdftools compress2 decompressed.pdf -o compressed.pdf
 ```
 
 _See code: [src/commands/compress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/compress2/index.ts)_
@@ -255,7 +255,7 @@ ALIASES
 EXAMPLES
   $ pdftools decompress doc.pdf
 
-  $ pdftools decompress doc.pdf -o doc-uncompressed.pdf
+  $ pdftools decompress doc.pdf -o doc-decompressed.pdf
 ```
 
 _See code: [src/commands/decompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/decompress/index.ts)_
@@ -334,29 +334,25 @@ USAGE
     |  | ] [-q even|odd] [-r north|south|east|west|left|right|down] [-k]
 
 FLAGS
-  -D, --dry-run              Pretend to work!
-  -c, --compress             Reduce file size
-                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
-                             You also may want to try: https://www.ilovepdf.com/compress_pdf
-  -d, --data=<value>         Data file (lines of page ranges)
-                             See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
-  -f, --first-page=<value>   First page (defaults to last-page)
-  -i, --input=<value>        (required) Relative or absolute path to the PDF file to be used.
-                             Use / in the path. On Windows, \ can be changed to either / or \\.
-                             Surround the path by " or ' if it contains spaces.
-  -k, --keep                 Keep output's name
-  -l, --last-page=<value>    Last page (defaults to first-page)
-  -o, --output=<value>       (required) Relative or absolute path to the PDF file to be created.
-                             Use / in the path. On Windows, \ can be changed to either / or \\.
-                             Surround the path by " or ' if it contains spaces.
-  -p, --page-ranges=<value>  Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
-                             See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
-                             See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
-  -q, --qualifier=<option>   See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
-                             <options: even|odd>
-  -r, --rotation=<option>    See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
-                             <options: north|south|east|west|left|right|down>
-  -s, --silent               Work silently unless there is an error!
+  -D, --dry-run                 Pretend to work!
+  -c, --compress                Reduce file size
+                                You also may want to try: https://www.ilovepdf.com/compress_pdf
+  -d, --data=<value>            Data file (lines of page ranges)
+                                See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
+  -f, --first-page=<value>      First page (defaults to last-page)
+  -i, --input=<value>           (required) Relative or absolute path to the PDF file to be used.
+                                Use / in the path. On Windows, \ can be changed to either / or \\.
+                                Surround the path by " or ' if it contains spaces.
+  -k, --keep                    Keep output's name
+  -l, --last-page=<value>       Last page (defaults to first-page)
+  -o, --output=<value>          (required) Relative or absolute path to the PDF file to be created.
+                                Use / in the path. On Windows, \ can be changed to either / or \\.
+                                Surround the path by " or ' if it contains spaces.
+  -p, --page-ranges=<value>...  Comma/Space-seperated list of page ranges (eg. 1-3,5east, 4 7-10even 22-11odd)
+                                See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt
+  -q, --qualifier=<option>      <options: even|odd>
+  -r, --rotation=<option>       <options: north|south|east|west|left|right|down>
+  -s, --silent                  Work silently unless there is an error!
 
 DESCRIPTION
   Extract pages from PDF file
@@ -385,7 +381,7 @@ EXAMPLES
 
   Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4
 
-    $ pdftools extract -i input.pdf -o output.pdf -p "1-3, 5east, 7-4odd"
+    $ pdftools extract -i input.pdf -o output.pdf -p 1-3, 5east 7-4odd
 
   Extract pages as declared in file.txt
 
@@ -428,7 +424,6 @@ ARGUMENTS
 FLAGS
   -D, --dry-run         Pretend to work!
   -c, --compress        Reduce file size
-                        See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                         You also may want to try: https://www.ilovepdf.com/compress_pdf
   -k, --keep            Keep output's name
   -o, --output=<value>  [default: merged.pdf] Output file
@@ -713,7 +708,6 @@ ARGUMENTS
 FLAGS
   -D, --dry-run   Pretend to work!
   -c, --compress  Reduce file size
-                  See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-compress
                   You also may want to try: https://www.ilovepdf.com/compress_pdf
   -k, --keep      Keep output's name
   -s, --silent    Work silently unless there is an error!

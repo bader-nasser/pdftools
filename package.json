@@ -88,7 +88,7 @@
 		"node": ">=18.11.0"
 	},
 	"files": [
-		"/bin",
+		"/bin/run.*",
 		"/dist",
 		"/npm-shrinkwrap.json",
 		"/oclif.manifest.json",

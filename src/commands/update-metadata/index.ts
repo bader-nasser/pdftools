@@ -85,13 +85,13 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/meta-only.json
 		let finalOutput: string;
 		if (output) {
 			finalOutput = removeExtension(output);
-			finalOutput = addExtension(finalOutput);
-			fs.copyFileSync(input, finalOutput);
 		} else {
-			finalOutput = input;
+			finalOutput = removeExtension(input);
+			finalOutput = `${finalOutput}-meta-updated`;
 		}
 
-		await this.ensureDirExists(finalOutput);
+		finalOutput = addExtension(finalOutput);
+		fs.copyFileSync(input, finalOutput);
 		this.logger(`Updating metadata for ${finalOutput}...`, silent);
 
 		if (file) {

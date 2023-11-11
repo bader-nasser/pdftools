@@ -13,7 +13,7 @@ export default class Decompress extends BaseCommand {
 
 	static examples = [
 		'<%= config.bin %> <%= command.id %> doc.pdf',
-		'<%= config.bin %> <%= command.id %> doc.pdf -o doc-uncompressed.pdf',
+		'<%= config.bin %> <%= command.id %> doc.pdf -o doc-decompressed.pdf',
 	];
 
 	static args = {

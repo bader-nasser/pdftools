@@ -40,7 +40,7 @@ export default class Extract extends BaseCommandWithCompression {
 			description:
 				'Extract pages from 1 to 3, with the 5th page rotated to the east, and *odd* pages from 7 to 4',
 			command:
-				'<%= config.bin %> <%= command.id %> -i input.pdf -o output.pdf -p "1-3, 5east, 7-4odd"',
+				'<%= config.bin %> <%= command.id %> -i input.pdf -o output.pdf -p 1-3, 5east 7-4odd',
 		},
 		{
 			description: 'Extract pages as declared in file.txt',
@@ -81,10 +81,10 @@ Surround the path by " or ' if it contains spaces.`,
 		}),
 		'page-ranges': Flags.string({
 			char: 'p',
+			multiple: true,
 			aliases: ['pageRanges'],
-			description: `Comma/Space-seperated list of page ranges (eg. "1-3, 5east, 4, 7-10even, 22-11odd")
-See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat
-See also: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
+			description: `Comma/Space-seperated list of page ranges (eg. 1-3,5east, 4 7-10even 22-11odd)
+See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 			// This flag cannot be specified alongside these other flags
 			exclusive: ['first-page', 'last-page', 'data'],
 		}),
@@ -98,8 +98,6 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 		qualifier: Flags.string({
 			char: 'q',
 			options: ['even', 'odd'],
-			description:
-				'See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat',
 			relationships: [
 				// Make this flag dependent on at least one of these flags
 				{type: 'some', flags: ['first-page', 'last-page']},
@@ -110,8 +108,6 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 		rotation: Flags.string({
 			char: 'r',
 			options: ['north', 'south', 'east', 'west', 'left', 'right', 'down'],
-			description:
-				'See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-cat',
 			relationships: [
 				// Make this flag dependent on at least one of these flags
 				{type: 'some', flags: ['first-page', 'last-page']},
@@ -155,7 +151,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 		if (
 			isUndefinedOrEmptyString(firstPage) &&
 			isUndefinedOrEmptyString(lastPage) &&
-			isUndefinedOrEmptyString(pageRanges) &&
+			isUndefinedOrEmptyString(pageRanges?.join(' ')) &&
 			isUndefinedOrEmptyString(data)
 		) {
 			this.log(
@@ -224,9 +220,10 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 					await this.execute('pdftk', args, dryRun);
 				}
 			} else if (pageRanges) {
-				const ranges = pageRanges.split(/[\s,]+/);
+				let ranges = pageRanges.join(' ');
+				ranges = ranges.replaceAll(/[\s,]+/g, ' ');
 				if (!keep) {
-					finalOutput = `${finalOutput}-${ranges.join('_')}`;
+					finalOutput = `${finalOutput}-${ranges.replaceAll(/\s/g, '_')}`;
 				}
 
 				if (compress && !keep) {
@@ -235,10 +232,16 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 
 				finalOutput = addExtension(finalOutput);
 				this.logger(
-					`Creating ${finalOutput} using pages: "${pageRanges}"...`,
+					`Creating ${finalOutput} using pages: "${ranges}"...`,
 					silent,
 				);
-				const args = [input, 'cat', ...ranges, 'output', finalOutput];
+				const args = [
+					input,
+					'cat',
+					...ranges.split(' '),
+					'output',
+					finalOutput,
+				];
 				if (compress) {
 					args.push('compress');
 				}

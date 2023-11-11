@@ -57,10 +57,19 @@ describe('extract', () => {
 
 	test
 		.stdout()
-		.command(['extract', '-i', input, '-o', output, '-p', '1 5-7,2-4even'])
-		.it('runs extract cmd with flag: -p="1 5-7,2-4even"', (ctx) => {
+		.command([
+			'extract',
+			'-i',
+			input,
+			'-o',
+			output,
+			'-p',
+			'1 5-7,2-4even',
+			'15-9odd',
+		])
+		.it('runs extract cmd with flag: -p "1 5-7,2-4even" 15-9odd', (ctx) => {
 			expect(ctx.stdout).to.contain(
-				'Creating test/pdfs/output-1_5-7_2-4even.pdf using pages: "1 5-7,2-4even"...',
+				'Creating test/pdfs/output-1_5-7_2-4even_15-9odd.pdf using pages: "1 5-7 2-4even 15-9odd"...',
 			);
 		});
 
