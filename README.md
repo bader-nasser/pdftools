@@ -93,6 +93,7 @@ There are many commands but the most important ones are:
 - [`pdftools drop-xfa INPUT`](#pdftools-drop-xfa-input)
 - [`pdftools extract`](#pdftools-extract)
 - [`pdftools help [COMMANDS]`](#pdftools-help-commands)
+- [`pdftools linearize INPUT`](#pdftools-linearize-input)
 - [`pdftools merge INPUT`](#pdftools-merge-input)
 - [`pdftools merge2 INPUT`](#pdftools-merge2-input)
 - [`pdftools plugins`](#pdftools-plugins)
@@ -409,6 +410,46 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.5/src/commands/help.ts)_
+
+## `pdftools linearize INPUT`
+
+Optimize for web browsers [mutool]
+
+```
+USAGE
+  $ pdftools linearize INPUT [-D] [-s] [-o <value>] [-d | -c | -F | -I] [-g] [-C] [-G] [-k]
+
+ARGUMENTS
+  INPUT  Input PDF file
+
+FLAGS
+  -C, --garbage-compact      ... and compact cross reference table (ALIASES: --gc, --compact)
+  -D, --dry-run              Pretend to work!
+  -F, --compress-fonts       Compress embedded fonts (ALIASES: --cf)
+  -G, --garbage-deduplicate  ... and remove duplicate objects (ALIASES: --gd, --deduplicate)
+  -I, --compress-images      Compress images (ALIASES: --ci)
+  -c, --compress             Compress all streams
+  -d, --decompress           Decompress all streams (except compress-fonts/images)
+  -g, --garbage              Garbage collect unused objects
+  -k, --keep                 Keep output's name
+  -o, --output=<value>       Output file
+  -s, --silent               Work silently unless there is an error!
+
+DESCRIPTION
+  Optimize for web browsers [mutool]
+
+ALIASES
+  $ pdftools l
+  $ pdftools optimize
+  $ pdftools o
+
+EXAMPLES
+  $ pdftools linearize input.pdf
+
+  $ pdftools linearize input.pdf -o input-linearized.pdf
+```
+
+_See code: [src/commands/linearize/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.0/src/commands/linearize/index.ts)_
 
 ## `pdftools merge INPUT`
 
