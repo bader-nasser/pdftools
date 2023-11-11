@@ -1,6 +1,4 @@
-import path from 'node:path';
 import {Args, Flags} from '@oclif/core';
-import fs from 'fs-extra';
 import {
 	addExtension,
 	removeExtension,
@@ -66,15 +64,7 @@ export default class Split extends BaseCommand {
 		}
 
 		finalOutput = addExtension(finalOutput);
-
-		try {
-			const outputDirname = path.dirname(finalOutput);
-			await fs.ensureDir(outputDirname);
-		} catch (error) {
-			console.error(error);
-			this.exit(1);
-		}
-
+		await this.ensureDirExists(finalOutput);
 		this.logger(`Creating ${finalOutput}...`, silent);
 		const args2 = ['poster'];
 		if (x) {

@@ -1,4 +1,3 @@
-import path from 'node:path';
 import {Args, Flags} from '@oclif/core';
 import fs from 'fs-extra';
 import {getTextExtractor} from 'office-text-extractor';
@@ -45,15 +44,7 @@ export default class Convert extends BaseCommand {
 		}
 
 		finalOutput = addExtension(finalOutput, 'txt');
-
-		try {
-			const outputDirname = path.dirname(finalOutput);
-			await fs.ensureDir(outputDirname);
-		} catch (error) {
-			console.error(error);
-			this.exit(1);
-		}
-
+		await this.ensureDirExists(finalOutput);
 		this.logger(`Creating ${finalOutput}...`, silent);
 		if (!dryRun) {
 			const extractor = getTextExtractor();

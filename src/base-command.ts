@@ -1,5 +1,7 @@
 // credit:
 // https://oclif.io/docs/global_flags
+import path from 'node:path';
+import fs from 'fs-extra';
 import {Command, Flags} from '@oclif/core';
 import {type ExecaError, execa} from 'execa';
 
@@ -29,6 +31,16 @@ export abstract class BaseCommand extends Command {
 				console.error(error_.stderr);
 				this.exit(1);
 			}
+		}
+	}
+
+	protected async ensureDirExists(filePath: string) {
+		try {
+			const outputDirname = path.dirname(filePath);
+			await fs.ensureDir(outputDirname);
+		} catch (error) {
+			console.error(error);
+			this.exit(1);
 		}
 	}
 

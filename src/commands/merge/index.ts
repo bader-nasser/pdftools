@@ -1,6 +1,4 @@
-import path from 'node:path';
 import {Args, Flags} from '@oclif/core';
-import fs from 'fs-extra';
 import {globby} from 'globby';
 import {
 	addExtension,
@@ -67,15 +65,7 @@ export default class Merge extends BaseCommandWithCompression {
 		const input = argv as string[];
 		const {output, compress, keep, 'dry-run': dryRun, silent} = flags;
 		let finalOutput = removeExtension(output);
-
-		try {
-			const outputDirname = path.dirname(finalOutput);
-			await fs.ensureDir(outputDirname);
-		} catch (error) {
-			console.error(error);
-			this.exit(1);
-		}
-
+		await this.ensureDirExists(finalOutput);
 		if (compress && !keep) {
 			finalOutput = `${finalOutput}-compressed`;
 		}

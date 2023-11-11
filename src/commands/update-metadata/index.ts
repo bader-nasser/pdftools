@@ -91,14 +91,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/meta-only.json
 			finalOutput = input;
 		}
 
-		try {
-			const outputDirname = path.dirname(finalOutput);
-			await fs.ensureDir(outputDirname);
-		} catch (error) {
-			console.error(error);
-			this.exit(1);
-		}
-
+		await this.ensureDirExists(finalOutput);
 		this.logger(`Updating metadata for ${finalOutput}...`, silent);
 
 		if (file) {

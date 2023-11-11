@@ -183,9 +183,7 @@ Use / in the paths. On Windows, \\ can be changed to either / or \\\\`,
 
 			relativeOutput = addExtension(relativeOutput);
 			relativeShareOutput = addExtension(relativeShareOutput);
-
-			const outputDirname = path.dirname(relativeOutput);
-			await fs.ensureDir(outputDirname);
+			await this.ensureDirExists(relativeOutput);
 
 			if (useShare) {
 				this.logger(

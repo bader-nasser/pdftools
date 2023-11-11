@@ -1,6 +1,4 @@
-import path from 'node:path';
 import {Flags} from '@oclif/core';
-import fs from 'fs-extra';
 import {
 	addExtension,
 	isUndefinedOrEmptyString,
@@ -167,15 +165,7 @@ See: https://github.com/bader-nasser/pdftools/blob/main/test/docs/data.txt`,
 			this.log('See more help with --help');
 		} else {
 			let finalOutput = removeExtension(output);
-
-			try {
-				const outputDirname = path.dirname(finalOutput);
-				await fs.ensureDir(outputDirname);
-			} catch (error) {
-				console.error(error);
-				this.exit(1);
-			}
-
+			await this.ensureDirExists(finalOutput);
 			if (data) {
 				if (!keep) {
 					finalOutput = `${finalOutput}-data`;
