@@ -61,7 +61,7 @@ $ npm install -g @bader-nasser/pdftools
 $ pdftools COMMAND
 running command...
 $ pdftools (--version|-v)
-@bader-nasser/pdftools/4.0.1 linux-x64 node-v21.2.0
+@bader-nasser/pdftools/4.1.0 linux-x64 node-v21.2.0
 $ pdftools --help [COMMAND]
 USAGE
   $ pdftools COMMAND
@@ -157,7 +157,7 @@ EXAMPLES
   $ pdftools compress uncompressed.pdf -o compressed.pdf
 ```
 
-_See code: [src/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/compress/index.ts)_
+_See code: [src/commands/compress/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/compress/index.ts)_
 
 ## `pdftools compress2 INPUT`
 
@@ -190,7 +190,7 @@ EXAMPLES
   $ pdftools compress2 decompressed.pdf -o compressed.pdf
 ```
 
-_See code: [src/commands/compress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/compress2/index.ts)_
+_See code: [src/commands/compress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/compress2/index.ts)_
 
 ## `pdftools convert INPUT`
 
@@ -217,7 +217,7 @@ EXAMPLES
   $ pdftools convert file.pdf -o file-text.txt
 ```
 
-_See code: [src/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/convert/index.ts)_
+_See code: [src/commands/convert/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/convert/index.ts)_
 
 ## `pdftools decompress INPUT`
 
@@ -249,7 +249,7 @@ EXAMPLES
   $ pdftools decompress doc.pdf -o doc-decompressed.pdf
 ```
 
-_See code: [src/commands/decompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/decompress/index.ts)_
+_See code: [src/commands/decompress/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/decompress/index.ts)_
 
 ## `pdftools decompress2 INPUT`
 
@@ -283,7 +283,7 @@ EXAMPLES
   $ pdftools decompress2 compressed.pdf -o decompressed.pdf
 ```
 
-_See code: [src/commands/decompress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/decompress2/index.ts)_
+_See code: [src/commands/decompress2/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/decompress2/index.ts)_
 
 ## `pdftools drop-xfa INPUT`
 
@@ -313,7 +313,7 @@ EXAMPLES
   $ pdftools drop-xfa pdf-with-xfa.pdf -o pdf-no-xfa.pdf
 ```
 
-_See code: [src/commands/drop-xfa/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/drop-xfa/index.ts)_
+_See code: [src/commands/drop-xfa/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/drop-xfa/index.ts)_
 
 ## `pdftools extract`
 
@@ -321,8 +321,8 @@ Extract pages from PDF file
 
 ```
 USAGE
-  $ pdftools extract -i <value> -o <value> [-D] [-s] [-c] [-f <value> | -p <value> | -d <value>] [-l <value>
-    |  | ] [-q even|odd] [-r north|south|east|west|left|right|down] [-k]
+  $ pdftools extract -i <value> [-D] [-s] [-c] [-o <value>] [-f <value> | -p <value> | -d <value>] [-l
+    <value> |  | ] [-q even|odd] [-r north|south|east|west|left|right|down] [-k]
 
 FLAGS
   -D, --dry-run                 Pretend to work!
@@ -336,7 +336,7 @@ FLAGS
                                 Surround the path by " or ' if it contains spaces.
   -k, --keep                    Keep output's name
   -l, --last-page=<value>       Last page (defaults to first-page)
-  -o, --output=<value>          (required) Relative or absolute path to the PDF file to be created.
+  -o, --output=<value>          [default: extracted.pdf] Relative or absolute path to the PDF file to be created.
                                 Use / in the path. On Windows, \ can be changed to either / or \\.
                                 Surround the path by " or ' if it contains spaces.
   -p, --page-ranges=<value>...  Comma/Space-seperated list of page ranges (eg. 1-3,5east, 4 7-10even 22-11odd)
@@ -354,9 +354,9 @@ ALIASES
   $ pdftools e
 
 EXAMPLES
-  Extract page number 5 from input.pdf to output.pdf
+  Extract page number 5 from input.pdf to extracted.pdf
 
-    $ pdftools extract --input input.pdf --output output.pdf -f 5
+    $ pdftools extract --input input.pdf -f 5
 
   Extract page number 5 from input.pdf to output.pdf
 
@@ -379,7 +379,7 @@ EXAMPLES
     $ pdftools extract -i input.pdf -o output.pdf --data file.txt
 ```
 
-_See code: [src/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/extract/index.ts)_
+_See code: [src/commands/extract/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/extract/index.ts)_
 
 ## `pdftools help [COMMANDS]`
 
@@ -439,7 +439,7 @@ EXAMPLES
   $ pdftools linearize input.pdf -o input-linearized.pdf
 ```
 
-_See code: [src/commands/linearize/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/linearize/index.ts)_
+_See code: [src/commands/linearize/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/linearize/index.ts)_
 
 ## `pdftools merge INPUT`
 
@@ -486,7 +486,7 @@ EXAMPLES
     $ pdftools merge cover.pdf input-*.pdf notes.pdf -o output.pdf
 ```
 
-_See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/merge/index.ts)_
+_See code: [src/commands/merge/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/merge/index.ts)_
 
 ## `pdftools merge2 INPUT`
 
@@ -546,7 +546,7 @@ EXAMPLES
     $ pdftools merge2 input-*.pdf -o output -l
 ```
 
-_See code: [src/commands/merge2/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/merge2/index.ts)_
+_See code: [src/commands/merge2/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/merge2/index.ts)_
 
 ## `pdftools plugins`
 
@@ -759,7 +759,7 @@ EXAMPLES
   $ pdftools process data.json
 ```
 
-_See code: [src/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/process/index.ts)_
+_See code: [src/commands/process/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/process/index.ts)_
 
 ## `pdftools repair INPUT`
 
@@ -789,7 +789,7 @@ EXAMPLES
   $ pdftools repair broken.pdf -o fixed.pdf
 ```
 
-_See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/repair/index.ts)_
+_See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/repair/index.ts)_
 
 ## `pdftools split INPUT`
 
@@ -827,7 +827,7 @@ EXAMPLES
   $ pdftools split input.pdf -x 2 -y 3 -r
 ```
 
-_See code: [src/commands/split/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/split/index.ts)_
+_See code: [src/commands/split/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/split/index.ts)_
 
 ## `pdftools update-metadata INPUT`
 
@@ -872,7 +872,7 @@ EXAMPLES
   $ pdftools update-metadata input.pdf -o updated.pdf -f meta.yaml -a "Bader Nasser" -t awesome
 ```
 
-_See code: [src/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.0.1/src/commands/update-metadata/index.ts)_
+_See code: [src/commands/update-metadata/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/update-metadata/index.ts)_
 
 <!-- commandsstop -->
 

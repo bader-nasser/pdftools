@@ -16,9 +16,8 @@ export default class Extract extends BaseCommandWithCompression {
 
 	static examples = [
 		{
-			description: 'Extract page number 5 from input.pdf to output.pdf',
-			command:
-				'<%= config.bin %> <%= command.id %> --input input.pdf --output output.pdf -f 5',
+			description: 'Extract page number 5 from input.pdf to extracted.pdf',
+			command: '<%= config.bin %> <%= command.id %> --input input.pdf -f 5',
 		},
 		{
 			description: 'Extract page number 5 from input.pdf to output.pdf',
@@ -63,7 +62,7 @@ Surround the path by " or ' if it contains spaces.`,
 			description: `Relative or absolute path to the PDF file to be created.
 Use / in the path. On Windows, \\ can be changed to either / or \\\\.
 Surround the path by " or ' if it contains spaces.`,
-			required: true,
+			default: 'extracted.pdf',
 		}),
 		'first-page': Flags.string({
 			char: 'f',
