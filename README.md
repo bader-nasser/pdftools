@@ -409,7 +409,7 @@ DESCRIPTION
   Display help for pdftools.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.6/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.0.7/src/commands/help.ts)_
 
 ## `pdftools linearize INPUT`
 
@@ -587,7 +587,7 @@ Displays installation properties of a plugin.
 
 ```
 USAGE
-  $ pdftools plugins:inspect PLUGIN...
+  $ pdftools plugins inspect PLUGIN...
 
 ARGUMENTS
   PLUGIN  [default: .] Plugin to inspect.
@@ -614,7 +614,7 @@ Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ pdftools plugins:install PLUGIN...
+  $ pdftools plugins install PLUGIN...
 
 ARGUMENTS
   PLUGIN  Plugin to install.
@@ -658,7 +658,7 @@ Links a plugin into the CLI for development.
 
 ```
 USAGE
-  $ pdftools plugins:link PLUGIN
+  $ pdftools plugins link PLUGIN
 
 ARGUMENTS
   PATH  [default: .] path to plugin
@@ -699,7 +699,7 @@ Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ pdftools plugins:uninstall PLUGIN...
+  $ pdftools plugins uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
