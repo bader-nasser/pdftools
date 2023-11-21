@@ -25,32 +25,29 @@ see [test/docs/example.yaml](test/docs/example.yaml) for more details.
 
 ## Requirements
 
-- [Node.js](https://nodejs.org/en/download) (at least v18.11.0)
-- [PDFtk server](https://www.pdflabs.com/tools/pdftk-server/)
-  or [`pdftk-java`](https://gitlab.com/pdftk-java/pdftk):
+1. [Node.js](https://nodejs.org/en/download) (at least v18.11.0)
+2. [PDFtk server](https://www.pdflabs.com/tools/pdftk-server/):
 
-  - Official:
-    - Windows & macOS: https://www.pdflabs.com/tools/pdftk-server/
-    - Windows ([winget](https://github.com/microsoft/winget-cli)):
-      `winget install PDFLabs.PDFtk.Server`
-  - pdftk-java:
+   - Windows & macOS: https://www.pdflabs.com/tools/pdftk-server/
+   - Windows ([winget](https://github.com/microsoft/winget-cli)):
+     `winget install PDFLabs.PDFtk.Server`
 
-    - Ubuntu: `sudo apt install pdftk-java`
-    - macOS & Linux ([Homebrew](https://brew.sh/)): `brew install pdftk-java`
-    - Windows ([Chocolatey](https://docs.chocolatey.org/en-us/choco/setup)):
-      `choco install pdftk-java --params "'/AddToUserPath:yes /AddToSystemPath:yes'"`
+   **Or** [`pdftk-java`](https://gitlab.com/pdftk-java/pdftk):
 
-  - Note: You might be interested in a GUI like
-    [PDF Chain](https://pdfchain.sourceforge.io/index.html).
+   - Ubuntu: `sudo apt install pdftk-java`
+   - macOS & Linux ([Homebrew](https://brew.sh/)): `brew install pdftk-java`
+   - Windows ([Chocolatey](https://docs.chocolatey.org/en-us/choco/setup)):
+     `choco install pdftk-java --params "'/AddToUserPath:yes /AddToSystemPath:yes'"`
 
-- [mutool](https://mupdf.com/releases/index.html) for some commands:
-  - Ubuntu: `sudo apt install mupdf-tools`
-  - macOS & Linux ([Homebrew](https://brew.sh/)): `brew install mupdf`
-  - Windows:
-    - [winget](https://github.com/microsoft/winget-cli):
-      `winget install ArtifexSoftware.mutool` (maybe just `mutool`)
-    - [Chocolatey](https://docs.chocolatey.org/en-us/choco/setup):
-      `choco install mupdf`
+3. [mutool](https://mupdf.com/releases/index.html) for some commands:
+
+   - Ubuntu: `sudo apt install mupdf-tools`
+   - macOS & Linux ([Homebrew](https://brew.sh/)): `brew install mupdf`
+   - Windows:
+     - [winget](https://github.com/microsoft/winget-cli):
+       `winget install ArtifexSoftware.mutool` (maybe just `mutool`)
+     - [Chocolatey](https://docs.chocolatey.org/en-us/choco/setup):
+       `choco install mupdf`
 
 Let me know if I should use any other program or library to perform the current tasks
 or any other [suggested tasks](https://github.com/bader-nasser/pdftools/issues).
@@ -74,13 +71,6 @@ USAGE
 <!-- usagestop -->
 
 # Commands
-
-There are many commands but the most important ones are:
-
-- [`extract`](#pdftools-extract)
-  - aliases: `ext`, `ex` & `e`
-- [`process`](#pdftools-process-file)
-  - alias: `p`
 
 <!-- commands -->
 
