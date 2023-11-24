@@ -95,6 +95,7 @@ USAGE
 - [`pdftools plugins update`](#pdftools-plugins-update)
 - [`pdftools process FILE`](#pdftools-process-file)
 - [`pdftools repair INPUT`](#pdftools-repair-input)
+- [`pdftools shuffle INPUT`](#pdftools-shuffle-input)
 - [`pdftools split INPUT`](#pdftools-split-input)
 - [`pdftools update-metadata INPUT`](#pdftools-update-metadata-input)
 
@@ -790,6 +791,44 @@ EXAMPLES
 ```
 
 _See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/repair/index.ts)_
+
+## `pdftools shuffle INPUT`
+
+Collate pages from input PDFs to create a new PDF
+
+```
+USAGE
+  $ pdftools shuffle INPUT [-D] [-s] [-c] [-o <value>] [-k]
+
+ARGUMENTS
+  INPUT  PDF files
+
+FLAGS
+  -D, --dry-run         Pretend to work!
+  -c, --compress        Reduce file size
+                        You also may want to try: https://www.ilovepdf.com/compress_pdf
+  -k, --keep            Keep output's name
+  -o, --output=<value>  [default: shuffled.pdf] Output file
+  -s, --silent          Work silently unless there is an error!
+
+DESCRIPTION
+  Collate pages from input PDFs to create a new PDF
+
+  It takes one page at a time from each PDF to assemble the output PDF
+
+ALIASES
+  $ pdftools sh
+  $ pdftools collate
+
+EXAMPLES
+  $ pdftools shuffle *.pdf
+
+  $ pdftools shuffle *.pdf -o collated
+
+  $ pdftools shuffle *.pdf -c
+```
+
+_See code: [src/commands/shuffle/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/shuffle/index.ts)_
 
 ## `pdftools split INPUT`
 
