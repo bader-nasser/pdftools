@@ -95,6 +95,7 @@ USAGE
 - [`pdftools plugins update`](#pdftools-plugins-update)
 - [`pdftools process FILE`](#pdftools-process-file)
 - [`pdftools repair INPUT`](#pdftools-repair-input)
+- [`pdftools rotate INPUT`](#pdftools-rotate-input)
 - [`pdftools shuffle INPUT`](#pdftools-shuffle-input)
 - [`pdftools split INPUT`](#pdftools-split-input)
 - [`pdftools update-metadata INPUT`](#pdftools-update-metadata-input)
@@ -791,6 +792,50 @@ EXAMPLES
 ```
 
 _See code: [src/commands/repair/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/repair/index.ts)_
+
+## `pdftools rotate INPUT`
+
+Rotate specified pages of PDF
+
+```
+USAGE
+  $ pdftools rotate INPUT [-D] [-s] [-c] [-o <value>] [-p <value>] [-d
+    north|south|east|west|left|right|down|-] [-k]
+
+ARGUMENTS
+  INPUT  PDF files
+
+FLAGS
+  -D, --dry-run             Pretend to work!
+  -c, --compress            Reduce file size
+                            You also may want to try: https://www.ilovepdf.com/compress_pdf
+  -d, --direction=<option>  [default: east]
+                            <options: north|south|east|west|left|right|down|->
+  -k, --keep                Keep output's name
+  -o, --output=<value>      [default: rotated.pdf] Output file
+  -p, --pages=<value>...    [default: 1-end] Space-seperated page ranges (eg. 1 end 2-9odd 10west 15-11evensouth)
+                            Set --direction to - if you want to customize each page's direction!
+                            See: https://www.pdflabs.com/docs/pdftk-man-page/#dest-op-rotate
+  -s, --silent              Work silently unless there is an error!
+
+DESCRIPTION
+  Rotate specified pages of PDF
+
+  Takes a single input PDF and rotates just the specified pages.
+  All other pages remain unchanged.
+
+ALIASES
+  $ pdftools rot
+
+EXAMPLES
+  $ pdftools rotate input.pdf
+
+  $ pdftools rotate input.pdf -o rotated
+
+  $ pdftools rotate input.pdf -c
+```
+
+_See code: [src/commands/rotate/index.ts](https://github.com/bader-nasser/pdftools/blob/v4.1.0/src/commands/rotate/index.ts)_
 
 ## `pdftools shuffle INPUT`
 
