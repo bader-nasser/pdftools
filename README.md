@@ -1,4 +1,4 @@
-# pdftools
+# pdftools (aka. pdf-tools)
 
 [![Version](https://img.shields.io/npm/v/@bader-nasser/pdftools.svg)](https://npmjs.org/package/@bader-nasser/pdftools)
 [![Tests](https://github.com/bader-nasser/pdftools/actions/workflows/tests.yml/badge.svg)](https://github.com/bader-nasser/pdftools/actions/workflows/tests.yml)
@@ -6,17 +6,11 @@
 [![Downloads/month](https://img.shields.io/npm/dm/@bader-nasser/pdftools.svg)](https://img.shields.io/npm/dm/@bader-nasser/pdftools.svg)
 [![Downloads/total](https://img.shields.io/npm/dt/@bader-nasser/pdftools.svg)](https://img.shields.io/npm/dt/@bader-nasser/pdftools.svg)
 
-PDF tools to merge PDF files (using [JSON5](test/docs/data.json) or
-[YAML](test/docs/data.yaml) or [TOML](test/docs/data.toml) file) and
-extract pages (from command line or using a [text file](test/docs/data.txt)).
-This cli exposes two binaries: `pdftools` and `pdf-tools`.
-
-It can be used to update PDF's metadata using the `process` command,
-see [test/docs/example.yaml](test/docs/example.yaml) for more details.
+PDF tools to manipulate and process PDF files using the command line or simple files.
 
 <!-- toc -->
 
-- [pdftools](#pdftools)
+- [pdftools (aka. pdf-tools)](#pdftools-aka-pdf-tools)
 - [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->
